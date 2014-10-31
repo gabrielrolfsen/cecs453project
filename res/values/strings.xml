@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">cecs453project</string>
+    <string name="app_name">Smart Book</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="password">Password</string>
@@ -10,5 +10,9 @@
     <string name="pass_stars">**********</string>
     <string name="login_example">e.g.: 01324259</string>
     <string name="student_id">Student ID</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_logo">App Logo</string>
 
 </resources>
