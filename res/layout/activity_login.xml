@@ -29,6 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
+            android:maxLines="1"
+            android:singleLine="true"
             android:hint="@string/login_example" >
 
             <requestFocus />
@@ -48,7 +50,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
-            android:hint="@string/pass_stars" />
+            android:hint="@string/pass_stars"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
+
     </LinearLayout>
 
     <Button
