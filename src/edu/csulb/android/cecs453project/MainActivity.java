@@ -2,6 +2,7 @@ package edu.csulb.android.cecs453project;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -23,7 +24,7 @@ public class MainActivity extends ActionBarActivity {
 			finish();
 		}
 		setContentView(R.layout.activity_main);
-		
+			
 		Intent inLoginSuccess = getIntent();
 	}
 
