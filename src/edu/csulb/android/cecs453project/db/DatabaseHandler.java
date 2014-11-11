@@ -4,10 +4,7 @@
  * Author: Hao Vo
  */
 
-
-
-
-package edu.csulb.android.cecs453project;
+package edu.csulb.android.cecs453project.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,6 +13,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
+	
+	private static DatabaseHandler mInstance;
 
 	//Database version and name
 	private static final int DATABASE_VERSION = 1;
@@ -83,7 +82,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	
 	
 	
-	public DatabaseHandler(Context context) {
+	private DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 
@@ -145,6 +144,13 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		db.execSQL("DROP TABLE IF EXISTS Attendance");
 		
 		onCreate(db);
+	}
+	
+	public static DatabaseHandler getInstance(Context context){
+		if (mInstance == null){
+			mInstance = new DatabaseHandler(context);
+		}
+		return mInstance;
 	}
 
 }

@@ -15,5 +15,10 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="app_logo">App Logo</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="repeat_password">Repeat your password</string>
+    <string name="register">Register</string>
+    <string name="full_name">Full Name</string>
+    <string name="name_example">Your Full Name</string>
 
 </resources>
