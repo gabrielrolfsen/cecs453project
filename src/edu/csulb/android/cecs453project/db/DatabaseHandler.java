@@ -24,6 +24,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	//Create table Student
 	private static final String CREATE_TABLE_STUDENT = "CREATE TABLE Student (" +
 														"IdStudent TEXT PRIMARY KEY," +
+														"sPassword TEXT," +			
 														"sFirstName TEXT," +
 														"sLastName TEXT," +
 														"sDateOfBirth TEXT," +
@@ -32,6 +33,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	//Create table Instructor
 	private static final String CREATE_TABLE_INSTRUCTOR = "CREATE TABLE Instructor (" +
 														"IdInstructor TEXT PRIMARY KEY," +
+														"iPassword TEXT," +
 														"iFirstName TEXT," +
 														"iLastName TEXT," +
 														"iOfficeRoom TEXT," +
@@ -51,6 +53,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 															"IdStudentCourse TEXT PRIMARY KEY," +
 															"IdCourse TEXT NOT NULL," +
 															"IdStudent TEXT NOT NULL," +
+															"scFinalGrade TEXT," +
 															"FOREIGN KEY(IdCourse) REFERENCES Course(IdCourse)," +
 															"FOREIGN KEY(IdStudent) REFERENCES Student(IdStudent))";
 	
@@ -112,18 +115,18 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		///////// Sql statements to insert sample data ///////////
 		Log.d("Insert to student","Inserting...");
 		//Student table, insert demo data
-		db.execSQL("INSERT INTO Student VALUES ('1111','John','Kane','01/01/1963','john.kane@csulb.edu','1205434521')");
-		db.execSQL("INSERT INTO Student VALUES ('2222','James','Nort','21/01/1983','James.Nort@csulb.edu','120854314')");
-		db.execSQL("INSERT INTO Student VALUES ('3333','Kate','Line','15/06/1993','Kate.Line@csulb.edu','1204513784')");
-		db.execSQL("INSERT INTO Student VALUES ('4444','TempF4','TempL4','24/08/1984','Temp4@csulb.edu','1201234575')");
-		db.execSQL("INSERT INTO Student VALUES ('5555','TempF5','TempL5','16/12/1973','Temp5@csulb.edu','1201357512')");
-		db.execSQL("INSERT INTO Student VALUES ('6666','TempF6','TempL6','09/07/1986','Temp6@csulb.edu','1201675123')");
+		db.execSQL("INSERT INTO Student VALUES ('1111','1234','John','Kane','01/01/1963','john.kane@csulb.edu','1205434521')");
+		db.execSQL("INSERT INTO Student VALUES ('2222','1234','James','Nort','21/01/1983','James.Nort@csulb.edu','120854314')");
+		db.execSQL("INSERT INTO Student VALUES ('3333','1234','Kate','Line','15/06/1993','Kate.Line@csulb.edu','1204513784')");
+		db.execSQL("INSERT INTO Student VALUES ('4444','1234','TempF4','TempL4','24/08/1984','Temp4@csulb.edu','1201234575')");
+		db.execSQL("INSERT INTO Student VALUES ('5555','1234','TempF5','TempL5','16/12/1973','Temp5@csulb.edu','1201357512')");
+		db.execSQL("INSERT INTO Student VALUES ('6666','1234','TempF6','TempL6','09/07/1986','Temp6@csulb.edu','1201675123')");
 		
 		Log.d("Insert to Instructor","Inserting...");
 		//Instructor table, insert demo data
-		db.execSQL("INSERT INTO Instructor VALUES ('E1111','InsFN1','InsLN1','502','ECS','MonWed 1-3 pm','Instructor1@csulb.edu')");
-		db.execSQL("INSERT INTO Instructor VALUES ('E2222','InsFN2','InsLN2','531','ECS','Thurday 4-6 pm','')");
-		db.execSQL("INSERT INTO Instructor VALUES ('E3333','InsFN3','InsLN3','','','','')");
+		db.execSQL("INSERT INTO Instructor VALUES ('E1111','1234','InsFN1','InsLN1','502','ECS','MonWed 1-3 pm','Instructor1@csulb.edu')");
+		db.execSQL("INSERT INTO Instructor VALUES ('E2222','1234','InsFN2','InsLN2','531','ECS','Thurday 4-6 pm','')");
+		db.execSQL("INSERT INTO Instructor VALUES ('E3333','1234','InsFN3','InsLN3','','','','')");
 		
 		Log.d("Insert to Course","Inserting...");
 		//Course table, insert demo data
@@ -148,7 +151,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	
 	public static DatabaseHandler getInstance(Context context){
 		if (mInstance == null){
-			mInstance = new DatabaseHandler(context);
+			mInstance = new DatabaseHandler(context.getApplicationContext());
 		}
 		return mInstance;
 	}
