@@ -26,62 +26,81 @@ public class Course {
 	public Course(String id ){
 		IdCourse = id;
 	}
-	
-	//getters
-	public String getIdSCourse(String id) { 
-		return IdCourse; }
-	
-	public String getCourseName(String name) { 
-		return cName; }
-	
-	public String getCourseType(String type) { 
-		return cType; }
-	
-	public String getCourseDays(String day) { 
-		return cDays; }
-	
-	public String getCourseTime(String time) { 
-		return cTime; }
-	
-	public String getCourseLocation(String location) { 
-		return cLocation; }
-	
-	public String getCourseSemester(String semester) { 
-		return cSemester;}
-	
-	public String getCourseYear(String year) { 
-		return cYear; }
-	
-	public String getCourseIdInstructor(String idInstructor) { 
-		return IdInstructor;}
-	
-	//setters
-	public void setIdSCourse(String id) { 
-		IdCourse = id; }
-	
-	public void setCourseName(String name) { 
-		cName = name; }
-	
-	public void setCourseType(String type) { 
-		cType = type; }
-	
-	public void setCourseDays(String day) { 
-		cDays = day; }
-	
-	public void setCourseTime(String time) { 
-		cTime = time; }
-	
-	public void setCourseLocation(String location) { 
-		cLocation = location; }
-	
-	public void setCourseSemester(String year) { 
-		cSemester = year;}
-	
-	public void setCourseYear(String idInstructor) { 
-		cYear = idInstructor; }
-	
-	public void setCourseIdInstructor(String phone) { 
-		IdInstructor = phone;}
 
+	//getters
+	public String getIdCourse() {
+		return IdCourse;
+	}
+
+	public String getcName() {
+		return cName;
+	}
+
+	public String getcType() {
+		return cType;
+	}
+
+	public String getcDays() {
+		return cDays;
+	}
+
+	public String getcTime() {
+		return cTime;
+	}
+
+	public String getcLocation() {
+		return cLocation;
+	}
+
+	public String getcSemester() {
+		return cSemester;
+	}
+
+	public String getcYear() {
+		return cYear;
+	}
+
+	public String getIdInstructor() {
+		return IdInstructor;
+	}
+
+	//setters
+	public void setIdCourse(String idCourse) {
+		IdCourse = idCourse;
+	}
+
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+
+	public void setcType(String cType) {
+		this.cType = cType;
+	}
+
+	public void setcDays(String cDays) {
+		this.cDays = cDays;
+	}
+
+	public void setcTime(String cTime) {
+		this.cTime = cTime;
+	}
+
+	public void setcLocation(String cLocation) {
+		this.cLocation = cLocation;
+	}
+
+	public void setcSemester(String cSemester) {
+		this.cSemester = cSemester;
+	}
+
+	public void setcYear(String cYear) {
+		this.cYear = cYear;
+	}
+
+	public void setIdInstructor(String idInstructor) {
+		IdInstructor = idInstructor;
+	}
+
+	
 
 }

@@ -24,55 +24,73 @@ public class Instructor {
 	public Instructor(String id ){
 		IdInstructor = id;
 	}
-	
+
+	public String getIdInstructor() {
+		return IdInstructor;
+	}
+
 	//getters
-	public String getInsId(String id) { 
-		return IdInstructor; }
-	
-	public String getInsPassword (String password) { 
-		return iPassword; }
-	
-	public String getInsFirstName (String firstName) { 
-		return iFirstName; }
-	
-	public String getInsLastName(String lastName) { 
-		return iLastName; }
-	
-	public String getInsOfficeRoom(String room) { 
-		return iOfficeRoom; }
-	
-	public String getInsOfficeBuilding(String building) { 
-		return iOfficeBuilding; }
-	
-	public String getInsOfficeDayTime(String daytime) { 
-		return iOfficeDayTime;}
-	
-	public String getInsEmail(String email) { 
-		return iEmail;}
-	
+	public String getiPassword() {
+		return iPassword;
+	}
+
+	public String getiFirstName() {
+		return iFirstName;
+	}
+
+	public String getiLastName() {
+		return iLastName;
+	}
+
+	public String getiOfficeRoom() {
+		return iOfficeRoom;
+	}
+
+	public String getiOfficeBuilding() {
+		return iOfficeBuilding;
+	}
+
+	public String getiOfficeDayTime() {
+		return iOfficeDayTime;
+	}
+
+	public String getiEmail() {
+		return iEmail;
+	}
+
 	//setters
-	public void setInsId(String id) { 
-		IdInstructor = id; }
-	
-	public void setInsPassword (String password) { 
-		iPassword = password; }
-	
-	public void setInsFirstName (String firstName) { 
-		iFirstName = firstName; }
-	
-	public void setInsLastName(String lastName) { 
-		iLastName = lastName; }
-	
-	public void setInsOfficeRoom(String room) { 
-		iOfficeRoom = room; }
-	
-	public void setInsOfficeBuilding(String building) { 
-		iOfficeBuilding = building; }
-	
-	public void setInsOfficeDayTime(String daytime) { 
-		iOfficeDayTime = daytime;}
-	
-	public void setInsEmail(String email) { 
-		iEmail = email;}
+	public void setIdInstructor(String idInstructor) {
+		IdInstructor = idInstructor;
+	}
+
+	public void setiPassword(String iPassword) {
+		this.iPassword = iPassword;
+	}
+
+	public void setiFirstName(String iFirstName) {
+		this.iFirstName = iFirstName;
+	}
+
+	public void setiLastName(String iLastName) {
+		this.iLastName = iLastName;
+	}
+
+	public void setiOfficeRoom(String iOfficeRoom) {
+		this.iOfficeRoom = iOfficeRoom;
+	}
+
+	public void setiOfficeBuilding(String iOfficeBuilding) {
+		this.iOfficeBuilding = iOfficeBuilding;
+	}
+
+	public void setiOfficeDayTime(String iOfficeDayTime) {
+		this.iOfficeDayTime = iOfficeDayTime;
+	}
+
+	public void setiEmail(String iEmail) {
+		this.iEmail = iEmail;
+	}
+
+		
 
 }
