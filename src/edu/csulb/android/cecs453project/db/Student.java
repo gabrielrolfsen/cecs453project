@@ -20,52 +20,49 @@ public class Student {
 	public Student(){
 	}
 	
-	public Student(String id ){
+	public Student(String idStudent, String sPassword, String sFirstName,
+			String sLastName, String sDateOfBirth, String sEmail, String sPhone) {
+		super();
+		IdStudent = idStudent;
+		this.sPassword = sPassword;
+		this.sFirstName = sFirstName;
+		this.sLastName = sLastName;
+		this.sDateOfBirth = sDateOfBirth;
+		this.sEmail = sEmail;
+		this.sPhone = sPhone;
+	}
+
+	public Student(String id){
 		IdStudent = id;
 	}
+
+	public String getIdStudent() {
+		return IdStudent;
+	}
+
+	public String getsPassword() {
+		return sPassword;
+	}
+
+	public String getsFirstName() {
+		return sFirstName;
+	}
+
+	public String getsLastName() {
+		return sLastName;
+	}
+
+	public String getsDateOfBirth() {
+		return sDateOfBirth;
+	}
+
+	public String getsEmail() {
+		return sEmail;
+	}
+
+	public String getsPhone() {
+		return sPhone;
+	}
 	
-	//getters
-	public String getIdStudent(String id) { 
-		return IdStudent; }
-	
-	public String getStuPassword(String password) { 
-		return sPassword; }
-	
-	public String getStuFirstName(String firstName) { 
-		return sFirstName; }
-	
-	public String getStuLastName(String lastName) { 
-		return sLastName; }
-	
-	public String getStuDOB(String dob) { 
-		return sDateOfBirth; }
-	
-	public String getStuEmail(String email) { 
-		return sEmail; }
-	
-	public String getStuPhone(String phone) { 
-		return sPhone;}
-	
-	//setters
-	public void setIdStudent(String id) { 
-		IdStudent = id; }
-	
-	public void setStuPassword(String password) { 
-		sPassword = password; }
-	
-	public void setStuFirstName(String firstName) { 
-		sFirstName = firstName; }
-	
-	public void setStuLastName(String lastName) { 
-		sLastName = lastName; }
-	
-	public void setStuDOB(String dob) { 
-		sDateOfBirth = dob; }
-	
-	public void setStuEmail(String email) { 
-		sEmail = email; }
-	
-	public void setStuPhone(String phone) { 
-		sPhone = phone;}
 
 }

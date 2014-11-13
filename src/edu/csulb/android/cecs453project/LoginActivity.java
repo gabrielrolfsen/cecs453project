@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import edu.csulb.android.cecs453project.db.DatabaseHandler;
+import edu.csulb.android.cecs453project.db.Student;
 
 
 public class LoginActivity extends Activity {
@@ -21,11 +23,13 @@ public class LoginActivity extends Activity {
 	protected static final String SESSION_PREF = "sesPref";
 	protected static final String SESSION_KEY = "SESSION_STATUS";
 	protected static final String SESSION_LOGIN = "SESSION_LOGIN";
+	
 	Button btnLogin;
 	EditText edtLogin;
 	EditText edtPass;
 	Editor prefEditor;
 	TextView txtRegister;
+	DatabaseHandler db;
 	
 
     @Override
@@ -35,6 +39,8 @@ public class LoginActivity extends Activity {
         /* SharedPreferences to get user's info and session's status */
         SharedPreferences pref = getApplicationContext().getSharedPreferences(SESSION_PREF, 0);
 		prefEditor = pref.edit();
+		
+		db = DatabaseHandler.getInstance(getApplicationContext());
         
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -57,6 +63,7 @@ public class LoginActivity extends Activity {
 					prefEditor.commit();
 					Intent inLogin = new Intent(getBaseContext(),MainActivity.class);
 					LoginActivity.this.startActivity(inLogin);
+					finish();
 				}else{
 					Toast.makeText(getBaseContext(), "Login failed.", Toast.LENGTH_LONG).show();
 				}
@@ -76,10 +83,13 @@ public class LoginActivity extends Activity {
     
     private boolean attemptLogin(String login, String pass){
     	
-    	/* TODO: Request database access and check credentials */
     	if(login.equals("admin") && pass.equals("admin")){
     		return true;
     	}
+
+    	Student st = db.getStudent(login);
+    	if (st != null && st.getsPassword().equals(pass))
+    		return true;
     	
     	return false;
     }

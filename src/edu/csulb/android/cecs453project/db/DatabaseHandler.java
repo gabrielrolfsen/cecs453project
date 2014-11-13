@@ -7,6 +7,7 @@
 package edu.csulb.android.cecs453project.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -14,22 +15,31 @@ import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper{
 	
-	private static DatabaseHandler mInstance;
+	private static DatabaseHandler mDatabase;
+	public static final String TABLE_STUDENT = "Student";
+	
+	// Column Names
+	public static final String KEY_STUDENT_ID = "IdStudent";
+	public static final String KEY_STUDENT_PASS = "sPassword";
+	public static final String KEY_STUDENT_FNAME = "sFirstName";
+	public static final String KEY_STUDENT_LNAME = "sLastName";
+	public static final String KEY_STUDENT_BIRTH = "sDateOfBirth";
+	public static final String KEY_STUDENT_MAIL = "sEmail";
+	public static final String KEY_STUDENT_PHONE = "sPhone";
 
 	//Database version and name
 	private static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_NAME = "projectDemoDatabase";
-	
-	//////////////////SQL String to create tables///////////////////////////////
+
 	//Create table Student
-	private static final String CREATE_TABLE_STUDENT = "CREATE TABLE Student (" +
-														"IdStudent TEXT PRIMARY KEY," +
-														"sPassword TEXT," +			
-														"sFirstName TEXT," +
-														"sLastName TEXT," +
-														"sDateOfBirth TEXT," +
-														"sEmail TEXT," +
-														"sPhone TEXT) ";
+	private static final String CREATE_TABLE_STUDENT = "CREATE TABLE "+ TABLE_STUDENT +" (" +
+														KEY_STUDENT_ID + " TEXT PRIMARY KEY NOT NULL," +
+														KEY_STUDENT_PASS + " TEXT NOT NULL," +			
+														KEY_STUDENT_FNAME + " TEXT NOT NULL," +
+														KEY_STUDENT_LNAME + " TEXT," +
+														KEY_STUDENT_BIRTH + " TEXT," +
+														KEY_STUDENT_MAIL + " TEXT," +
+														KEY_STUDENT_PHONE + " TEXT) ";
 	//Create table Instructor
 	private static final String CREATE_TABLE_INSTRUCTOR = "CREATE TABLE Instructor (" +
 														"IdInstructor TEXT PRIMARY KEY," +
@@ -82,9 +92,6 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 																"FOREIGN KEY (aName) REFERENCES Assignment(aName)," +
 																"FOREIGN KEY (IdStudentCourse) REFERENCES StudentCourse(IdStudentCourse))";
 	
-	
-	
-	
 	private DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
@@ -101,7 +108,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		*/
 		
 		Log.d("Create table", "Creating...");		//log for debug
-		///////// Sql statements to create all tables //////////////
+		
 		db.execSQL(CREATE_TABLE_STUDENT);
 		db.execSQL(CREATE_TABLE_INSTRUCTOR);
 		db.execSQL(CREATE_TABLE_COURSE);
@@ -135,6 +142,30 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		Log.d("Insert data","Done");
 
 	}
+	
+	public Student getStudent(String student_id){
+		SQLiteDatabase db = mDatabase.getReadableDatabase();
+		
+		String selectQuery = "SELECT * FROM " + TABLE_STUDENT + " WHERE "
+	            + KEY_STUDENT_ID + " = \"" + student_id + "\"";
+		
+		Cursor c = db.rawQuery(selectQuery, null);
+		Student st = null;
+		
+		if (c.getCount() > 0){
+	        c.moveToFirst();
+	        st = new Student(c.getString(c.getColumnIndex(KEY_STUDENT_ID)),
+							c.getString(c.getColumnIndex(KEY_STUDENT_PASS)),
+							c.getString(c.getColumnIndex(KEY_STUDENT_FNAME)),
+							c.getString(c.getColumnIndex(KEY_STUDENT_LNAME)),
+							c.getString(c.getColumnIndex(KEY_STUDENT_BIRTH)),	
+							c.getString(c.getColumnIndex(KEY_STUDENT_MAIL)),
+							c.getString(c.getColumnIndex(KEY_STUDENT_PHONE))
+							);	
+		}
+		
+		return st;
+	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -150,10 +181,10 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	}
 	
 	public static DatabaseHandler getInstance(Context context){
-		if (mInstance == null){
-			mInstance = new DatabaseHandler(context.getApplicationContext());
+		if (mDatabase == null){
+			mDatabase = new DatabaseHandler(context.getApplicationContext());
 		}
-		return mInstance;
+		return mDatabase;
 	}
 
 }
