@@ -6,10 +6,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.csulb.android.cecs453project.LoginActivity" >
+    tools:context="edu.csulb.android.smartbook.views.LoginActivity" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/lLayoutLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -29,9 +29,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
+            android:hint="@string/login_example"
+            android:inputType="number"
+            android:maxLength="9"
             android:maxLines="1"
-            android:singleLine="true"
-            android:hint="@string/login_example" >
+            android:singleLine="true" >
 
             <requestFocus />
         </EditText>
@@ -52,6 +54,7 @@
             android:ems="10"
             android:hint="@string/pass_stars"
             android:inputType="textPassword"
+            android:maxLength="20"
             android:maxLines="1"
             android:singleLine="true" />
 
@@ -61,7 +64,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout1"
+        android:layout_below="@+id/lLayoutLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:gravity="center|center_horizontal"

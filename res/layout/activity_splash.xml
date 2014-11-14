@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_splash"
-    tools:context="edu.csulb.android.cecs453project.SplashActivity" >
+    tools:context="edu.csulb.android.smartbook.views.SplashActivity" >
 
     <ImageView
         android:id="@+id/imgLogo"

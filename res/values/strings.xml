@@ -6,13 +6,11 @@
     <string name="action_settings">Settings</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="register_here">Register Here</string>
+    <string name="register_here"><u>Register Here</u></string>
     <string name="pass_stars">**********</string>
     <string name="login_example">e.g.: 01324259</string>
     <string name="student_id">Student ID</string>
     <string name="title_activity_splash">SplashActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="app_logo">App Logo</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
@@ -20,5 +18,15 @@
     <string name="register">Register</string>
     <string name="full_name">Full Name</string>
     <string name="name_example">Your Full Name</string>
+    <string name="title_activity_my_classes">MyClassesActivity</string>
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="title_activity_test">TestActivity</string>
+        <string name="drawer_open">TestOpen</string>
+            <string name="drawer_close">TestClose</string>
 
 </resources>
