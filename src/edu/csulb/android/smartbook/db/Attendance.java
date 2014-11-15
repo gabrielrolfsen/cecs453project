@@ -20,27 +20,32 @@ public class Attendance {
 	public Attendance(String id ){
 		IdStudentCourse = id;
 	}
-	
-	//getters
-	public String getAttId(String id) { 
-		return IdStudentCourse; }
-	
-	public String getAttDate(String date) { 
-		return aDate; }
-	
-	public int getAttPresent(int present) { 
-		return aPresent; }
-	
-	
-	//setters
-	public void setAttId(String id) { 
-		IdStudentCourse = id; }
-	
-	public void setAttDate(String date) { 
-		aDate = date; }
-	
-	public void setAttPresent(int present) { 
-		aPresent = present; }
-	
 
+	//getters
+	public String getIdStudentCourse() {
+		return IdStudentCourse;
+	}
+
+	public String getaDate() {
+		return aDate;
+	}
+
+	public int getaPresent() {
+		return aPresent;
+	}
+
+	//setters
+	public void setIdStudentCourse(String idStudentCourse) {
+		IdStudentCourse = idStudentCourse;
+	}
+
+	public void setaDate(String aDate) {
+		this.aDate = aDate;
+	}
+
+	public void setaPresent(int aPresent) {
+		this.aPresent = aPresent;
+	}
+
+	
 }

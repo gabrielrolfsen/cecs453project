@@ -36,6 +36,7 @@ public class Student {
 		IdStudent = id;
 	}
 
+	//getters
 	public String getIdStudent() {
 		return IdStudent;
 	}
@@ -62,6 +63,35 @@ public class Student {
 
 	public String getsPhone() {
 		return sPhone;
+	}
+
+	//setters
+	public void setIdStudent(String idStudent) {
+		IdStudent = idStudent;
+	}
+
+	public void setsPassword(String sPassword) {
+		this.sPassword = sPassword;
+	}
+
+	public void setsFirstName(String sFirstName) {
+		this.sFirstName = sFirstName;
+	}
+
+	public void setsLastName(String sLastName) {
+		this.sLastName = sLastName;
+	}
+
+	public void setsDateOfBirth(String sDateOfBirth) {
+		this.sDateOfBirth = sDateOfBirth;
+	}
+
+	public void setsEmail(String sEmail) {
+		this.sEmail = sEmail;
+	}
+
+	public void setsPhone(String sPhone) {
+		this.sPhone = sPhone;
 	}
 	
 

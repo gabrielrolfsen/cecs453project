@@ -22,33 +22,41 @@ public class StudentAssignment {
 		IdStudentCourse = id;
 		aName = name;
 	}
-	
-	//getters
-	public String getIdStudentAssignment(String id) { 
-		return IdStudentCourse; }
-	
-	public String getStuAssignName(String name) { 
-		return aName; }
-	
-	public String getStuAssignGrade(String grade) { 
-		return saGrade; }
-	
-	public String getStuAssignComment(String comment) { 
-		return saInstructorComment; }
-	
-	
-	//setters
-	public void setIdStudentAssignment(String id) { 
-		IdStudentCourse = id; }
-	
-	public void setStuAssignName(String name) { 
-		aName = name; }
-	
-	public void setStuAssignGrade(String grade) { 
-		saGrade = grade; }
-	
-	public void setStuAssignComment(String comment) { 
-		saInstructorComment = comment; }
 
+	//getters
+	public String getIdStudentCourse() {
+		return IdStudentCourse;
+	}
+
+	public String getaName() {
+		return aName;
+	}
+
+	public String getSaGrade() {
+		return saGrade;
+	}
+
+	public String getSaInstructorComment() {
+		return saInstructorComment;
+	}
+
+	//setters
+	public void setIdStudentCourse(String idStudentCourse) {
+		IdStudentCourse = idStudentCourse;
+	}
+
+	public void setaName(String aName) {
+		this.aName = aName;
+	}
+
+	public void setSaGrade(String saGrade) {
+		this.saGrade = saGrade;
+	}
+
+	public void setSaInstructorComment(String saInstructorComment) {
+		this.saInstructorComment = saInstructorComment;
+	}
+	
+	
 }
  

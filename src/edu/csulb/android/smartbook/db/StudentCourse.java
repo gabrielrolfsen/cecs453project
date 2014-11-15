@@ -23,32 +23,40 @@ public class StudentCourse {
 		IdCourse = idCourse;
 		IdStudent = idStudent;
 	}
-	
-	//getters
-	public String getIdStudentCourse(String id) { 
-		return IdStudentCourse; }
-	
-	public String getIdCourse(String courseID) { 
-		return IdCourse; }
-	
-	public String getIdStudent(String studentID) { 
-		return IdStudent; }
-	
-	public String getStuCourseFinalGrade(String grade) { 
-		return scFinalGrade; }
-	
-	
-	//setters
-	public void setIdStudentCourse(String id) { 
-		IdStudentCourse = id; }
-	
-	public void setIdCourse(String courseID) { 
-		IdCourse = courseID; }
-	
-	public void setIdStudent(String studentID) { 
-		IdStudent = studentID; }
-	
-	public void setStuCourseFinalGrade(String grade) { 
-		scFinalGrade = grade; }
 
+	//getters
+	public String getIdStudentCourse() {
+		return IdStudentCourse;
+	}
+
+	public String getIdCourse() {
+		return IdCourse;
+	}
+
+	public String getIdStudent() {
+		return IdStudent;
+	}
+
+	public String getScFinalGrade() {
+		return scFinalGrade;
+	}
+
+	//setters
+	public void setIdStudentCourse(String idStudentCourse) {
+		IdStudentCourse = idStudentCourse;
+	}
+
+	public void setIdCourse(String idCourse) {
+		IdCourse = idCourse;
+	}
+
+	public void setIdStudent(String idStudent) {
+		IdStudent = idStudent;
+	}
+
+	public void setScFinalGrade(String scFinalGrade) {
+		this.scFinalGrade = scFinalGrade;
+	}
+	
+	
 }
