@@ -8,25 +8,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import edu.csulb.android.smartbook.R;
+import edu.csulb.android.cecs453project.R;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
 
 public class MyClassesFragment extends Fragment {
-
-	static final String[] PROJECTION = new String[] {
-		ContactsContract.Data._ID, ContactsContract.Data.DISPLAY_NAME };
-
-	// This is the select criteria
-	static final String SELECTION = "((" + ContactsContract.Data.DISPLAY_NAME
-			+ " NOTNULL) AND (" + ContactsContract.Data.DISPLAY_NAME
-			+ " != '' ))";
 
 	ArrayAdapter<String> mAdapter;
 	ListView listMyClasses;
@@ -38,7 +29,7 @@ public class MyClassesFragment extends Fragment {
 			final ViewGroup container, final Bundle savedInstanceState) {
 		final View view = inflater.inflate(R.layout.fragment_my_classes,
 				container, false);
-		listMyClasses = (ListView) view.findViewById(R.id.lstMyclasses);
+		listMyClasses = (ListView) view.findViewById(R.id.lstMyClasses);
 
 		// final ProgressBar progressBar = new ProgressBar(getActivity());
 		// progressBar.setLayoutParams(new

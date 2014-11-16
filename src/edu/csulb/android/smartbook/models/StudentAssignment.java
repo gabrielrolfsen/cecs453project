@@ -4,7 +4,7 @@
  * Author: Hao Vo
  */
 
-package edu.csulb.android.smartbook.db;
+package edu.csulb.android.smartbook.models;
 
 public class StudentAssignment {
 	

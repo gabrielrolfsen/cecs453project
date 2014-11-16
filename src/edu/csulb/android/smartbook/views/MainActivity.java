@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import edu.csulb.android.smartbook.R;
+import edu.csulb.android.cecs453project.R;
 import edu.csulb.android.smartbook.adapters.DrawerAdapter;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
 	}
 
 	private class DrawerItemClickListener implements
-			ListView.OnItemClickListener {
+	ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(final AdapterView parent, final View view,
 				final int position, final long id) {
@@ -78,9 +78,9 @@ public class MainActivity extends Activity {
 		// Insert the fragment by replacing any existing fragment
 		final FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager
-		.beginTransaction()
-				.replace(R.id.content_layout,
-				drawerItems.get(position).getFragment()).commit();
+				.beginTransaction()
+		.replace(R.id.content_layout,
+						drawerItems.get(position).getFragment()).commit();
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
 		mDrawerLayout.closeDrawer(mDrawerList);

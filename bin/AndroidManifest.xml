@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="21" />
 
     <application
@@ -15,10 +15,10 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="edu.csulb.android.smartbook.views.LoginActivity"
+            android:excludeFromRecents="true"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar"
             android:noHistory="true"
-            android:excludeFromRecents="true" >
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="edu.csulb.android.smartbook.views.SplashActivity"
@@ -27,6 +27,7 @@
             android:theme="@style/FullscreenTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -39,7 +40,10 @@
             android:name="edu.csulb.android.smartbook.views.MainActivity"
             android:label="@string/title_activity_test"
             android:theme="@android:style/Theme.NoTitleBar" >
-
+        </activity>
+        <activity
+            android:name=".TEST"
+            android:label="@string/title_activity_test" >
         </activity>
     </application>
 

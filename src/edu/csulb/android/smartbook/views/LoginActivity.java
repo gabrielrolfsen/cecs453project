@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import edu.csulb.android.cecs453project.R;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
-import edu.csulb.android.smartbook.db.Student;
+import edu.csulb.android.smartbook.models.Student;
 
 
 public class LoginActivity extends Activity {

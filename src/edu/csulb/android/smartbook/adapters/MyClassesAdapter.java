@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import edu.csulb.android.smartbook.R;
+import edu.csulb.android.cecs453project.R;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
 public class MyClassesAdapter extends BaseAdapter {
