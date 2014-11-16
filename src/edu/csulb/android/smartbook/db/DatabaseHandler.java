@@ -105,7 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 														KEY_STUDENT_MAIL + " TEXT," +
 														KEY_STUDENT_PHONE + " TEXT) ";
 	//Create table Instructor
-	private static final String CREATE_TABLE_INSTRUCTOR = "CREATE TABLE" + TABLE_INSTRUCTOR + " (" +
+	private static final String CREATE_TABLE_INSTRUCTOR = "CREATE TABLE " + TABLE_INSTRUCTOR + " (" +
 														KEY_INSTRUCTOR_ID + " TEXT PRIMARY KEY," +
 														KEY_INSTRUCTOR_PASS + " TEXT," +
 														KEY_INSTRUCTOR_FNAME + " TEXT," +
@@ -115,45 +115,45 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 														KEY_INSTRUCTOR_OFFICE_DAYTIME + " TEXT," +
 														KEY_INSTRUCTOR_EMAIL + " TEXT) ";
 	//Create table Course
-	private static final String CREATE_TABLE_COURSE = "CREATE TABLE" + TABLE_COURSE + "(" +
-													KEY_COURSE_ID + "TEXT PRIMARY KEY," +
-													KEY_COURSE_NAME + "TEXT," + KEY_COURSE_TYPE + "TEXT," +
-													KEY_COURSE_DAYS + "TEXT," + KEY_COURSE_TIME + "TEXT," +
-													KEY_COURSE_LOCATION + "TEXT," + KEY_COURSE_SEMESTER + "TEXT," +
-													KEY_COURSE_YEAR + "TEXT," + KEY_COURSE_INSTRUCTOR_ID + "TEXT," +
-													"FOREIGN KEY (" + KEY_COURSE_INSTRUCTOR_ID + ") REFERENCES" + TABLE_INSTRUCTOR + "(" + KEY_INSTRUCTOR_ID + "))"; 
+	private static final String CREATE_TABLE_COURSE = "CREATE TABLE " + TABLE_COURSE + "(" +
+													KEY_COURSE_ID + " TEXT PRIMARY KEY," +
+													KEY_COURSE_NAME + " TEXT," + KEY_COURSE_TYPE + " TEXT," +
+													KEY_COURSE_DAYS + " TEXT," + KEY_COURSE_TIME + " TEXT," +
+													KEY_COURSE_LOCATION + " TEXT," + KEY_COURSE_SEMESTER + " TEXT," +
+													KEY_COURSE_YEAR + " TEXT," + KEY_COURSE_INSTRUCTOR_ID + " TEXT," +
+													"FOREIGN KEY (" + KEY_COURSE_INSTRUCTOR_ID + ") REFERENCES " + TABLE_INSTRUCTOR + "(" + KEY_INSTRUCTOR_ID + "))"; 
 	//Create table StudentCourse
-	private static final String CREATE_TABLE_STUDENT_COURSE = "CREATE TABLE" + TABLE_STUDENT_COURSE + "(" +
-															KEY_STUDENT_COURSE_ID + "TEXT PRIMARY KEY," +
-															KEY_STUDENT_COURSE_IDCOURSE + "TEXT NOT NULL," +
-															KEY_STUDENT_COURSE_IDSTUDENT + "TEXT NOT NULL," +
-															KEY_STUDENT_COURSE_FINALGRADE + "TEXT," +
-															"FOREIGN KEY(" + KEY_STUDENT_COURSE_IDCOURSE + ") REFERENCES" + TABLE_COURSE + "(" + KEY_COURSE_ID + ")," +
-															"FOREIGN KEY(" + KEY_STUDENT_COURSE_IDSTUDENT + ") REFERENCES" + TABLE_STUDENT + "(" + KEY_STUDENT_ID + "))";
+	private static final String CREATE_TABLE_STUDENT_COURSE = "CREATE TABLE " + TABLE_STUDENT_COURSE + "(" +
+															KEY_STUDENT_COURSE_ID + " TEXT PRIMARY KEY," +
+															KEY_STUDENT_COURSE_IDCOURSE + " TEXT NOT NULL," +
+															KEY_STUDENT_COURSE_IDSTUDENT + " TEXT NOT NULL," +
+															KEY_STUDENT_COURSE_FINALGRADE + " TEXT," +
+															"FOREIGN KEY(" + KEY_STUDENT_COURSE_IDCOURSE + ") REFERENCES " + TABLE_COURSE + "(" + KEY_COURSE_ID + ")," +
+															"FOREIGN KEY(" + KEY_STUDENT_COURSE_IDSTUDENT + ") REFERENCES " + TABLE_STUDENT + "(" + KEY_STUDENT_ID + "))";
 	//Create table Attendance
-	private static final String CREATE_TABLE_ATTENDANCE = "CREATE TABLE" + TABLE_ATTENDANCE + "(" +
-														KEY_ATTENDANCE_ID + "TEXT NOT NULL," +
-														KEY_ATTENDANCE_DATE + "TEXT NOT NULL," +
-														KEY_ATTENDANCE_PRESENT + "INT,"	+ //int type, 1 = true, 0 = false, 
+	private static final String CREATE_TABLE_ATTENDANCE = "CREATE TABLE " + TABLE_ATTENDANCE + "(" +
+														KEY_ATTENDANCE_ID + " TEXT NOT NULL," +
+														KEY_ATTENDANCE_DATE + " TEXT NOT NULL," +
+														KEY_ATTENDANCE_PRESENT + " INT,"	+ //int type, 1 = true, 0 = false, 
 														"PRIMARY KEY (" + KEY_ATTENDANCE_ID + "," + KEY_ATTENDANCE_DATE + ")," +
-														"FOREIGN KEY (" + KEY_ATTENDANCE_ID + ") REFERENCES" + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_ID + "))";
+														"FOREIGN KEY (" + KEY_ATTENDANCE_ID + ") REFERENCES " + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_ID + "))";
 	//Create table Assignment
-	private static final String CREATE_TABLE_ASSIGNMENT = "CREATE TABLE" + TABLE_ASSIGNMENT + "(" +
-														KEY_ASSIGNMENT_ID + "TEXT NOT NULL," +
-														KEY_ASSIGNMENT_NAME + "TEXT NOT NULL," +
-														KEY_ASSIGNMENT_DESCRIPTION + "TEXT NOT NULL," +
-														KEY_ASSIGNMENT_DUEDATE + "TEXT," +
-														KEY_ASSIGNMENT_URL + "TEXT," +
-														"FOREIGN KEY (" + KEY_ASSIGNMENT_ID + ") REFERENCES" + TABLE_COURSE + "(" + KEY_COURSE_ID + "))";
+	private static final String CREATE_TABLE_ASSIGNMENT = "CREATE TABLE " + TABLE_ASSIGNMENT + "(" +
+														KEY_ASSIGNMENT_ID + " TEXT NOT NULL," +
+														KEY_ASSIGNMENT_NAME + " TEXT NOT NULL," +
+														KEY_ASSIGNMENT_DESCRIPTION + " TEXT NOT NULL," +
+														KEY_ASSIGNMENT_DUEDATE + " TEXT," +
+														KEY_ASSIGNMENT_URL + " TEXT," +
+														"FOREIGN KEY (" + KEY_ASSIGNMENT_ID + ") REFERENCES " + TABLE_COURSE + "(" + KEY_COURSE_ID + "))";
 	//Create table student assignment
-	private static final String CREATE_TABLE_STUDENT_ASSIGNMENT = "CREATE TABLE" + TABLE_STUDENT_ASSIGNMENT + "(" +
-																KEY_STUDENT_ASSIGNMENT_ID + "TEXT NOT NULL," +
-																KEY_STUDENT_ASSIGNMENT_NAME + "TEXT NOT NULL," +
-																KEY_STUDENT_ASSIGNMENT_GRADE + "TEXT," +
-																KEY_STUDENT_ASSIGNMENT_COMMENT + "TEXT," +
+	private static final String CREATE_TABLE_STUDENT_ASSIGNMENT = "CREATE TABLE " + TABLE_STUDENT_ASSIGNMENT + "(" +
+																KEY_STUDENT_ASSIGNMENT_ID + " TEXT NOT NULL," +
+																KEY_STUDENT_ASSIGNMENT_NAME + " TEXT NOT NULL," +
+																KEY_STUDENT_ASSIGNMENT_GRADE + " TEXT," +
+																KEY_STUDENT_ASSIGNMENT_COMMENT + " TEXT," +
 																"PRIMARY KEY (" + KEY_STUDENT_ASSIGNMENT_ID + "," + KEY_STUDENT_ASSIGNMENT_NAME + ")," +
-																"FOREIGN KEY (" + KEY_STUDENT_ASSIGNMENT_NAME + ") REFERENCES" + TABLE_ASSIGNMENT + "(" + KEY_ASSIGNMENT_NAME + ")," +
-																"FOREIGN KEY (" + KEY_STUDENT_ASSIGNMENT_ID + ") REFERENCES" + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_ID + "))";
+																"FOREIGN KEY (" + KEY_STUDENT_ASSIGNMENT_NAME + ") REFERENCES " + TABLE_ASSIGNMENT + "(" + KEY_ASSIGNMENT_NAME + ")," +
+																"FOREIGN KEY (" + KEY_STUDENT_ASSIGNMENT_ID + ") REFERENCES " + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_ID + "))";
 	
 	private DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
