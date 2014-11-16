@@ -23,8 +23,19 @@ public class Course {
 	public Course(){
 	}
 	
-	public Course(String id ){
-		IdCourse = id;
+	public Course(String idCourse, String cName, String cType, String cDays,
+			String cTime, String cLocation, String cSemester, String cYear,
+			String idInstructor) {
+		super();
+		IdCourse = idCourse;
+		this.cName = cName;
+		this.cType = cType;
+		this.cDays = cDays;
+		this.cTime = cTime;
+		this.cLocation = cLocation;
+		this.cSemester = cSemester;
+		this.cYear = cYear;
+		IdInstructor = idInstructor;
 	}
 
 	//getters

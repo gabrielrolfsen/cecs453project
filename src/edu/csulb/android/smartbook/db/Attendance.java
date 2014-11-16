@@ -8,6 +8,8 @@ package edu.csulb.android.smartbook.db;
 
 public class Attendance {
 	
+
+
 	String IdStudentCourse;
 	String aDate;
 	int aPresent;	//1 == true, 0 == false
@@ -17,8 +19,11 @@ public class Attendance {
 	public Attendance(){
 	}
 	
-	public Attendance(String id ){
-		IdStudentCourse = id;
+	public Attendance(String idStudentCourse, String aDate, int aPresent) {
+		super();
+		IdStudentCourse = idStudentCourse;
+		this.aDate = aDate;
+		this.aPresent = aPresent;
 	}
 
 	//getters

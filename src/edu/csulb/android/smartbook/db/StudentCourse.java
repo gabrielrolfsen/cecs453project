@@ -8,6 +8,8 @@ package edu.csulb.android.smartbook.db;
 
 public class StudentCourse {
 	
+
+
 	String IdStudentCourse;
 	String IdCourse;
 	String IdStudent;
@@ -18,10 +20,13 @@ public class StudentCourse {
 	public StudentCourse(){
 	}
 	
-	public StudentCourse(String idStuCourse, String idCourse, String idStudent ){
-		IdStudentCourse = idStuCourse;
+	public StudentCourse(String idStudentCourse, String idCourse,
+			String idStudent, String scFinalGrade) {
+		super();
+		IdStudentCourse = idStudentCourse;
 		IdCourse = idCourse;
 		IdStudent = idStudent;
+		this.scFinalGrade = scFinalGrade;
 	}
 
 	//getters

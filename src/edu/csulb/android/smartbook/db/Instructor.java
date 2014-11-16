@@ -21,8 +21,18 @@ public class Instructor {
 	public Instructor(){
 	}
 	
-	public Instructor(String id ){
-		IdInstructor = id;
+	public Instructor(String idInstructor, String iPassword, String iFirstName,
+			String iLastName, String iOfficeRoom, String iOfficeBuilding,
+			String iOfficeDayTime, String iEmail) {
+		super();
+		IdInstructor = idInstructor;
+		this.iPassword = iPassword;
+		this.iFirstName = iFirstName;
+		this.iLastName = iLastName;
+		this.iOfficeRoom = iOfficeRoom;
+		this.iOfficeBuilding = iOfficeBuilding;
+		this.iOfficeDayTime = iOfficeDayTime;
+		this.iEmail = iEmail;
 	}
 
 	public String getIdInstructor() {

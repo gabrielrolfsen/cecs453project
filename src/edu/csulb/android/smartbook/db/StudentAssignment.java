@@ -18,9 +18,13 @@ public class StudentAssignment {
 	public StudentAssignment(){
 	}
 	
-	public StudentAssignment(String id, String name ){
-		IdStudentCourse = id;
-		aName = name;
+	public StudentAssignment(String idStudentCourse, String aName,
+			String saGrade, String saInstructorComment) {
+		super();
+		IdStudentCourse = idStudentCourse;
+		this.aName = aName;
+		this.saGrade = saGrade;
+		this.saInstructorComment = saInstructorComment;
 	}
 
 	//getters

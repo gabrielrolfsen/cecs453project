@@ -8,6 +8,8 @@ package edu.csulb.android.smartbook.db;
 
 public class Assignment {
 	
+
+
 	String IdCourse;
 	String aName;
 	String aDescription;
@@ -19,8 +21,14 @@ public class Assignment {
 	public Assignment(){
 	}
 	
-	public Assignment(String id ){
-		IdCourse = id;
+	public Assignment(String idCourse, String aName, String aDescription,
+			String aDuedate, String aURL) {
+		super();
+		IdCourse = idCourse;
+		this.aName = aName;
+		this.aDescription = aDescription;
+		this.aDuedate = aDuedate;
+		this.aURL = aURL;
 	}
 
 	//getters
