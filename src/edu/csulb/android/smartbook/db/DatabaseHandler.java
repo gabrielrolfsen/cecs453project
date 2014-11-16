@@ -6,9 +6,6 @@
 
 package edu.csulb.android.smartbook.db;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.csulb.android.smartbook.models.Assignment;
 import edu.csulb.android.smartbook.models.Attendance;
 import edu.csulb.android.smartbook.models.Course;
@@ -19,7 +16,6 @@ import edu.csulb.android.smartbook.models.StudentCourse;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
