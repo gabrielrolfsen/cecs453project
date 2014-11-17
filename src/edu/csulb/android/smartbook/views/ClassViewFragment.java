@@ -1,38 +1,22 @@
 package edu.csulb.android.smartbook.views;
 
-import edu.csulb.android.smartbook.R;
-import edu.csulb.android.smartbook.R.id;
-import edu.csulb.android.smartbook.R.layout;
-import edu.csulb.android.smartbook.R.menu;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import edu.csulb.android.smartbook.R;
 
-public class ClassViewFragment extends ActionBarActivity {
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment_class_view);
-	}
+public class ClassViewFragment extends Fragment {
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.class_view, menu);
-		return true;
+	public View onCreateView(final LayoutInflater inflater,
+			final ViewGroup container, final Bundle savedInstanceState) {
+
+		final View view = inflater.inflate(R.layout.fragment_class_view,
+				container, false);
+
+		return null;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

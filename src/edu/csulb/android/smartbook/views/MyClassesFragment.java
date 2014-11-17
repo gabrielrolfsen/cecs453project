@@ -15,11 +15,15 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import edu.csulb.android.smartbook.R;
+import edu.csulb.android.smartbook.adapters.ClassItemAdapter;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
+import edu.csulb.android.smartbook.models.ClassItem;
 
 public class MyClassesFragment extends Fragment {
 
 	ArrayAdapter<String> mAdapter;
+	ClassItemAdapter classItemAdapter;
+	ArrayList<ClassItem> classList = new ArrayList<ClassItem>();
 	ListView listMyClasses;
 	SQLiteDatabase db;
 	ArrayList<String> toAdd = new ArrayList<String>();
@@ -30,29 +34,16 @@ public class MyClassesFragment extends Fragment {
 		final View view = inflater.inflate(R.layout.fragment_my_classes,
 				container, false);
 		listMyClasses = (ListView) view.findViewById(R.id.lstMyClasses);
-
-		// final ProgressBar progressBar = new ProgressBar(getActivity());
-		// progressBar.setLayoutParams(new
-		// LayoutParams(LayoutParams.WRAP_CONTENT,
-		// LayoutParams.WRAP_CONTENT, Gravity.CENTER));
-		// progressBar.setIndeterminate(true);
-		// listMyClasses.setEmptyView(progressBar);
-		//
-		// final ViewGroup root = (ViewGroup) view
-		// .findViewById(android.R.id.content);
-		// root.addView(progressBar);
-
-		mAdapter = new ArrayAdapter<String>(getActivity()
-				.getApplicationContext(), android.R.layout.simple_list_item_1);
 		queryData();
-		mAdapter.addAll(toAdd);
-		listMyClasses.setAdapter(mAdapter);
+
+		classItemAdapter = new ClassItemAdapter(classList);
+		listMyClasses.setAdapter(classItemAdapter);
 
 		return view;
 	}
 
 	private void queryData() {
-		Log.d("DEBUUUUG", "SELECT "
+		Log.d("MyClassesFragment queryData()", "SELECT "
 				+ DatabaseHandler.KEY_STUDENT_ASSIGNMENT_IDCOURSE + " FROM "
 				+ DatabaseHandler.TABLE_STUDENT_COURSE + "WHERE "
 				+ DatabaseHandler.KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " = "
@@ -76,8 +67,11 @@ public class MyClassesFragment extends Fragment {
 			if (c.getCount() > 0) {
 				if (c.moveToFirst()) {
 					do {
-						toAdd.add(c.getString(c
-								.getColumnIndex(DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE)));
+						classList
+								.add(new ClassItem(
+										c.getString(c
+												.getColumnIndex(DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE)),
+										"Name", "Num", new ClassViewFragment()));
 
 					} while (c.moveToNext());
 				}

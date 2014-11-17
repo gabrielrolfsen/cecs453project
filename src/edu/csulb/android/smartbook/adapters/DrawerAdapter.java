@@ -39,18 +39,19 @@ public class DrawerAdapter extends BaseAdapter {
 
 			switch (type) {
 			case TYPE_ITEM:
-				convertView = inflater.inflate(R.layout.drawer_item, null);
+				convertView = inflater.inflate(R.layout.item_drawer, null);
 				holder.mText = (TextView) convertView
 						.findViewById(R.id.txtDrawerItem);
 				holder.mIcon = (ImageView) convertView
 						.findViewById(R.id.imgDrawerItem);
 				break;
 			case TYPE_HEADER:
-				convertView = inflater.inflate(R.layout.drawer_header, null);
+				convertView = inflater.inflate(R.layout.item_drawer_header, null);
 				holder.mText = (TextView) convertView
 						.findViewById(R.id.txtDrawerHeader);
 				// Make headers unclickable
 				convertView.setEnabled(false);
+				convertView.setOnClickListener(null);
 				break;
 			}
 
