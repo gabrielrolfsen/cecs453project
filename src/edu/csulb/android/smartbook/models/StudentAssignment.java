@@ -8,7 +8,8 @@ package edu.csulb.android.smartbook.models;
 
 public class StudentAssignment {
 	
-	String IdStudentCourse;
+	String IdStudent;
+	String IdCourse;
 	String aName;
 	String saGrade;
 	String saInstructorComment;
@@ -18,18 +19,23 @@ public class StudentAssignment {
 	public StudentAssignment(){
 	}
 	
-	public StudentAssignment(String idStudentCourse, String aName,
+	public StudentAssignment(String idStudent, String idCourse, String aName,
 			String saGrade, String saInstructorComment) {
 		super();
-		IdStudentCourse = idStudentCourse;
+		IdStudent = idStudent;
+		IdCourse = idCourse;
 		this.aName = aName;
 		this.saGrade = saGrade;
 		this.saInstructorComment = saInstructorComment;
 	}
 
 	//getters
-	public String getIdStudentCourse() {
-		return IdStudentCourse;
+	public String getIdStudent() {
+		return IdStudent;
+	}
+
+	public String getIdCourse() {
+		return IdCourse;
 	}
 
 	public String getaName() {
@@ -40,13 +46,17 @@ public class StudentAssignment {
 		return saGrade;
 	}
 
+	//setters
 	public String getSaInstructorComment() {
 		return saInstructorComment;
 	}
 
-	//setters
-	public void setIdStudentCourse(String idStudentCourse) {
-		IdStudentCourse = idStudentCourse;
+	public void setIdStudent(String idStudent) {
+		IdStudent = idStudent;
+	}
+
+	public void setIdCourse(String idCourse) {
+		IdCourse = idCourse;
 	}
 
 	public void setaName(String aName) {
@@ -60,6 +70,7 @@ public class StudentAssignment {
 	public void setSaInstructorComment(String saInstructorComment) {
 		this.saInstructorComment = saInstructorComment;
 	}
+
 	
 	
 }

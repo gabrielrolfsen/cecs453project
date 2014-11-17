@@ -8,9 +8,8 @@ package edu.csulb.android.smartbook.models;
 
 public class Attendance {
 	
-
-
-	String IdStudentCourse;
+	String IdStudent;
+	String IdCourse;
 	String aDate;
 	int aPresent;	//1 == true, 0 == false
 
@@ -19,16 +18,21 @@ public class Attendance {
 	public Attendance(){
 	}
 	
-	public Attendance(String idStudentCourse, String aDate, int aPresent) {
+	public Attendance(String idStudent, String idCourse, String aDate, int aPresent) {
 		super();
-		IdStudentCourse = idStudentCourse;
+		IdStudent = idStudent;
+		IdCourse = idCourse;
 		this.aDate = aDate;
 		this.aPresent = aPresent;
 	}
 
 	//getters
-	public String getIdStudentCourse() {
-		return IdStudentCourse;
+	public String getIdStudent() {
+		return IdStudent;
+	}
+
+	public String getIdCourse() {
+		return IdCourse;
 	}
 
 	public String getaDate() {
@@ -40,8 +44,12 @@ public class Attendance {
 	}
 
 	//setters
-	public void setIdStudentCourse(String idStudentCourse) {
-		IdStudentCourse = idStudentCourse;
+	public void setIdStudent(String idStudent) {
+		IdStudent = idStudent;
+	}
+
+	public void setIdCourse(String idCourse) {
+		IdCourse = idCourse;
 	}
 
 	public void setaDate(String aDate) {
@@ -51,6 +59,7 @@ public class Attendance {
 	public void setaPresent(int aPresent) {
 		this.aPresent = aPresent;
 	}
+
 
 	
 }

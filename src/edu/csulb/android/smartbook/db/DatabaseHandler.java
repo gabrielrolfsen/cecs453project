@@ -67,13 +67,13 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	public static final String KEY_COURSE_INSTRUCTOR_ID = "IdInstructor";
 	
 	// Column names for table StudentCourse
-	public static final String KEY_STUDENT_COURSE_ID = "IdStudentCourse";
-	public static final String KEY_STUDENT_COURSE_IDCOURSE= "IdCourse";
 	public static final String KEY_STUDENT_COURSE_IDSTUDENT = "IdStudent";
+	public static final String KEY_STUDENT_COURSE_IDCOURSE= "IdCourse";
 	public static final String KEY_STUDENT_COURSE_FINALGRADE = "scFinalGrade";
 	
 	// Column names for table Attendance
-	public static final String KEY_ATTENDANCE_ID = "IdStudentCourse";
+	public static final String KEY_ATTENDANCE_IDSTUDENT = "IdStudent";
+	public static final String KEY_ATTENDANCE_IDCOURSE = "IdCourse";
 	public static final String KEY_ATTENDANCE_DATE = "aDate";
 	public static final String KEY_ATTENDANCE_PRESENT = "aPresent";
 	
@@ -85,7 +85,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	public static final String KEY_ASSIGNMENT_URL = "aURL";
 	
 	// Column names for table StudentAssignment
-	public static final String KEY_STUDENT_ASSIGNMENT_ID = "IdStudentCourse";
+	public static final String KEY_STUDENT_ASSIGNMENT_IDSTUDENT = "IdStudent";
+	public static final String KEY_STUDENT_ASSIGNMENT_IDCOURSE = "IdCourse";
 	public static final String KEY_STUDENT_ASSIGNMENT_NAME= "aName";
 	public static final String KEY_STUDENT_ASSIGNMENT_GRADE = "saGrade";
 	public static final String KEY_STUDENT_ASSIGNMENT_COMMENT = "saInstructorComment";
@@ -120,36 +121,41 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 													"FOREIGN KEY (" + KEY_COURSE_INSTRUCTOR_ID + ") REFERENCES " + TABLE_INSTRUCTOR + "(" + KEY_INSTRUCTOR_ID + "))"; 
 	//Create table StudentCourse
 	private static final String CREATE_TABLE_STUDENT_COURSE = "CREATE TABLE " + TABLE_STUDENT_COURSE + "(" +
-															KEY_STUDENT_COURSE_ID + " TEXT PRIMARY KEY," +
-															KEY_STUDENT_COURSE_IDCOURSE + " TEXT NOT NULL," +
 															KEY_STUDENT_COURSE_IDSTUDENT + " TEXT NOT NULL," +
+															KEY_STUDENT_COURSE_IDCOURSE + " TEXT NOT NULL," +
 															KEY_STUDENT_COURSE_FINALGRADE + " TEXT," +
-															"FOREIGN KEY(" + KEY_STUDENT_COURSE_IDCOURSE + ") REFERENCES " + TABLE_COURSE + "(" + KEY_COURSE_ID + ")," +
-															"FOREIGN KEY(" + KEY_STUDENT_COURSE_IDSTUDENT + ") REFERENCES " + TABLE_STUDENT + "(" + KEY_STUDENT_ID + "))";
+															"FOREIGN KEY (" + KEY_STUDENT_COURSE_IDSTUDENT + ") REFERENCES " + TABLE_STUDENT + "(" + KEY_STUDENT_ID + ")," +
+															"FOREIGN KEY (" + KEY_STUDENT_COURSE_IDCOURSE + ") REFERENCES " + TABLE_COURSE + "(" + KEY_COURSE_ID + ")," +
+															"PRIMARY KEY (" + KEY_STUDENT_COURSE_IDCOURSE + "," + KEY_STUDENT_COURSE_IDSTUDENT + "))";
 	//Create table Attendance
 	private static final String CREATE_TABLE_ATTENDANCE = "CREATE TABLE " + TABLE_ATTENDANCE + "(" +
-														KEY_ATTENDANCE_ID + " TEXT NOT NULL," +
+														KEY_ATTENDANCE_IDSTUDENT + " TEXT NOT NULL," +
+														KEY_ATTENDANCE_IDCOURSE + " TEXT NOT NULL," +
 														KEY_ATTENDANCE_DATE + " TEXT NOT NULL," +
 														KEY_ATTENDANCE_PRESENT + " INT,"	+ //int type, 1 = true, 0 = false, 
-														"PRIMARY KEY (" + KEY_ATTENDANCE_ID + "," + KEY_ATTENDANCE_DATE + ")," +
-														"FOREIGN KEY (" + KEY_ATTENDANCE_ID + ") REFERENCES " + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_ID + "))";
+														"PRIMARY KEY (" + KEY_ATTENDANCE_IDSTUDENT + "," + KEY_ATTENDANCE_IDCOURSE + ","+ KEY_ATTENDANCE_DATE + ")," +
+														"FOREIGN KEY (" + KEY_ATTENDANCE_IDSTUDENT + "," + KEY_ATTENDANCE_IDCOURSE + ") REFERENCES " + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_IDSTUDENT + "," + KEY_STUDENT_COURSE_IDCOURSE + "))"; 
+
 	//Create table Assignment
 	private static final String CREATE_TABLE_ASSIGNMENT = "CREATE TABLE " + TABLE_ASSIGNMENT + "(" +
 														KEY_ASSIGNMENT_ID + " TEXT NOT NULL," +
 														KEY_ASSIGNMENT_NAME + " TEXT NOT NULL," +
-														KEY_ASSIGNMENT_DESCRIPTION + " TEXT NOT NULL," +
+														KEY_ASSIGNMENT_DESCRIPTION + " TEXT," +
 														KEY_ASSIGNMENT_DUEDATE + " TEXT," +
 														KEY_ASSIGNMENT_URL + " TEXT," +
+														"PRIMARY KEY (" + KEY_ASSIGNMENT_ID + "," + KEY_ASSIGNMENT_NAME + ")," +
 														"FOREIGN KEY (" + KEY_ASSIGNMENT_ID + ") REFERENCES " + TABLE_COURSE + "(" + KEY_COURSE_ID + "))";
 	//Create table student assignment
 	private static final String CREATE_TABLE_STUDENT_ASSIGNMENT = "CREATE TABLE " + TABLE_STUDENT_ASSIGNMENT + "(" +
-																KEY_STUDENT_ASSIGNMENT_ID + " TEXT NOT NULL," +
+																KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " TEXT NOT NULL," +
+																KEY_STUDENT_ASSIGNMENT_IDCOURSE + " TEXT NOT NULL," +
 																KEY_STUDENT_ASSIGNMENT_NAME + " TEXT NOT NULL," +
 																KEY_STUDENT_ASSIGNMENT_GRADE + " TEXT," +
 																KEY_STUDENT_ASSIGNMENT_COMMENT + " TEXT," +
-																"PRIMARY KEY (" + KEY_STUDENT_ASSIGNMENT_ID + "," + KEY_STUDENT_ASSIGNMENT_NAME + ")," +
+																"PRIMARY KEY (" + KEY_STUDENT_ASSIGNMENT_IDSTUDENT + "," + KEY_STUDENT_ASSIGNMENT_IDCOURSE + "," + KEY_STUDENT_ASSIGNMENT_NAME + ")," +
 																"FOREIGN KEY (" + KEY_STUDENT_ASSIGNMENT_NAME + ") REFERENCES " + TABLE_ASSIGNMENT + "(" + KEY_ASSIGNMENT_NAME + ")," +
-																"FOREIGN KEY (" + KEY_STUDENT_ASSIGNMENT_ID + ") REFERENCES " + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_ID + "))";
+																"FOREIGN KEY (" + KEY_ATTENDANCE_IDSTUDENT + "," + KEY_ATTENDANCE_IDCOURSE + ") REFERENCES " + TABLE_STUDENT_COURSE + "(" + KEY_STUDENT_COURSE_IDSTUDENT + "," + KEY_STUDENT_COURSE_IDCOURSE + "))"; 
+
 	
 	private DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -196,9 +202,69 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 		
 		Log.d("Insert to Course","Inserting...");
 		//Course table, insert demo data
-		db.execSQL("INSERT INTO Course VALUES ('C1235','Database','SEM','Mon Wed','1-1:50 pm','ECS 308','Fall', '2014','E1111')");
-		db.execSQL("INSERT INTO Course VALUES ('C4457','Mobile Development','SEM','Tue Thu','3-3:50pm','ECS 302','Fall', '2014','E2222')");
+		db.execSQL("INSERT INTO Course VALUES ('C1111','Database','SEM','Mon Wed','1-1:50 pm','ECS 308','Fall', '2014','E1111')");
+		db.execSQL("INSERT INTO Course VALUES ('C2222','Web Development','SEM','Mon Wed','4-4:50 pm','ECS 311','Fall', '2014','E1111')");
+		db.execSQL("INSERT INTO Course VALUES ('C3333','Mobile Development','SEM','Tue Thu','3-3:50pm','ECS 302','Fall', '2014','E2222')");
+		db.execSQL("INSERT INTO Course VALUES ('C4444','Graphics Programming','SEM','Tue Thu','1-1:50 pm','ECS 308','Fall', '2014','E2222')");
+		
+		Log.d("Insert to StudentCourse","Inserting...");
+		//Course table, insert demo data
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C1111',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C2222',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C3333',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C4444',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','C1111',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','C3333',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','C4444',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','C1111',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','C2222',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','C1111',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','C4444',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','C1111',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','C2222',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','C3333',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C1111',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C2222',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C3333',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C4444',NULL)");
+		
+		Log.d("Insert to Attendance","Inserting...");
+		//Attendance table, insert demo data
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','C1111','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','C2222','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','C3333','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','C4444','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','C1111','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','C3333','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','C4444','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('3333','C1111','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('3333','C2222','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('4444','C1111','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('4444','C4444','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','C1111','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','C2222','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','C3333','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','C1111','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','C2222','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','C3333','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','C4444','09/11/2014',NULL)");
+		
+		Log.d("Insert to Assignment","Inserting...");
+		//Assignment table, insert demo data
+		db.execSQL("INSERT INTO Assignment VALUES ('C1111','Assignment 1',NULL,NULL,NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('C1111','Assignment 2',NULL,NULL,NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('C2222','Assignment 1',NULL,NULL,NULL)");
+		
+		Log.d("Insert to StudentAssignment","Inserting...");
+		//StudentAssignment table, insert demo data
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','C1111','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('2222','C1111','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('3333','C1111','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('4444','C1111','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('5555','C1111','Assignment 1',NULL,NULL)");
+		
 		Log.d("Insert data","Done");
+		
 
 	}
 	
@@ -227,11 +293,12 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 			return null;
 	}
 
-	public Assignment getAssignment(String assignmentID) {
+	public Assignment getAssignment(String assignmentID, String assignmentName) {
 	    SQLiteDatabase db = this.getReadableDatabase();
 	 
 	    String selectQuery = "SELECT  * FROM " + TABLE_ASSIGNMENT + " WHERE "
-	            + KEY_ASSIGNMENT_ID + " = " + assignmentID;
+	            + KEY_ASSIGNMENT_ID + " = " + assignmentID + " AND "
+	            + KEY_ASSIGNMENT_NAME + " = " + assignmentName;
 	 
 	    Cursor c = db.rawQuery(selectQuery, null);
 	 
@@ -249,11 +316,12 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	    	return null;
 	}
 	
-	public Attendance getAttendance(String attendanceID, String attedanceDate) {
+	public Attendance getAttendance(String studentID, String courseID, String attedanceDate) {
 	    SQLiteDatabase db = this.getReadableDatabase();
 	 
 	    String selectQuery = "SELECT  * FROM " + TABLE_ATTENDANCE + " WHERE "
-	            + KEY_ATTENDANCE_ID + " = " + attendanceID + "AND" 
+	            + KEY_ATTENDANCE_IDSTUDENT + " = " + studentID + " AND " 
+	            + KEY_ATTENDANCE_IDCOURSE + " = " + courseID + " AND " 
 	    		+ KEY_ATTENDANCE_DATE + " = " + attedanceDate;
 	 
 	    Cursor c = db.rawQuery(selectQuery, null);
@@ -261,7 +329,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	    if (c != null)
 	    {
 	        c.moveToFirst();
-	        Attendance a = new Attendance((c.getString(c.getColumnIndex(KEY_ATTENDANCE_ID))),
+	        Attendance a = new Attendance((c.getString(c.getColumnIndex(KEY_ATTENDANCE_IDSTUDENT))),
+	        							(c.getString(c.getColumnIndex(KEY_ATTENDANCE_IDCOURSE))),
 	    								(c.getString(c.getColumnIndex(KEY_ATTENDANCE_DATE))),
 	    								(c.getInt(c.getColumnIndex(KEY_ATTENDANCE_PRESENT))));
 	 	    return a;
@@ -321,11 +390,12 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	    	return null;
 	}
 	
-	public StudentAssignment getStudentAssignment(String saID, String saName) {
+	public StudentAssignment getStudentAssignment(String studentID, String courseID, String saName) {
 	    SQLiteDatabase db = this.getReadableDatabase();
 	 
 	    String selectQuery = "SELECT  * FROM " + TABLE_STUDENT_ASSIGNMENT + " WHERE "
-	            + KEY_STUDENT_ASSIGNMENT_ID + " = " + saID + "AND" 
+	            + KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " = " + studentID + " AND " 
+	            + KEY_STUDENT_ASSIGNMENT_IDCOURSE + " = " + courseID + " AND " 
 	    		+ KEY_STUDENT_ASSIGNMENT_NAME + " = " + saName;
 	 
 	    Cursor c = db.rawQuery(selectQuery, null);
@@ -333,7 +403,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	    if (c != null)
 	    {
 	        c.moveToFirst();
-	        StudentAssignment sa = new StudentAssignment((c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_ID))),
+	        StudentAssignment sa = new StudentAssignment((c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDSTUDENT))),
+	        							(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDCOURSE))),
 	    								(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_NAME))),
 	    								(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_GRADE))),
 	    								(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_COMMENT))));
@@ -343,20 +414,20 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 	    	return null;
 	}
 	
-	public StudentCourse getStudentCourse(String scID) {
+	public StudentCourse getStudentCourse(String studentID, String courseID) {
 	    SQLiteDatabase db = this.getReadableDatabase();
 	 
 	    String selectQuery = "SELECT  * FROM " + TABLE_STUDENT_COURSE + " WHERE "
-	            + KEY_STUDENT_COURSE_ID + " = " + scID;
-	 
+	            + KEY_STUDENT_COURSE_IDSTUDENT + " = " + studentID + " AND "
+	    		+ KEY_STUDENT_COURSE_IDCOURSE + " = " + courseID;
+	    
 	    Cursor c = db.rawQuery(selectQuery, null);
 	 
 	    if (c != null)
 	    {
 	        c.moveToFirst();
-	        StudentCourse sc = new StudentCourse((c.getString(c.getColumnIndex(KEY_STUDENT_COURSE_ID))),
+	        StudentCourse sc = new StudentCourse((c.getString(c.getColumnIndex(KEY_STUDENT_COURSE_IDSTUDENT))),
 	    								(c.getString(c.getColumnIndex(KEY_STUDENT_COURSE_IDCOURSE))),
-	    								(c.getString(c.getColumnIndex(KEY_STUDENT_COURSE_IDSTUDENT))),
 	    								(c.getString(c.getColumnIndex(KEY_STUDENT_COURSE_FINALGRADE))));
 	 	    return sc;
 	    }

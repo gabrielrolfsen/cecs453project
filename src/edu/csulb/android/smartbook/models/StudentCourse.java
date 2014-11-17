@@ -8,11 +8,8 @@ package edu.csulb.android.smartbook.models;
 
 public class StudentCourse {
 	
-
-
-	String IdStudentCourse;
-	String IdCourse;
 	String IdStudent;
+	String IdCourse;
 	String scFinalGrade;
 
 	
@@ -20,26 +17,21 @@ public class StudentCourse {
 	public StudentCourse(){
 	}
 	
-	public StudentCourse(String idStudentCourse, String idCourse,
-			String idStudent, String scFinalGrade) {
+	public StudentCourse(String idStudent,
+			String idCourse, String scFinalGrade) {
 		super();
-		IdStudentCourse = idStudentCourse;
-		IdCourse = idCourse;
 		IdStudent = idStudent;
+		IdCourse = idCourse;
 		this.scFinalGrade = scFinalGrade;
 	}
 
 	//getters
-	public String getIdStudentCourse() {
-		return IdStudentCourse;
+	public String getIdStudent() {
+		return IdStudent;
 	}
 
 	public String getIdCourse() {
 		return IdCourse;
-	}
-
-	public String getIdStudent() {
-		return IdStudent;
 	}
 
 	public String getScFinalGrade() {
@@ -47,21 +39,16 @@ public class StudentCourse {
 	}
 
 	//setters
-	public void setIdStudentCourse(String idStudentCourse) {
-		IdStudentCourse = idStudentCourse;
+	public void setIdStudent(String idStudent) {
+		IdStudent = idStudent;
 	}
 
 	public void setIdCourse(String idCourse) {
 		IdCourse = idCourse;
 	}
-
-	public void setIdStudent(String idStudent) {
-		IdStudent = idStudent;
-	}
-
+	
 	public void setScFinalGrade(String scFinalGrade) {
 		this.scFinalGrade = scFinalGrade;
 	}
-	
 	
 }
