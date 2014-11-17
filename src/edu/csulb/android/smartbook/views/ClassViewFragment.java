@@ -1,23 +1,26 @@
 package edu.csulb.android.smartbook.views;
 
 import edu.csulb.android.smartbook.R;
+import edu.csulb.android.smartbook.R.id;
+import edu.csulb.android.smartbook.R.layout;
+import edu.csulb.android.smartbook.R.menu;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class RegisterActivity extends ActionBarActivity {
+public class ClassViewFragment extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_register);
+		setContentView(R.layout.fragment_class_view);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.register, menu);
+		getMenuInflater().inflate(R.menu.class_view, menu);
 		return true;
 	}
 

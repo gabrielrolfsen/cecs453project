@@ -1,6 +1,6 @@
 package edu.csulb.android.smartbook.views;
 
-import edu.csulb.android.cecs453project.R;
+import edu.csulb.android.smartbook.R;
 import android.content.Context;
 import android.util.DisplayMetrics;
 import android.view.View;

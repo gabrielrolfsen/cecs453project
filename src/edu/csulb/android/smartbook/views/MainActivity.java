@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-import edu.csulb.android.cecs453project.R;
+import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.adapters.DrawerAdapter;
 import edu.csulb.android.smartbook.models.DrawerItem;
 import android.nfc.NdefMessage;

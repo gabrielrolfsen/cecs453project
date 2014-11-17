@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import edu.csulb.android.cecs453project.R;
+import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
-public class DrawerAdapter extends BaseAdapter{
+public class DrawerAdapter extends BaseAdapter {
 
 	private static final int TYPE_HEADER = 0;
 	private static final int TYPE_ITEM = 1;
@@ -21,51 +21,56 @@ public class DrawerAdapter extends BaseAdapter{
 
 	private final ArrayList<DrawerItem> itemList;
 
-	public DrawerAdapter(ArrayList<DrawerItem> itemList) {
+	public DrawerAdapter(final ArrayList<DrawerItem> itemList) {
 		this.itemList = itemList;
 	}
 
 	@Override
-	public View getView(final int position, View convertView, final ViewGroup parent) {
+	public View getView(final int position, View convertView,
+			final ViewGroup parent) {
 		ViewHolder holder = null;
-		int type = getItemViewType(position);
+		final int type = getItemViewType(position);
 
-		if (convertView == null){
-			final LayoutInflater inflater = (LayoutInflater) parent.getContext().
-					getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		if (convertView == null) {
+			final LayoutInflater inflater = (LayoutInflater) parent
+					.getContext().getSystemService(
+							Context.LAYOUT_INFLATER_SERVICE);
 			holder = new ViewHolder();
 
-			switch (type){
+			switch (type) {
 			case TYPE_ITEM:
 				convertView = inflater.inflate(R.layout.drawer_item, null);
-				holder.mText = (TextView) convertView.findViewById(R.id.txtDrawerItem);
-				holder.mIcon = (ImageView) convertView.findViewById(R.id.imgDrawerItem);
+				holder.mText = (TextView) convertView
+						.findViewById(R.id.txtDrawerItem);
+				holder.mIcon = (ImageView) convertView
+						.findViewById(R.id.imgDrawerItem);
 				break;
 			case TYPE_HEADER:
 				convertView = inflater.inflate(R.layout.drawer_header, null);
-				holder.mText = (TextView) convertView.findViewById(R.id.txtDrawerHeader);
+				holder.mText = (TextView) convertView
+						.findViewById(R.id.txtDrawerHeader);
+				// Make headers unclickable
+				convertView.setEnabled(false);
 				break;
 			}
 
-
 			convertView.setTag(holder);
-		}else{
+		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
-		final DrawerItem dIt = (DrawerItem) getItem(position);
+		final DrawerItem dIt = getItem(position);
 
-		if (holder.mText != null){
+		if (holder.mText != null) {
 			holder.mText.setText(dIt.getTitle());
 		}
 
-		if (holder.mIcon != null){
+		if (holder.mIcon != null) {
 			holder.mIcon.setImageResource(dIt.getIcon());
 		}
 
 		return convertView;
 	}
-
 
 	private static class ViewHolder {
 		public TextView mText;
@@ -75,20 +80,22 @@ public class DrawerAdapter extends BaseAdapter{
 
 	@Override
 	public int getCount() {
-		if (itemList == null)
+		if (itemList == null) {
 			return 0;
+		}
 		return itemList.size();
 	}
 
 	@Override
-	public DrawerItem getItem(int position) {
-		if (itemList == null)
+	public DrawerItem getItem(final int position) {
+		if (itemList == null) {
 			return null;
+		}
 		return itemList.get(position);
 	}
 
 	@Override
-	public int getItemViewType(int position) {
+	public int getItemViewType(final int position) {
 		Log.d("DEBUG>", String.valueOf(itemList.get(position).isHeader()));
 		return itemList.get(position).isHeader() ? TYPE_HEADER : TYPE_ITEM;
 	}
@@ -98,13 +105,13 @@ public class DrawerAdapter extends BaseAdapter{
 		return TYPE_MAX_COUNT;
 	}
 
-	public void addItem(DrawerItem dIt){
+	public void addItem(final DrawerItem dIt) {
 		itemList.add(dIt);
 		notifyDataSetChanged();
 	}
 
 	@Override
-	public long getItemId(int position) {
+	public long getItemId(final int position) {
 		return itemList != null ? itemList.get(position).hashCode() : 0;
 	}
 

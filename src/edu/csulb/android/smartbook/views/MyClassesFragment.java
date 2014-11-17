@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import edu.csulb.android.cecs453project.R;
+import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
 
 public class MyClassesFragment extends Fragment {
@@ -52,6 +52,11 @@ public class MyClassesFragment extends Fragment {
 	}
 
 	private void queryData() {
+		Log.d("DEBUUUUG", "SELECT "
+				+ DatabaseHandler.KEY_STUDENT_ASSIGNMENT_IDCOURSE + " FROM "
+				+ DatabaseHandler.TABLE_STUDENT_COURSE + "WHERE "
+				+ DatabaseHandler.KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " = "
+				+ "\"" + "\"");
 		try {
 			final SharedPreferences pref = getActivity()
 					.getApplicationContext().getSharedPreferences(
@@ -61,18 +66,18 @@ public class MyClassesFragment extends Fragment {
 			db = dbHandler.getWritableDatabase();
 
 			// Not working (why?)
-			final Cursor c = db.rawQuery(
-					"SELECT IdCourse FROM StudentCourse "
-							+ "WHERE IdStudentCourse = " + "\""
-							+ pref.getString(LoginActivity.USER_ID, "") + "\"",
+			final Cursor c = db.rawQuery("SELECT "
+					+ DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE + " FROM "
+					+ DatabaseHandler.TABLE_STUDENT_COURSE + " WHERE "
+					+ DatabaseHandler.KEY_STUDENT_COURSE_IDSTUDENT + " = "
+					+ "\"" + pref.getString(LoginActivity.USER_ID, "") + "\"",
 					null);
-			Log.d("DEBUUUUG", pref.getString(LoginActivity.USER_ID, "")
-					.toString());
 
-			if (c != null) {
+			if (c.getCount() > 0) {
 				if (c.moveToFirst()) {
 					do {
-						toAdd.add(c.getString(c.getColumnIndex("IdStudent")));
+						toAdd.add(c.getString(c
+								.getColumnIndex(DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE)));
 
 					} while (c.moveToNext());
 				}

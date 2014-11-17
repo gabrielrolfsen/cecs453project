@@ -26,7 +26,15 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="title_activity_test">TestActivity</string>
-        <string name="drawer_open">TestOpen</string>
-            <string name="drawer_close">TestClose</string>
+    <string name="drawer_open">TestOpen</string>
+    <string name="drawer_close">TestClose</string>
+    <string name="title_activity_class_view_fragment">ClassViewFragment</string>
+    <string name="class_code_example">CECS 453</string>
+    <string name="class_name_example">Mobile Applications Development</string>
+    <string name="example_professor">Ramin Moazeni</string>
+    <string name="department_example">SAL 309</string>
+    <string name="prof_contact_example">moazeni@usc.edu</string>
+    <string name="section_information_header">Section Information</string>
+    <string name="section_info_example">01 #3451 SEM Mon-Wed 8-8:50PM ECS-412</string>
 
 </resources>

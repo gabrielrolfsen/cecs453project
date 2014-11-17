@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import edu.csulb.android.cecs453project.R;
+import edu.csulb.android.smartbook.R;
 
 public class SplashActivity extends Activity {
 
