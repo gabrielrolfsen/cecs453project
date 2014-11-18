@@ -43,7 +43,7 @@ public class ClassViewFragment extends Fragment {
 		profDep = (TextView) view.findViewById(R.id.txtProfDep);
 		classInfo = (TextView) view.findViewById(R.id.txtSectionInfo);
 		profImg = (ImageView) view.findViewById(R.id.imgProfessor);
-		queryData();
+		// queryData();
 
 		return view;
 	}

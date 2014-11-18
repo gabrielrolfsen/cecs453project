@@ -21,6 +21,13 @@ import edu.csulb.android.smartbook.adapters.ClassItemAdapter;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
 import edu.csulb.android.smartbook.models.ClassItem;
 
+/**
+ * MyClassesFragment <Description>
+ *
+ * @author Gabriel Franzoni
+ * @version 1.0
+ * @since Nov 18, 2014
+ */
 public class MyClassesFragment extends Fragment {
 
 	ArrayAdapter<String> mAdapter;
@@ -55,8 +62,15 @@ public class MyClassesFragment extends Fragment {
 
 	}
 
+	/**
+	 * ClassItemClickListener <Description>
+	 *
+	 * @author Gabriel Franzoni
+	 * @version 1.0
+	 * @since Nov 18, 2014
+	 */
 	private class ClassItemClickListener implements
-	ListView.OnItemClickListener {
+			ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(final AdapterView parent, final View view,
 				final int position, final long id) {
@@ -64,9 +78,10 @@ public class MyClassesFragment extends Fragment {
 			// Insert the fragment by replacing any existing fragment
 			final FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager
-			.beginTransaction()
-					.replace(R.id.content_layout,
-					classList.get(position).getFragment())
+
+					.beginTransaction()
+			.replace(R.id.content_layout,
+							classList.get(position).getFragment())
 					.addToBackStack(null).commit();
 		}
 	}

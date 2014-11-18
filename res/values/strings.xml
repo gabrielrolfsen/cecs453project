@@ -37,5 +37,9 @@
     <string name="section_information_header">Section Information</string>
     <string name="section_info_example">01 #3451 SEM Mon-Wed 8-8:50PM ECS-412</string>
     <string name="class_num_example">1047</string>
+    <string name="student_name_example">David Burgoni Stolker</string>
+    <string name="student_id_example">#012719234</string>
+    <string name="student_major_example">Computer Engineering</string>
+    <string name="image_descriptor_professor">Professor Image</string>
 
 </resources>

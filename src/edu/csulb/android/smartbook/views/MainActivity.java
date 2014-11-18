@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 
 		// Set the adapter for the list view
 		drawerItems.add(new DrawerItem(R.drawable.ic_profile, pref.getString(
-				LoginActivity.USER_ID, ""), new MyClassesFragment()));
+				LoginActivity.USER_ID, ""), new MyProfileFragment()));
 		drawerItems.add(new DrawerItem(R.drawable.ic_my_classes, "My Classes",
 				new MyClassesFragment()));
 		drawerItems.add(new DrawerItem("Header"));
@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
 	}
 
 	private class DrawerItemClickListener implements
-			ListView.OnItemClickListener {
+	ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(
 				@SuppressWarnings("rawtypes") final AdapterView parent,
@@ -143,9 +143,9 @@ public class MainActivity extends Activity {
 		// Insert the fragment by replacing any existing fragment
 		final FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager
-		.beginTransaction()
-				.replace(R.id.content_layout,
-				drawerItems.get(position).getFragment())
+				.beginTransaction()
+		.replace(R.id.content_layout,
+						drawerItems.get(position).getFragment())
 				.addToBackStack(null).commit();
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
@@ -157,18 +157,18 @@ public class MainActivity extends Activity {
 		/* Creates a AlertDialog to ask the user if he wants to exit the app */
 		if (getFragmentManager().getBackStackEntryCount() == 0) {
 			new AlertDialog.Builder(this)
-					.setMessage("Are you sure you want to exit?")
-					.setNegativeButton("Cancel", null)
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								@Override
-								public void onClick(
-										final DialogInterface dialog,
-										final int which) {
-									finish();
-								}
+			.setMessage("Are you sure you want to exit?")
+			.setNegativeButton("Cancel", null)
+			.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(
+						final DialogInterface dialog,
+						final int which) {
+					finish();
+				}
 
-							}).show();
+			}).show();
 		} else {
 			getFragmentManager().popBackStack();
 		}
