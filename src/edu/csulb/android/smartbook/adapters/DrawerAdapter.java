@@ -3,7 +3,6 @@ package edu.csulb.android.smartbook.adapters;
 import java.util.ArrayList;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,14 +38,16 @@ public class DrawerAdapter extends BaseAdapter {
 
 			switch (type) {
 			case TYPE_ITEM:
-				convertView = inflater.inflate(R.layout.item_drawer, null);
+				convertView = inflater.inflate(R.layout.item_drawer, parent,
+						false);
 				holder.mText = (TextView) convertView
 						.findViewById(R.id.txtDrawerItem);
 				holder.mIcon = (ImageView) convertView
 						.findViewById(R.id.imgDrawerItem);
 				break;
 			case TYPE_HEADER:
-				convertView = inflater.inflate(R.layout.item_drawer_header, null);
+				convertView = inflater.inflate(R.layout.item_drawer_header,
+						null);
 				holder.mText = (TextView) convertView
 						.findViewById(R.id.txtDrawerHeader);
 				// Make headers unclickable
@@ -97,7 +98,6 @@ public class DrawerAdapter extends BaseAdapter {
 
 	@Override
 	public int getItemViewType(final int position) {
-		Log.d("DEBUG>", String.valueOf(itemList.get(position).isHeader()));
 		return itemList.get(position).isHeader() ? TYPE_HEADER : TYPE_ITEM;
 	}
 

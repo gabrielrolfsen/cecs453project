@@ -7,25 +7,24 @@
 package edu.csulb.android.smartbook.models;
 
 public class StudentCourse {
-	
+
 	String IdStudent;
 	String IdCourse;
 	String scFinalGrade;
 
-	
-	//constructors
-	public StudentCourse(){
+	// constructors
+	public StudentCourse() {
 	}
-	
-	public StudentCourse(String idStudent,
-			String idCourse, String scFinalGrade) {
+
+	public StudentCourse(final String idStudent, final String idCourse,
+			final String scFinalGrade) {
 		super();
 		IdStudent = idStudent;
 		IdCourse = idCourse;
 		this.scFinalGrade = scFinalGrade;
 	}
 
-	//getters
+	// getters
 	public String getIdStudent() {
 		return IdStudent;
 	}
@@ -38,17 +37,17 @@ public class StudentCourse {
 		return scFinalGrade;
 	}
 
-	//setters
-	public void setIdStudent(String idStudent) {
+	// setters
+	public void setIdStudent(final String idStudent) {
 		IdStudent = idStudent;
 	}
 
-	public void setIdCourse(String idCourse) {
+	public void setIdCourse(final String idCourse) {
 		IdCourse = idCourse;
 	}
-	
-	public void setScFinalGrade(String scFinalGrade) {
+
+	public void setScFinalGrade(final String scFinalGrade) {
 		this.scFinalGrade = scFinalGrade;
 	}
-	
+
 }

@@ -238,66 +238,66 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Log.d("Insert to Course", "Inserting...");
 		// Course table, insert demo data
-		db.execSQL("INSERT INTO Course VALUES ('C1111','Database','SEM','Mon Wed','1-1:50 pm','ECS 308','Fall', '2014','E1111')");
-		db.execSQL("INSERT INTO Course VALUES ('C2222','Web Development','SEM','Mon Wed','4-4:50 pm','ECS 311','Fall', '2014','E1111')");
-		db.execSQL("INSERT INTO Course VALUES ('C3333','Mobile Development','SEM','Tue Thu','3-3:50pm','ECS 302','Fall', '2014','E2222')");
-		db.execSQL("INSERT INTO Course VALUES ('C4444','Graphics Programming','SEM','Tue Thu','1-1:50 pm','ECS 308','Fall', '2014','E2222')");
+		db.execSQL("INSERT INTO Course VALUES ('CECS 521','Database','SEM','Mon Wed','1-1:50 pm','ECS 308','Fall', '2014','E1111')");
+		db.execSQL("INSERT INTO Course VALUES ('CECS 200','Web Development','SEM','Mon Wed','4-4:50 pm','ECS 311','Fall', '2014','E1111')");
+		db.execSQL("INSERT INTO Course VALUES ('CESC 453','Mobile Development','SEM','Tue Thu','3-3:50pm','ECS 302','Fall', '2014','E2222')");
+		db.execSQL("INSERT INTO Course VALUES ('CECS 475','Graphics Programming','SEM','Tue Thu','1-1:50 pm','ECS 308','Fall', '2014',NULL)");
 
 		Log.d("Insert to StudentCourse", "Inserting...");
 		// Course table, insert demo data
-		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C1111',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C2222',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C3333',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','C4444',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','C1111',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','C3333',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','C4444',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','C1111',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','C2222',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','C1111',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','C4444',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','C1111',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','C2222',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','C3333',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C1111',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C2222',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C3333',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','C4444',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 521',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 200',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 475',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CECS 521',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CECS 475',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','CECS 521',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','CECS 200',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','CECS 521',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','CECS 475',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CECS 521',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CECS 200',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 521',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 200',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 475',NULL)");
 
 		Log.d("Insert to Attendance", "Inserting...");
 		// Attendance table, insert demo data
-		db.execSQL("INSERT INTO Attendance VALUES ('1111','C1111','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('1111','C2222','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('1111','C3333','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('1111','C4444','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('2222','C1111','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('2222','C3333','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('2222','C4444','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('3333','C1111','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('3333','C2222','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('4444','C1111','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('4444','C4444','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('5555','C1111','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('5555','C2222','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('5555','C3333','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('6666','C1111','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('6666','C2222','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('6666','C3333','09/11/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('6666','C4444','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 521','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 200','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 475','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','CECS 521','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','CECS 475','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('3333','CECS 521','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('3333','CECS 200','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('4444','CECS 521','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('4444','CECS 475','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','CECS 521','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','CECS 200','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 521','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 200','09/10/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 475','09/11/2014',NULL)");
 
 		Log.d("Insert to Assignment", "Inserting...");
 		// Assignment table, insert demo data
-		db.execSQL("INSERT INTO Assignment VALUES ('C1111','Assignment 1',NULL,NULL,NULL)");
-		db.execSQL("INSERT INTO Assignment VALUES ('C1111','Assignment 2',NULL,NULL,NULL)");
-		db.execSQL("INSERT INTO Assignment VALUES ('C2222','Assignment 1',NULL,NULL,NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('CECS 521','Assignment 1',NULL,NULL,NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('CECS 521','Assignment 2',NULL,NULL,NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('CECS 200','Assignment 1',NULL,NULL,NULL)");
 
 		Log.d("Insert to StudentAssignment", "Inserting...");
 		// StudentAssignment table, insert demo data
-		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','C1111','Assignment 1',NULL,NULL)");
-		db.execSQL("INSERT INTO StudentAssignment VALUES ('2222','C1111','Assignment 1',NULL,NULL)");
-		db.execSQL("INSERT INTO StudentAssignment VALUES ('3333','C1111','Assignment 1',NULL,NULL)");
-		db.execSQL("INSERT INTO StudentAssignment VALUES ('4444','C1111','Assignment 1',NULL,NULL)");
-		db.execSQL("INSERT INTO StudentAssignment VALUES ('5555','C1111','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','CECS 521','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('2222','CECS 521','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('3333','CECS 521','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('4444','CECS 521','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('5555','CECS 521','Assignment 1',NULL,NULL)");
 
 		Log.d("Insert data", "Done");
 
@@ -343,10 +343,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Assignment a = new Assignment((c.getString(c
 					.getColumnIndex(KEY_ASSIGNMENT_ID))), (c.getString(c
-					.getColumnIndex(KEY_ASSIGNMENT_NAME))), (c.getString(c
-					.getColumnIndex(KEY_ASSIGNMENT_DESCRIPTION))),
-					(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_DUEDATE))),
-					(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_URL))));
+							.getColumnIndex(KEY_ASSIGNMENT_NAME))), (c.getString(c
+									.getColumnIndex(KEY_ASSIGNMENT_DESCRIPTION))),
+									(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_DUEDATE))),
+									(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_URL))));
 			return a;
 		} else {
 			return null;
@@ -368,9 +368,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Attendance a = new Attendance((c.getString(c
 					.getColumnIndex(KEY_ATTENDANCE_IDSTUDENT))), (c.getString(c
-					.getColumnIndex(KEY_ATTENDANCE_IDCOURSE))), (c.getString(c
-					.getColumnIndex(KEY_ATTENDANCE_DATE))), (c.getInt(c
-					.getColumnIndex(KEY_ATTENDANCE_PRESENT))));
+							.getColumnIndex(KEY_ATTENDANCE_IDCOURSE))), (c.getString(c
+									.getColumnIndex(KEY_ATTENDANCE_DATE))), (c.getInt(c
+											.getColumnIndex(KEY_ATTENDANCE_PRESENT))));
 			return a;
 		} else {
 			return null;
@@ -389,14 +389,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Course course = new Course((c.getString(c
 					.getColumnIndex(KEY_COURSE_ID))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_NAME))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_TYPE))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_DAYS))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_TIME))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_LOCATION))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_SEMESTER))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_YEAR))), (c.getString(c
-					.getColumnIndex(KEY_COURSE_INSTRUCTOR_ID))));
+							.getColumnIndex(KEY_COURSE_NAME))), (c.getString(c
+									.getColumnIndex(KEY_COURSE_TYPE))), (c.getString(c
+											.getColumnIndex(KEY_COURSE_DAYS))), (c.getString(c
+													.getColumnIndex(KEY_COURSE_TIME))), (c.getString(c
+															.getColumnIndex(KEY_COURSE_LOCATION))), (c.getString(c
+																	.getColumnIndex(KEY_COURSE_SEMESTER))), (c.getString(c
+																			.getColumnIndex(KEY_COURSE_YEAR))), (c.getString(c
+																					.getColumnIndex(KEY_COURSE_INSTRUCTOR_ID))));
 			return course;
 		} else {
 			return null;
@@ -415,15 +415,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Instructor i = new Instructor((c.getString(c
 					.getColumnIndex(KEY_INSTRUCTOR_ID))), (c.getString(c
-					.getColumnIndex(KEY_INSTRUCTOR_PASS))), (c.getString(c
-					.getColumnIndex(KEY_INSTRUCTOR_FNAME))), (c.getString(c
-					.getColumnIndex(KEY_INSTRUCTOR_LNAME))), (c.getString(c
-					.getColumnIndex(KEY_INSTRUCTOR_OFFICE_ROOM))),
-					(c.getString(c
-							.getColumnIndex(KEY_INSTRUCTOR_OFFICE_BUILDING))),
-					(c.getString(c
-							.getColumnIndex(KEY_INSTRUCTOR_OFFICE_DAYTIME))),
-					(c.getString(c.getColumnIndex(KEY_INSTRUCTOR_EMAIL))));
+							.getColumnIndex(KEY_INSTRUCTOR_PASS))), (c.getString(c
+									.getColumnIndex(KEY_INSTRUCTOR_FNAME))), (c.getString(c
+											.getColumnIndex(KEY_INSTRUCTOR_LNAME))), (c.getString(c
+													.getColumnIndex(KEY_INSTRUCTOR_OFFICE_ROOM))),
+													(c.getString(c
+															.getColumnIndex(KEY_INSTRUCTOR_OFFICE_BUILDING))),
+															(c.getString(c
+																	.getColumnIndex(KEY_INSTRUCTOR_OFFICE_DAYTIME))),
+																	(c.getString(c.getColumnIndex(KEY_INSTRUCTOR_EMAIL))));
 			return i;
 		} else {
 			return null;
@@ -447,12 +447,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			final StudentAssignment sa = new StudentAssignment(
 					(c.getString(c
 							.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDSTUDENT))),
-					(c.getString(c
-							.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDCOURSE))),
-					(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_NAME))),
-					(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_GRADE))),
-					(c.getString(c
-							.getColumnIndex(KEY_STUDENT_ASSIGNMENT_COMMENT))));
+							(c.getString(c
+									.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDCOURSE))),
+									(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_NAME))),
+									(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_GRADE))),
+									(c.getString(c
+											.getColumnIndex(KEY_STUDENT_ASSIGNMENT_COMMENT))));
 			return sa;
 		} else {
 			return null;
@@ -477,6 +477,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					(c.getString(c
 							.getColumnIndex(KEY_STUDENT_COURSE_FINALGRADE))));
 			return sc;
+		} else {
+			return null;
+		}
+	}
+
+	// ///////////// Specific query that need for the project //////////////
+	// get all info of a course include data from instructor table base on
+	// IdCourse
+	public Cursor getCourseAllInfo(final String courseID) {
+		final SQLiteDatabase db = this.getReadableDatabase();
+		final String selectQuery = "SELECT * FROM " + TABLE_COURSE
+				+ " LEFT JOIN " + TABLE_INSTRUCTOR + " USING ("
+				+ KEY_COURSE_INSTRUCTOR_ID + ")" + " WHERE " + KEY_COURSE_ID
+				+ " = " + "'" + courseID + "'";
+
+		final Cursor c = db.rawQuery(selectQuery, null);
+		if (c != null) {
+			return c;
+		} else {
+			return null;
+		}
+	}
+
+	// get all course enrolled by a given studentID
+	public Cursor getAllCourseEnrollByStudent(final String studentID) {
+		final SQLiteDatabase db = this.getReadableDatabase();
+		final String selectQuery = "SELECT * FROM " + TABLE_STUDENT_COURSE
+				+ " NATURAL JOIN " + TABLE_COURSE + " WHERE "
+				+ KEY_STUDENT_COURSE_IDSTUDENT + " = " + "'" + studentID + "'";
+		final Cursor c = db.rawQuery(selectQuery, null);
+		if (c != null) {
+			return c;
 		} else {
 			return null;
 		}

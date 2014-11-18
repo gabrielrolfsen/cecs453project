@@ -250,8 +250,11 @@ int drawable drawer_shadow 0x7f020058
 int drawable ic_drawer 0x7f020059
 int drawable ic_launcher 0x7f02005a
 int drawable ic_logo 0x7f02005b
-int drawable shadow 0x7f02005c
-int drawable shadowright 0x7f02005d
+int drawable ic_my_classes 0x7f02005c
+int drawable ic_my_grades 0x7f02005d
+int drawable ic_profile 0x7f02005e
+int drawable shadow 0x7f02005f
+int drawable shadowright 0x7f020060
 int id DrawerItemLayout 0x7f090058
 int id RelativeLayout1 0x7f09004c
 int id action_bar 0x7f09001c
@@ -292,7 +295,7 @@ int id homeAsUp 0x7f09000a
 int id icon 0x7f09002a
 int id ifRoom 0x7f090011
 int id image 0x7f090027
-int id imgDrawerItem 0x7f09005d
+int id imgDrawerItem 0x7f09005c
 int id imgLogo 0x7f09004d
 int id imgProfessor 0x7f090051
 int id lLayoutLogin 0x7f09003c
@@ -325,7 +328,6 @@ int id showTitle 0x7f09000d
 int id split_action_bar 0x7f09001e
 int id submit_area 0x7f090039
 int id tabMode 0x7f090008
-int id textView1 0x7f090045
 int id title 0x7f09002b
 int id top_action_bar 0x7f090020
 int id txtAppName 0x7f09004e
@@ -335,7 +337,7 @@ int id txtClassItemName 0x7f09005b
 int id txtClassItemNum 0x7f090059
 int id txtClassName 0x7f090053
 int id txtDrawerHeader 0x7f09005e
-int id txtDrawerItem 0x7f09005c
+int id txtDrawerItem 0x7f09005d
 int id txtLogin 0x7f09003d
 int id txtName 0x7f090048
 int id txtPass 0x7f09003f
@@ -346,6 +348,7 @@ int id txtProfName 0x7f09004f
 int id txtRegister 0x7f090042
 int id txtSectionHeader 0x7f090055
 int id txtSectionInfo 0x7f090056
+int id txtTapSmartTag 0x7f090045
 int id up 0x7f090021
 int id useLogo 0x7f09000e
 int id withText 0x7f090013

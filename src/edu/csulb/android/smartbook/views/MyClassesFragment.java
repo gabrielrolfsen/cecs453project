@@ -3,6 +3,7 @@ package edu.csulb.android.smartbook.views;
 import java.util.ArrayList;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import edu.csulb.android.smartbook.R;
@@ -27,51 +29,73 @@ public class MyClassesFragment extends Fragment {
 	ListView listMyClasses;
 	SQLiteDatabase db;
 	ArrayList<String> toAdd = new ArrayList<String>();
+	View view;
 
 	@Override
 	public View onCreateView(final LayoutInflater inflater,
 			final ViewGroup container, final Bundle savedInstanceState) {
-		final View view = inflater.inflate(R.layout.fragment_my_classes,
-				container, false);
-		listMyClasses = (ListView) view.findViewById(R.id.lstMyClasses);
-		queryData();
+		if (view == null) {
+			view = inflater.inflate(R.layout.fragment_my_classes, container,
+					false);
+			listMyClasses = (ListView) view.findViewById(R.id.lstMyClasses);
+			queryData();
 
-		classItemAdapter = new ClassItemAdapter(classList);
-		listMyClasses.setAdapter(classItemAdapter);
-
+			classItemAdapter = new ClassItemAdapter(classList);
+			if (listMyClasses.getAdapter() == null) {
+				listMyClasses.setAdapter(classItemAdapter);
+			}
+			listMyClasses.setOnItemClickListener(new ClassItemClickListener());
+		}
 		return view;
 	}
 
+	@Override
+	public void onSaveInstanceState(final Bundle outState) {
+		super.onSaveInstanceState(outState);
+
+	}
+
+	private class ClassItemClickListener implements
+	ListView.OnItemClickListener {
+		@Override
+		public void onItemClick(final AdapterView parent, final View view,
+				final int position, final long id) {
+
+			// Insert the fragment by replacing any existing fragment
+			final FragmentManager fragmentManager = getFragmentManager();
+			fragmentManager
+			.beginTransaction()
+					.replace(R.id.content_layout,
+					classList.get(position).getFragment())
+					.addToBackStack(null).commit();
+		}
+	}
+
 	private void queryData() {
-		Log.d("MyClassesFragment queryData()", "SELECT "
-				+ DatabaseHandler.KEY_STUDENT_ASSIGNMENT_IDCOURSE + " FROM "
-				+ DatabaseHandler.TABLE_STUDENT_COURSE + "WHERE "
-				+ DatabaseHandler.KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " = "
-				+ "\"" + "\"");
 		try {
 			final SharedPreferences pref = getActivity()
 					.getApplicationContext().getSharedPreferences(
 							LoginActivity.SESSION_PREF, 0);
 			final DatabaseHandler dbHandler = DatabaseHandler
 					.getInstance(getActivity().getApplicationContext());
-			db = dbHandler.getWritableDatabase();
-
-			// Not working (why?)
-			final Cursor c = db.rawQuery("SELECT "
-					+ DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE + " FROM "
-					+ DatabaseHandler.TABLE_STUDENT_COURSE + " WHERE "
-					+ DatabaseHandler.KEY_STUDENT_COURSE_IDSTUDENT + " = "
-					+ "\"" + pref.getString(LoginActivity.USER_ID, "") + "\"",
-					null);
+			final Cursor c = dbHandler.getAllCourseEnrollByStudent(pref
+					.getString(LoginActivity.USER_ID, ""));
 
 			if (c.getCount() > 0) {
 				if (c.moveToFirst()) {
 					do {
-						classList
-								.add(new ClassItem(
-										c.getString(c
-												.getColumnIndex(DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE)),
-										"Name", "Num", new ClassViewFragment()));
+						final String classId = c
+								.getString(c
+										.getColumnIndex(DatabaseHandler.KEY_STUDENT_COURSE_IDCOURSE));
+						final String className = c
+								.getString(c
+										.getColumnIndex(DatabaseHandler.KEY_COURSE_NAME));
+						// TODO: Change to classNum
+						final String classNum = c
+								.getString(c
+										.getColumnIndex(DatabaseHandler.KEY_COURSE_DAYS));
+						classList.add(new ClassItem(classId, className,
+								classNum, new ClassViewFragment(classId)));
 
 					} while (c.moveToNext());
 				}
