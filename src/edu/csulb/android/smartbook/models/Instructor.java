@@ -1,8 +1,3 @@
-/*
- * Class Name: Instructor.java
- * Description: Model object class for Instructor table
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.models;
 /**

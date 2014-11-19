@@ -1,8 +1,3 @@
-/*
- * Class Name: StudentAssignment.java
- * Description: Model object class for StudentAssignment table
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.models;
 /**
