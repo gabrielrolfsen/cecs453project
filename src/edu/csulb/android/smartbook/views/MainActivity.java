@@ -6,7 +6,6 @@ import java.util.Arrays;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.support.v4.app.FragmentManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,8 +19,8 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -36,6 +35,15 @@ import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.adapters.DrawerAdapter;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
+/**
+ * MainActivity: Manages all fragments through the NavigationDrawer and handles
+ * the NFC functionality.
+ *
+ * @author Gabriel Franzoni
+ * @author Joaquin Gonzales
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class MainActivity extends FragmentActivity {
 
 	private DrawerLayout mDrawerLayout;
@@ -55,9 +63,10 @@ public class MainActivity extends FragmentActivity {
 
 		final SharedPreferences pref = getSharedPreferences(
 				LoginActivity.SESSION_PREF, 0);
-		
-		//ClassViewFragment firstFragment = new ClassViewFragment();
-		//getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
+
+		// ClassViewFragment firstFragment = new ClassViewFragment();
+		// getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
+		// firstFragment).commit();
 
 		// Set the adapter for the list view
 		drawerItems.add(new DrawerItem(R.drawable.ic_profile, pref.getString(
@@ -135,7 +144,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private class DrawerItemClickListener implements
-	ListView.OnItemClickListener {
+			ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(
 				@SuppressWarnings("rawtypes") final AdapterView parent,
@@ -150,9 +159,9 @@ public class MainActivity extends FragmentActivity {
 		// Insert the fragment by replacing any existing fragment
 		final FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager
-				.beginTransaction()
-		.replace(R.id.content_layout,
-						drawerItems.get(position).getFragment())
+		.beginTransaction()
+				.replace(R.id.content_layout,
+				drawerItems.get(position).getFragment())
 				.addToBackStack(null).commit();
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
@@ -164,18 +173,18 @@ public class MainActivity extends FragmentActivity {
 		/* Creates a AlertDialog to ask the user if he wants to exit the app */
 		if (getFragmentManager().getBackStackEntryCount() == 0) {
 			new AlertDialog.Builder(this)
-			.setMessage("Are you sure you want to exit?")
-			.setNegativeButton("Cancel", null)
-			.setPositiveButton("OK",
-					new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(
-						final DialogInterface dialog,
-						final int which) {
-					finish();
-				}
+					.setMessage("Are you sure you want to exit?")
+					.setNegativeButton("Cancel", null)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(
+										final DialogInterface dialog,
+										final int which) {
+									finish();
+								}
 
-			}).show();
+							}).show();
 		} else {
 			getFragmentManager().popBackStack();
 		}
@@ -252,16 +261,21 @@ public class MainActivity extends FragmentActivity {
 		@Override
 		protected void onPostExecute(final String result) {
 			if (result != null) {
-				TextView smartTag = (TextView) findViewById(R.id.txtTapSmartTag);
+				final TextView smartTag = (TextView) findViewById(R.id.txtTapSmartTag);
 				smartTag.setVisibility(View.GONE);
-				
-				// Create fragment and give it an argument specifying the class it should show
-				ClassViewFragment newFragment = new ClassViewFragment(result);
 
-				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+				// Create fragment and give it an argument specifying the class
+				// it should show
+				final ClassViewFragment newFragment = new ClassViewFragment(
+						result);
 
-				// Replace whatever is in the fragment_container view with this fragment,
-				// and add the transaction to the back stack so the user can navigate back
+				final FragmentTransaction transaction = getSupportFragmentManager()
+						.beginTransaction();
+
+				// Replace whatever is in the fragment_container view with this
+				// fragment,
+				// and add the transaction to the back stack so the user can
+				// navigate back
 				transaction.replace(R.id.fragment_container, newFragment);
 				transaction.addToBackStack(null);
 

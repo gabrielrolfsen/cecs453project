@@ -18,6 +18,14 @@ import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
 import edu.csulb.android.smartbook.models.Student;
 
+/**
+ * LoginActivity: Handles login session, verify password/username using the
+ * local database.
+ *
+ * @author Gabriel Franzoni
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class LoginActivity extends Activity {
 
 	protected static final String SESSION_PREF = "sesPref";

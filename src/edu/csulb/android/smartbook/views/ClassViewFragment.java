@@ -1,8 +1,8 @@
 package edu.csulb.android.smartbook.views;
 
-import android.support.v4.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,14 @@ import android.widget.TextView;
 import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.db.DatabaseHandler;
 
+/**
+ * ClassViewFragment: Shows the info about determined class, info is gathered in
+ * the database by giving the class ID.
+ *
+ * @author Gabriel Franzoni
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class ClassViewFragment extends Fragment {
 
 	String mClassCode;
@@ -22,10 +30,10 @@ public class ClassViewFragment extends Fragment {
 	ImageView profImg;
 	TextView classInfo;
 
-	public ClassViewFragment() {
-
-	}
-
+	/**
+	 * @param classCode
+	 *            class Unique ID that is used to query data from the database.
+	 */
 	public ClassViewFragment(final String classCode) {
 		this.mClassCode = classCode;
 	}

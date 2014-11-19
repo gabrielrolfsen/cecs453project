@@ -11,6 +11,13 @@ import android.widget.TextView;
 import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.models.ClassItem;
 
+/**
+ * ClassItemAdapter: Manages MyClassesFragment's listView to display ClassItems
+ * 
+ * @author Gabriel Franzoni
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class ClassItemAdapter extends BaseAdapter {
 
 	private final ArrayList<ClassItem> classList;

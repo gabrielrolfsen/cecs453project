@@ -2,13 +2,13 @@ package edu.csulb.android.smartbook.views;
 
 import java.util.ArrayList;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,8 @@ import edu.csulb.android.smartbook.db.DatabaseHandler;
 import edu.csulb.android.smartbook.models.ClassItem;
 
 /**
- * MyClassesFragment <Description>
+ * MyClassesFragment: Shows all classes that the current logged in user is
+ * enrolled.
  *
  * @author Gabriel Franzoni
  * @version 1.0

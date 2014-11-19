@@ -234,9 +234,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		Log.d("Insert to Instructor", "Inserting...");
 		// Instructor table, insert demo data
-		db.execSQL("INSERT INTO Instructor VALUES ('E1111','1234','InsFN1','InsLN1','502','ECS','MonWed 1-3 pm','Instructor1@csulb.edu')");
-		db.execSQL("INSERT INTO Instructor VALUES ('E2222','1234','InsFN2','InsLN2','531','ECS','Thurday 4-6 pm','')");
-		db.execSQL("INSERT INTO Instructor VALUES ('E3333','1234','InsFN3','InsLN3','','','','')");
+		db.execSQL("INSERT INTO Instructor VALUES ('E1111','1234','John Hopkins','InsLN1','502','ECS','MonWed 1-3 pm','Instructor1@csulb.edu')");
+		db.execSQL("INSERT INTO Instructor VALUES ('E2222','1234','Albert Einstein','InsLN2','531','ECS','Thurday 4-6 pm','')");
+		db.execSQL("INSERT INTO Instructor VALUES ('E3333','1234','Erwin Schrödinger','InsLN3','','','','')");
 
 		Log.d("Insert to Course", "Inserting...");
 		// Course table, insert demo data
@@ -346,10 +346,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Assignment a = new Assignment((c.getString(c
 					.getColumnIndex(KEY_ASSIGNMENT_ID))), (c.getString(c
-							.getColumnIndex(KEY_ASSIGNMENT_NAME))), (c.getString(c
-									.getColumnIndex(KEY_ASSIGNMENT_DESCRIPTION))),
-									(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_DUEDATE))),
-									(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_URL))));
+					.getColumnIndex(KEY_ASSIGNMENT_NAME))), (c.getString(c
+					.getColumnIndex(KEY_ASSIGNMENT_DESCRIPTION))),
+					(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_DUEDATE))),
+					(c.getString(c.getColumnIndex(KEY_ASSIGNMENT_URL))));
 			return a;
 		} else {
 			return null;
@@ -371,9 +371,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Attendance a = new Attendance((c.getString(c
 					.getColumnIndex(KEY_ATTENDANCE_IDSTUDENT))), (c.getString(c
-							.getColumnIndex(KEY_ATTENDANCE_IDCOURSE))), (c.getString(c
-									.getColumnIndex(KEY_ATTENDANCE_DATE))), (c.getInt(c
-											.getColumnIndex(KEY_ATTENDANCE_PRESENT))));
+					.getColumnIndex(KEY_ATTENDANCE_IDCOURSE))), (c.getString(c
+					.getColumnIndex(KEY_ATTENDANCE_DATE))), (c.getInt(c
+					.getColumnIndex(KEY_ATTENDANCE_PRESENT))));
 			return a;
 		} else {
 			return null;
@@ -392,14 +392,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Course course = new Course((c.getString(c
 					.getColumnIndex(KEY_COURSE_ID))), (c.getString(c
-							.getColumnIndex(KEY_COURSE_NAME))), (c.getString(c
-									.getColumnIndex(KEY_COURSE_TYPE))), (c.getString(c
-											.getColumnIndex(KEY_COURSE_DAYS))), (c.getString(c
-													.getColumnIndex(KEY_COURSE_TIME))), (c.getString(c
-															.getColumnIndex(KEY_COURSE_LOCATION))), (c.getString(c
-																	.getColumnIndex(KEY_COURSE_SEMESTER))), (c.getString(c
-																			.getColumnIndex(KEY_COURSE_YEAR))), (c.getString(c
-																					.getColumnIndex(KEY_COURSE_INSTRUCTOR_ID))));
+					.getColumnIndex(KEY_COURSE_NAME))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_TYPE))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_DAYS))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_TIME))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_LOCATION))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_SEMESTER))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_YEAR))), (c.getString(c
+					.getColumnIndex(KEY_COURSE_INSTRUCTOR_ID))));
 			return course;
 		} else {
 			return null;
@@ -418,15 +418,15 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			c.moveToFirst();
 			final Instructor i = new Instructor((c.getString(c
 					.getColumnIndex(KEY_INSTRUCTOR_ID))), (c.getString(c
-							.getColumnIndex(KEY_INSTRUCTOR_PASS))), (c.getString(c
-									.getColumnIndex(KEY_INSTRUCTOR_FNAME))), (c.getString(c
-											.getColumnIndex(KEY_INSTRUCTOR_LNAME))), (c.getString(c
-													.getColumnIndex(KEY_INSTRUCTOR_OFFICE_ROOM))),
-													(c.getString(c
-															.getColumnIndex(KEY_INSTRUCTOR_OFFICE_BUILDING))),
-															(c.getString(c
-																	.getColumnIndex(KEY_INSTRUCTOR_OFFICE_DAYTIME))),
-																	(c.getString(c.getColumnIndex(KEY_INSTRUCTOR_EMAIL))));
+					.getColumnIndex(KEY_INSTRUCTOR_PASS))), (c.getString(c
+					.getColumnIndex(KEY_INSTRUCTOR_FNAME))), (c.getString(c
+					.getColumnIndex(KEY_INSTRUCTOR_LNAME))), (c.getString(c
+					.getColumnIndex(KEY_INSTRUCTOR_OFFICE_ROOM))),
+					(c.getString(c
+							.getColumnIndex(KEY_INSTRUCTOR_OFFICE_BUILDING))),
+					(c.getString(c
+							.getColumnIndex(KEY_INSTRUCTOR_OFFICE_DAYTIME))),
+					(c.getString(c.getColumnIndex(KEY_INSTRUCTOR_EMAIL))));
 			return i;
 		} else {
 			return null;
@@ -450,12 +450,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			final StudentAssignment sa = new StudentAssignment(
 					(c.getString(c
 							.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDSTUDENT))),
-							(c.getString(c
-									.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDCOURSE))),
-									(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_NAME))),
-									(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_GRADE))),
-									(c.getString(c
-											.getColumnIndex(KEY_STUDENT_ASSIGNMENT_COMMENT))));
+					(c.getString(c
+							.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDCOURSE))),
+					(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_NAME))),
+					(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_GRADE))),
+					(c.getString(c
+							.getColumnIndex(KEY_STUDENT_ASSIGNMENT_COMMENT))));
 			return sa;
 		} else {
 			return null;

@@ -11,7 +11,8 @@ import android.widget.TextView;
 import edu.csulb.android.smartbook.R;
 
 /**
- * MyProfileFragment <Description>
+ * MyProfileFragment: User profile, shows all data from the current logged user,
+ * data gathered from SharedPreferences
  *
  * @author Gabriel Franzoni
  * @version 1.0
@@ -26,7 +27,6 @@ public class MyProfileFragment extends Fragment {
 	ImageView userImg;
 
 	public MyProfileFragment() {
-
 	}
 
 	@Override
@@ -44,6 +44,9 @@ public class MyProfileFragment extends Fragment {
 		return view;
 	}
 
+	/**
+	 * getData(): get data from SharedPreferences and populate the TextViews
+	 */
 	public void getData() {
 		final SharedPreferences pref = getActivity().getSharedPreferences(
 				LoginActivity.SESSION_PREF, 0);
@@ -52,7 +55,7 @@ public class MyProfileFragment extends Fragment {
 		userID.setText("#"
 				+ pref.getString(LoginActivity.USER_ID, "#000000000"));
 		userMajor
-				.setText(pref.getString(LoginActivity.USER_MAJOR, "Undefined"));
+		.setText(pref.getString(LoginActivity.USER_MAJOR, "Undefined"));
 
 	}
 

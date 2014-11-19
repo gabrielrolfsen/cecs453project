@@ -12,6 +12,13 @@ import android.widget.TextView;
 import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
+/**
+ * DrawerAdapter: Manages NavigationDrawer Items
+ *
+ * @author Gabriel Franzoni
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class DrawerAdapter extends BaseAdapter {
 
 	private static final int TYPE_HEADER = 0;
