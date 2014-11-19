@@ -1,21 +1,21 @@
-/*
- * Class Name: Assignment.java
- * Description: Model object class for Assignment table
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.models;
-
+/**
+ * 
+ * Assignment : Model object class for Assignment table in database
+ * 
+ *
+ * @author Hao Vo
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class Assignment {
 	
-
-
 	String IdCourse;
 	String aName;
 	String aDescription;
 	String aDuedate;
 	String aURL;
-
 	
 	//constructors
 	public Assignment(){

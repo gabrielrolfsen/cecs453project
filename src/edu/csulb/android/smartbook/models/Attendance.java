@@ -1,11 +1,14 @@
-/*
- * Class Name: Attendance.java
- * Description: Model object class for Attendance table
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.models;
-
+/**
+ * 
+ * Attendance : Model object class for Attendance table  in database
+ *  
+ *
+ * @author Hao Vo
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class Attendance {
 	
 	String IdStudent;

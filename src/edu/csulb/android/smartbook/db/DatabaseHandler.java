@@ -1,6 +1,6 @@
 /*
  * Class Name: DatabaseHandler.java
- * Description: Handle create sample database with sample data to use in the project
+ * Description: 
  * Author: Hao Vo
  */
 
@@ -18,7 +18,15 @@ import edu.csulb.android.smartbook.models.Instructor;
 import edu.csulb.android.smartbook.models.Student;
 import edu.csulb.android.smartbook.models.StudentAssignment;
 import edu.csulb.android.smartbook.models.StudentCourse;
-
+/**
+ * 
+ * DatabaseHandler :Handle create sample database with sample data to use in the project
+ *  
+ *
+ * @author Hao Vo
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
 	private static DatabaseHandler mDatabase;

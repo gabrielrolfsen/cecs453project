@@ -5,7 +5,15 @@
  */
 
 package edu.csulb.android.smartbook.models;
-
+/**
+ * 
+ * Course : Model object class for Course table in database
+ *  
+ *
+ * @author Hao Vo
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class Course {
 	
 	String IdCourse;

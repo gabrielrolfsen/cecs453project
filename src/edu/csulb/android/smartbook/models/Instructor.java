@@ -5,7 +5,15 @@
  */
 
 package edu.csulb.android.smartbook.models;
-
+/**
+ * 
+ * Instructor : Model object class for database Instructor table
+ *  
+ *
+ * @author Hao Vo
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class Instructor {
 	
 	String IdInstructor;

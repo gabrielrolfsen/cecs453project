@@ -1,11 +1,14 @@
-/*
- * Class Name: Student.java
- * Description: Model object class for Student table
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.models;
-
+/**
+ * 
+ * Student : Model object class for database Student table
+ * 
+ *
+ * @author Hao Vo
+ * @version 1.0
+ * @since Nov 19, 2014
+ */
 public class Student {
 	
 
