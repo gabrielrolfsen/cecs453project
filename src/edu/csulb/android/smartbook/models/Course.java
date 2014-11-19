@@ -1,8 +1,3 @@
-/*
- * Class Name: Course.java
- * Description: Model object class for Course table
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.models;
 /**

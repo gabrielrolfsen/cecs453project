@@ -1,8 +1,3 @@
-/*
- * Class Name: DatabaseHandler.java
- * Description: 
- * Author: Hao Vo
- */
 
 package edu.csulb.android.smartbook.db;
 
