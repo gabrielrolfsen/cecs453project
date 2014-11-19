@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.FragmentManager;
+import android.support.v4.app.FragmentManager;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +20,9 @@ import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -27,12 +30,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.adapters.DrawerAdapter;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity {
 
 	private DrawerLayout mDrawerLayout;
 
@@ -51,10 +55,13 @@ public class MainActivity extends Activity {
 
 		final SharedPreferences pref = getSharedPreferences(
 				LoginActivity.SESSION_PREF, 0);
+		
+		//ClassViewFragment firstFragment = new ClassViewFragment();
+		//getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, firstFragment).commit();
 
 		// Set the adapter for the list view
 		drawerItems.add(new DrawerItem(R.drawable.ic_profile, pref.getString(
-				LoginActivity.USER_ID, ""), new MyProfileFragment()));
+				LoginActivity.USER_ID, ""), new MyClassesFragment()));
 		drawerItems.add(new DrawerItem(R.drawable.ic_my_classes, "My Classes",
 				new MyClassesFragment()));
 		drawerItems.add(new DrawerItem("Header"));
@@ -141,7 +148,7 @@ public class MainActivity extends Activity {
 	private void selectItem(final int position) {
 
 		// Insert the fragment by replacing any existing fragment
-		final FragmentManager fragmentManager = getFragmentManager();
+		final FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager
 				.beginTransaction()
 		.replace(R.id.content_layout,
@@ -245,6 +252,21 @@ public class MainActivity extends Activity {
 		@Override
 		protected void onPostExecute(final String result) {
 			if (result != null) {
+				TextView smartTag = (TextView) findViewById(R.id.txtTapSmartTag);
+				smartTag.setVisibility(View.GONE);
+				
+				// Create fragment and give it an argument specifying the class it should show
+				ClassViewFragment newFragment = new ClassViewFragment(result);
+
+				FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+				// Replace whatever is in the fragment_container view with this fragment,
+				// and add the transaction to the back stack so the user can navigate back
+				transaction.replace(R.id.fragment_container, newFragment);
+				transaction.addToBackStack(null);
+
+				// Commit the transaction
+				transaction.commit();
 				Toast.makeText(getApplicationContext(),
 						"Read content: " + result, Toast.LENGTH_SHORT).show();
 			}

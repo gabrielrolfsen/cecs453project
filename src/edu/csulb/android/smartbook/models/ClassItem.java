@@ -1,6 +1,6 @@
 package edu.csulb.android.smartbook.models;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 
 public class ClassItem {
 	private final String code;
