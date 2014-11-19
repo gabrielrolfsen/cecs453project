@@ -8,6 +8,8 @@ package edu.csulb.android.smartbook.models;
 
 public class Student {
 	
+
+
 	String IdStudent;
 	String sPassword;
 	String sFirstName;
@@ -15,13 +17,15 @@ public class Student {
 	String sDateOfBirth;
 	String sEmail;
 	String sPhone;
+	String sMajor;
 	
 	//constructors
 	public Student(){
 	}
 	
 	public Student(String idStudent, String sPassword, String sFirstName,
-			String sLastName, String sDateOfBirth, String sEmail, String sPhone) {
+			String sLastName, String sDateOfBirth, String sEmail,
+			String sPhone, String sMajor) {
 		super();
 		IdStudent = idStudent;
 		this.sPassword = sPassword;
@@ -30,6 +34,7 @@ public class Student {
 		this.sDateOfBirth = sDateOfBirth;
 		this.sEmail = sEmail;
 		this.sPhone = sPhone;
+		this.sMajor = sMajor;
 	}
 
 	public Student(String id){
@@ -64,6 +69,10 @@ public class Student {
 	public String getsPhone() {
 		return sPhone;
 	}
+	
+	public String getsMajor() {
+		return this.sMajor;
+	}
 
 	//setters
 	public void setIdStudent(String idStudent) {
@@ -93,6 +102,11 @@ public class Student {
 	public void setsPhone(String sPhone) {
 		this.sPhone = sPhone;
 	}
+
+	public void setsMajor(String sMajor) {
+		this.sMajor = sMajor;
+	}
+	
 	
 
 }
