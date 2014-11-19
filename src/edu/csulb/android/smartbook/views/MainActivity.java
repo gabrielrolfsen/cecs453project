@@ -190,7 +190,11 @@ public class MainActivity extends FragmentActivity {
 		}
 
 	}
-
+	
+// The code after this comment comes from an online tutorial and has only been tweaked to
+// apply to our project specifically. Joaquin Gonzalez made all changes in this section.
+// The tutorial is located at: http://code.tutsplus.com/tutorials/reading-nfc-tags-with-android--mobile-17278
+	
 	/**
 	 * Background task for reading the data. Do not block the UI thread while
 	 * reading.
