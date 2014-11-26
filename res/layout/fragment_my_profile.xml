@@ -9,23 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.csulb.android.smartbook.views.ClassViewFragment" >
 
-    <ImageView
-        android:id="@+id/imgUserProfile"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/student_example" />
-
     <TextView
         android:id="@+id/txtUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgUserProfile"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="15dp"
         android:textSize="20sp"
         android:text="@string/student_name_example" />
 
@@ -33,9 +23,9 @@
         android:id="@+id/txtUserMajor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtUserName"
+        android:layout_below="@+id/txtUserId"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
+        android:layout_marginTop="5dp"
         android:text="@string/student_major_example" />
 
     <TextView
@@ -44,7 +34,52 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtUserName"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="5dp"
         android:text="@string/student_id_example" />
+
+    <SeekBar
+        android:id="@+id/skbVolumeNotifications"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/swtNotifications"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:id="@+id/txtVolumeNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/skbVolumeNotifications"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/swtNotifications"
+        android:text="@string/volume" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/skbVolumeNotifications"
+        android:layout_alignRight="@+id/skbVolumeNotifications"
+        android:layout_below="@+id/skbVolumeNotifications"
+        android:text="@string/vibration" />
+
+    <Switch
+        android:id="@+id/swtNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtUserMajor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/enable_notifications" />
+
+    <ImageView
+        android:id="@+id/imgUserProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/student_example" />
 
 </RelativeLayout>

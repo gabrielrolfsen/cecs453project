@@ -31,7 +31,9 @@ public class LoginActivity extends Activity {
 	protected static final String SESSION_PREF = "sesPref";
 	protected static final String SESSION_KEY = "SESSION_STATUS";
 	protected static final String USER_ID = "USER_LOGIN";
-	protected static final String USER_NAME = "USER_NAME";
+	protected static final String USER_FNAME = "USER_FNAME";
+	protected static final String USER_LNAME = "USER_LNAME";
+	protected static final String USER_MAIL = "USER_MAIL";
 	protected static final String USER_MAJOR = "USER_MAJOR";
 
 	Button btnLogin;
@@ -97,9 +99,10 @@ public class LoginActivity extends Activity {
 		if (st != null && st.getsPassword().equals(pass)) {
 			prefEditor.putBoolean(SESSION_KEY, true);
 			prefEditor.putString(USER_ID, login);
-			prefEditor.putString(USER_NAME, st.getsFirstName());
-			// TODO: change to st.getMajor();
-			prefEditor.putString(USER_MAJOR, st.getsEmail());
+			prefEditor.putString(USER_FNAME, st.getsFirstName());
+			prefEditor.putString(USER_LNAME, st.getsLastName());
+			prefEditor.putString(USER_MAIL, st.getsEmail());
+			prefEditor.putString(USER_MAJOR, st.getsMajor());
 			prefEditor.commit();
 			return true;
 		}

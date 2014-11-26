@@ -71,7 +71,7 @@ public class MyClassesFragment extends Fragment {
 	 * @since Nov 18, 2014
 	 */
 	private class ClassItemClickListener implements
-			ListView.OnItemClickListener {
+	ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(final AdapterView parent, final View view,
 				final int position, final long id) {
@@ -80,9 +80,9 @@ public class MyClassesFragment extends Fragment {
 			final FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager
 
-					.beginTransaction()
-			.replace(R.id.content_layout,
-							classList.get(position).getFragment())
+			.beginTransaction()
+					.replace(R.id.content_layout,
+					classList.get(position).getFragment())
 					.addToBackStack(null).commit();
 		}
 	}

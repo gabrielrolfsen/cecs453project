@@ -14,7 +14,8 @@
     <RelativeLayout
         android:id="@+id/content_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" >
 
         <TextView
             android:id="@+id/txtTapSmartTag"
@@ -24,7 +25,26 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="69dp"
             android:text="Tap Smart Tag"
+            android:textColor="#000000"
+            android:textSize="40sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/txtSwipeToSeeMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:text="Swipe right to see the menu" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/bk_0" />
         
         </RelativeLayout>
     
@@ -34,7 +54,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
-        android:divider="#FFFFFF"
         android:dividerHeight="1dp"
         android:background="#111"/>
     

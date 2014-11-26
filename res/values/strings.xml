@@ -41,5 +41,14 @@
     <string name="student_id_example">#012719234</string>
     <string name="student_major_example">Computer Engineering</string>
     <string name="image_descriptor_professor">Professor Image</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="volume">Volume</string>
+    <string name="vibration">Vibration</string>
+    <string name="header_example">Header Example</string>
+    <string name="menu_item">Menu Item</string>
+    <string name="name">Name</string>
+    <string name="btn_confirm_changes">Confirm Changes</string>
+    <string name="email">E-mail</string>
+    <string name="edit_photo">Edit Photo</string>
 
 </resources>

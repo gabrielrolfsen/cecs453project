@@ -13,7 +13,7 @@
         android:layout_alignBottom="@+id/txtDrawerItem"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="@+id/imgDrawerItem"
-        android:layout_marginLeft="5dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:adjustViewBounds="true"
@@ -30,6 +30,6 @@
         android:layout_marginTop="15dp"
         android:layout_toRightOf="@+id/imgDrawerItem"
         android:layout_toEndOf="@+id/imgDrawerItem"
-        android:text="Menu Item" />
+        android:text="@string/menu_item" />
 
 </RelativeLayout>

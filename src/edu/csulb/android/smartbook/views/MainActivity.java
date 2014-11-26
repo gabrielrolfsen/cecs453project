@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
@@ -61,22 +62,25 @@ public class MainActivity extends FragmentActivity {
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-		final SharedPreferences pref = getSharedPreferences(
-				LoginActivity.SESSION_PREF, 0);
+		final TextView myTextView = (TextView) findViewById(R.id.txtTapSmartTag);
+		final Typeface myTypeface = Typeface.createFromAsset(getAssets(),
+				"fonts/stheitiultralight.ttf");
+		myTextView.setTypeface(myTypeface);
+
+		// BitmapFactory.Options options = new BitmapFactory.Options();
+		// options.inJustDecodeBounds = true;
+		// BitmapFactory.decodeResource(getResources(), R.id.myimage, options);
+		// int imageHeight = options.outHeight;
+		// int imageWidth = options.outWidth;
+		// String imageType = options.outMimeType;
 
 		// ClassViewFragment firstFragment = new ClassViewFragment();
 		// getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,
 		// firstFragment).commit();
 
 		// Set the adapter for the list view
-		drawerItems.add(new DrawerItem(R.drawable.ic_profile, pref.getString(
-				LoginActivity.USER_ID, ""), new MyClassesFragment()));
-		drawerItems.add(new DrawerItem(R.drawable.ic_my_classes, "My Classes",
-				new MyClassesFragment()));
-		drawerItems.add(new DrawerItem("Header"));
-		drawerItems.add(new DrawerItem(R.drawable.ic_my_grades, "My Grades",
-				new MyClassesFragment()));
-		mDrawerList.setAdapter(new DrawerAdapter(drawerItems));
+
+		createNavigationDrawer();
 
 		// Set the list's click listener
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
@@ -96,6 +100,24 @@ public class MainActivity extends FragmentActivity {
 		}
 
 		handleNfcIntent(getIntent());
+	}
+
+	private void createNavigationDrawer() {
+		final SharedPreferences pref = getSharedPreferences(
+				LoginActivity.SESSION_PREF, 0);
+
+		drawerItems.add(new DrawerItem("Current Session"));
+		drawerItems.add(new DrawerItem(R.drawable.ic_profile, pref.getString(
+				LoginActivity.USER_FNAME, "Undef.")
+				+ " "
+				+ pref.getString(LoginActivity.USER_LNAME, "Undef."),
+				new MyProfileFragment()));
+		drawerItems.add(new DrawerItem(R.drawable.ic_my_classes, "My Classes",
+				new MyClassesFragment()));
+		drawerItems.add(new DrawerItem("Smart Menu"));
+		drawerItems.add(new DrawerItem(R.drawable.ic_my_grades, "My Grades",
+				new MyClassesFragment()));
+		mDrawerList.setAdapter(new DrawerAdapter(drawerItems));
 	}
 
 	@Override
@@ -190,11 +212,14 @@ public class MainActivity extends FragmentActivity {
 		}
 
 	}
-	
-// The code after this comment comes from an online tutorial and has only been tweaked to
-// apply to our project specifically. Joaquin Gonzalez made all changes in this section.
-// The tutorial is located at: http://code.tutsplus.com/tutorials/reading-nfc-tags-with-android--mobile-17278
-	
+
+	// The code after this comment comes from an online tutorial and has only
+	// been tweaked to
+	// apply to our project specifically. Joaquin Gonzalez made all changes in
+	// this section.
+	// The tutorial is located at:
+	// http://code.tutsplus.com/tutorials/reading-nfc-tags-with-android--mobile-17278
+
 	/**
 	 * Background task for reading the data. Do not block the UI thread while
 	 * reading.

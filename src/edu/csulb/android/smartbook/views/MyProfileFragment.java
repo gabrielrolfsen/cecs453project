@@ -1,8 +1,8 @@
 package edu.csulb.android.smartbook.views;
 
-import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,12 +50,12 @@ public class MyProfileFragment extends Fragment {
 	public void getData() {
 		final SharedPreferences pref = getActivity().getSharedPreferences(
 				LoginActivity.SESSION_PREF, 0);
-		userName.setText(pref.getString(LoginActivity.USER_NAME,
-				"Undefined User"));
+		userName.setText(pref.getString(LoginActivity.USER_FNAME, "Undefined")
+				+ " " + pref.getString(LoginActivity.USER_LNAME, "Undefined"));
 		userID.setText("#"
 				+ pref.getString(LoginActivity.USER_ID, "#000000000"));
 		userMajor
-		.setText(pref.getString(LoginActivity.USER_MAJOR, "Undefined"));
+				.setText(pref.getString(LoginActivity.USER_MAJOR, "Undefined"));
 
 	}
 

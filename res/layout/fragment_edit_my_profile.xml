@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.csulb.android.smartbook.views.ClassViewFragment" >
+
+    <ImageView
+        android:id="@+id/imgUserProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/student_example" />
+
+    <TextView
+        android:id="@+id/txtStudent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtEditName"
+        android:layout_below="@+id/txtEditName"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/name_example" />
+
+    <TextView
+        android:id="@+id/txtViewStudentID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtEditName"
+        android:layout_below="@+id/txtStudent"
+        android:layout_marginTop="10dp"
+        android:text="@string/student_id" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtStudent"
+        android:layout_below="@+id/txtViewStudentID"
+        android:layout_marginTop="5dp"
+        android:text="@string/student_id_example" />
+
+    <TextView
+        android:id="@+id/txtEditName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgUserProfile"
+        android:layout_marginTop="17dp"
+        android:layout_toLeftOf="@+id/imgUserProfile"
+        android:text="@string/name" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/imgUserProfile"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/EditText02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TextView02"
+        android:layout_below="@+id/TextView02"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnConfirmEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_confirm_changes" />
+
+    <TextView
+        android:id="@+id/txtEditPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgUserProfile"
+        android:layout_centerHorizontal="true"
+        android:textSize="12sp"
+        android:text="@string/edit_photo" />
+
+</RelativeLayout>

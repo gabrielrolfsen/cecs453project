@@ -1,5 +1,5 @@
-
 package edu.csulb.android.smartbook.models;
+
 /**
  * 
  * Student : Model object class for database Student table
@@ -10,8 +10,6 @@ package edu.csulb.android.smartbook.models;
  * @since Nov 19, 2014
  */
 public class Student {
-	
-
 
 	String IdStudent;
 	String sPassword;
@@ -21,11 +19,11 @@ public class Student {
 	String sEmail;
 	String sPhone;
 	String sMajor;
-	
-	//constructors
-	public Student(){
+
+	// constructors
+	public Student() {
 	}
-	
+
 	public Student(String idStudent, String sPassword, String sFirstName,
 			String sLastName, String sDateOfBirth, String sEmail,
 			String sPhone, String sMajor) {
@@ -40,11 +38,11 @@ public class Student {
 		this.sMajor = sMajor;
 	}
 
-	public Student(String id){
+	public Student(String id) {
 		IdStudent = id;
 	}
 
-	//getters
+	// getters
 	public String getIdStudent() {
 		return IdStudent;
 	}
@@ -72,12 +70,12 @@ public class Student {
 	public String getsPhone() {
 		return sPhone;
 	}
-	
+
 	public String getsMajor() {
 		return this.sMajor;
 	}
 
-	//setters
+	// setters
 	public void setIdStudent(String idStudent) {
 		IdStudent = idStudent;
 	}
@@ -109,7 +107,5 @@ public class Student {
 	public void setsMajor(String sMajor) {
 		this.sMajor = sMajor;
 	}
-	
-	
 
 }
