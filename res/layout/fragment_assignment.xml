@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?android:attr/colorBackground"
+    android:background="#FFFFFF"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -16,6 +16,7 @@
 	    android:layout_marginLeft="15dp"
 	    android:layout_marginTop="15dp"
 	    android:text="@string/class_code_example"
+	    android:textColor="#000000"
 	    android:textSize="25sp" />
 
 	<TextView
@@ -24,7 +25,8 @@
 	    android:layout_height="wrap_content"  
 	    android:layout_below="@id/txtFragmentAssignCourseID"
 	    android:layout_marginTop="5dp"
-	    android:layout_marginLeft="15dp"    
+	    android:layout_marginLeft="15dp"   
+	    android:textColor="#000000" 
 	    android:text="@string/class_name_example" />
 
 	<TextView
@@ -36,6 +38,7 @@
 	    android:layout_marginTop="35dp"
 	    android:text="Name:"
 	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:textColor="#000000"
 	    android:textStyle="bold" />
 	
 	<TextView
@@ -47,6 +50,7 @@
 	    android:layout_marginTop="35dp"
 	    android:layout_marginLeft="15dp"    
 	    android:text="Assignment 1"
+	    android:textColor="#000000"
 	    android:textAppearance="?android:attr/textAppearanceMedium" />
 	
 	<TextView
@@ -57,6 +61,7 @@
 	    android:layout_marginLeft="15dp"
 	    android:layout_marginTop="25dp"
 	    android:text="Due:"
+	    android:textColor="#000000"
 	    android:textAppearance="?android:attr/textAppearanceMedium"
 	    android:textStyle="bold" />
 	
@@ -69,6 +74,7 @@
 	    android:layout_marginTop="25dp"
 	    android:layout_marginLeft="15dp"    
 	    android:text="11-20-2014"
+	    android:textColor="#000000"
 	    android:textAppearance="?android:attr/textAppearanceMedium" />
 		
 	<TextView
@@ -80,6 +86,7 @@
 	    android:layout_marginTop="25dp"
 	    android:text="Description:"
 	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:textColor="#000000"
 	    android:textStyle="bold" />
 	
 	<TextView
@@ -90,6 +97,7 @@
 	    android:layout_marginTop="5dp"
 	    android:layout_marginLeft="25dp"    
 	    android:text="This is assignment 1 that due on 11-20-2014"
+	    android:textColor="#000000"
 	    android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

@@ -25,7 +25,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
@@ -116,9 +115,11 @@ public class MainActivity extends FragmentActivity {
 				+ " "
 				+ pref.getString(LoginActivity.USER_LNAME, "Undef."),
 				new MyProfileFragment()));
+		drawerItems.add(new DrawerItem("Smart Menu"));
 		drawerItems.add(new DrawerItem(R.drawable.ic_my_classes, "My Classes",
 				new MyClassesFragment()));
-		drawerItems.add(new DrawerItem("Smart Menu"));
+		drawerItems.add(new DrawerItem(R.drawable.ic_paperstack,
+				"My Assignments", new MyClassesFragment()));
 		drawerItems.add(new DrawerItem(R.drawable.ic_my_grades, "My Grades",
 				new MyClassesFragment()));
 		mDrawerList.setAdapter(new DrawerAdapter(drawerItems));
@@ -305,32 +306,28 @@ public class MainActivity extends FragmentActivity {
 				final ClassViewFragment newFragment = new ClassViewFragment(
 						result);
 				final FragmentManager fragmentManager = getSupportFragmentManager();
-				
-				fragmentManager
-				.beginTransaction()
-						.replace(R.id.content_layout,
-						newFragment)
-						.addToBackStack(null).commit();
-				
-				SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-				String currentDate = sdf.format(new Date());
-				
-				final SharedPreferences pref = getApplicationContext().getSharedPreferences(
-								LoginActivity.SESSION_PREF, 0);
-				String id = pref
-				.getString(LoginActivity.USER_ID, "");
-				
+
+				fragmentManager.beginTransaction()
+						.replace(R.id.content_layout, newFragment)
+				.addToBackStack(null).commit();
+
+				final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+				final String currentDate = sdf.format(new Date());
+
+				final SharedPreferences pref = getApplicationContext()
+						.getSharedPreferences(LoginActivity.SESSION_PREF, 0);
+				final String id = pref.getString(LoginActivity.USER_ID, "");
+
 				Log.d("Current Date: ", currentDate);
-				
-				if(dbHandler.addAttendance(id, result, currentDate, 2))
-				{
+
+				if (dbHandler.addAttendance(id, result, currentDate, 2)) {
 					Toast.makeText(getApplicationContext(),
-						"You have checked in to class: " + result, Toast.LENGTH_SHORT).show();
-				}
-				else
-				{
+							"You have checked in to class: " + result,
+							Toast.LENGTH_SHORT).show();
+				} else {
 					Toast.makeText(getApplicationContext(),
-							"Could not check in to class: " + result, Toast.LENGTH_SHORT).show();
+							"Could not check in to class: " + result,
+							Toast.LENGTH_SHORT).show();
 				}
 			}
 		}
