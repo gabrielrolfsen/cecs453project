@@ -297,8 +297,15 @@ public class MainActivity extends FragmentActivity {
 				// it should show
 				final ClassViewFragment newFragment = new ClassViewFragment(
 						result);
+				final FragmentManager fragmentManager = getSupportFragmentManager();
+				
+				fragmentManager
+				.beginTransaction()
+						.replace(R.id.content_layout,
+						newFragment)
+						.addToBackStack(null).commit();
 
-				final FragmentTransaction transaction = getSupportFragmentManager()
+				/*final FragmentTransaction transaction = getSupportFragmentManager()
 						.beginTransaction();
 
 				// Replace whatever is in the fragment_container view with this
@@ -309,7 +316,7 @@ public class MainActivity extends FragmentActivity {
 				transaction.addToBackStack(null);
 
 				// Commit the transaction
-				transaction.commit();
+				transaction.commit();*/
 				Toast.makeText(getApplicationContext(),
 						"Read content: " + result, Toast.LENGTH_SHORT).show();
 			}

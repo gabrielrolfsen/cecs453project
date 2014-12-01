@@ -53,6 +53,11 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 	public ClassViewFragment(final String classCode) {
 		this.mClassCode = classCode;
 	}
+	
+	public ClassViewFragment()
+	{
+		
+	}
 
 	@Override
 	public View onCreateView(final LayoutInflater inflater,
