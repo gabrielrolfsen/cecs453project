@@ -34,8 +34,6 @@
         android:id="@+id/relativeLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtClassName"
-        android:layout_alignRight="@+id/txtClassName"
         android:layout_below="@+id/txtClassName"
         android:layout_marginTop="21dp" >
 
@@ -98,5 +96,30 @@
         android:layout_below="@+id/txtSectionHeder"
         android:layout_marginTop="21dp"
         android:text="@string/section_info_example" />
+
+    <Button
+        android:id="@+id/btnAssignmentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtSectionInfo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Assignment List" />
+
+    <Button
+        android:id="@+id/btnStudentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAssignmentList"
+        android:layout_centerHorizontal="true"
+        android:text="Student List" />
+
+    <Button
+        android:id="@+id/btnAttendanceList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnStudentList"
+        android:layout_below="@+id/btnStudentList"
+        android:text="Attendance List" />
 
 </RelativeLayout>

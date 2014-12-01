@@ -193,7 +193,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public void onBackPressed() {
 		/* Creates a AlertDialog to ask the user if he wants to exit the app */
-		if (getFragmentManager().getBackStackEntryCount() == 0) {
+		if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
 			new AlertDialog.Builder(this)
 					.setMessage("Are you sure you want to exit?")
 					.setNegativeButton("Cancel", null)
@@ -208,7 +208,7 @@ public class MainActivity extends FragmentActivity {
 
 							}).show();
 		} else {
-			getFragmentManager().popBackStack();
+			getSupportFragmentManager().popBackStack();
 		}
 
 	}

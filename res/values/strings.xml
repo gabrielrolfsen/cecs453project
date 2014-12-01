@@ -50,5 +50,6 @@
     <string name="btn_confirm_changes">Confirm Changes</string>
     <string name="email">E-mail</string>
     <string name="edit_photo">Edit Photo</string>
+    <string name="fragment_course_title">CECS 453 - ListDescribe</string>
 
 </resources>

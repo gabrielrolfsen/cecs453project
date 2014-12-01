@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/colorBackground"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+    
+	<TextView
+	    android:id="@+id/txtFragmentAssignCourseID"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="15dp"
+	    android:layout_marginTop="15dp"
+	    android:text="@string/class_code_example"
+	    android:textSize="25sp" />
+
+	<TextView
+		android:id="@+id/txtFragmentAssignCourseName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"  
+	    android:layout_below="@id/txtFragmentAssignCourseID"
+	    android:layout_marginTop="5dp"
+	    android:layout_marginLeft="15dp"    
+	    android:text="@string/class_name_example" />
+
+	<TextView
+	    android:id="@+id/txtAssignmentName"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/txtFragmentAssignCourseName"
+	    android:layout_marginLeft="15dp"
+	    android:layout_marginTop="35dp"
+	    android:text="Name:"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:textStyle="bold" />
+	
+	<TextView
+	    android:id="@+id/txtAssignmentNameValue"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/txtFragmentAssignCourseName"
+	    android:layout_toRightOf="@id/txtAssignmentName"
+	    android:layout_marginTop="35dp"
+	    android:layout_marginLeft="15dp"    
+	    android:text="Assignment 1"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	<TextView
+	    android:id="@+id/txtAssignmentDue"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/txtAssignmentName"
+	    android:layout_marginLeft="15dp"
+	    android:layout_marginTop="25dp"
+	    android:text="Due:"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:textStyle="bold" />
+	
+	<TextView
+	    android:id="@+id/txtAssignmentDueValue"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/txtAssignmentName"
+	    android:layout_toRightOf="@id/txtAssignmentDue"
+	    android:layout_marginTop="25dp"
+	    android:layout_marginLeft="15dp"    
+	    android:text="11-20-2014"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+		
+	<TextView
+	    android:id="@+id/txtAssignmentDescription"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/txtAssignmentDue"
+	    android:layout_marginLeft="15dp"
+	    android:layout_marginTop="25dp"
+	    android:text="Description:"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:textStyle="bold" />
+	
+	<TextView
+	    android:id="@+id/txtAssignmentDescriptionValue"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/txtAssignmentDescription"
+	    android:layout_marginTop="5dp"
+	    android:layout_marginLeft="25dp"    
+	    android:text="This is assignment 1 that due on 11-20-2014"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

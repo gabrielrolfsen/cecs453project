@@ -1,6 +1,7 @@
 package edu.csulb.android.smartbook.views;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -25,26 +26,33 @@ import edu.csulb.android.smartbook.models.ClassItem;
  * MyClassesFragment: Shows all classes that the current logged in user is
  * enrolled.
  *
+ * Hao Vo, modifier - change some stuff to fix a bug that cause list on ListView
+ * keep adding same items to the list when use back button or call from 
+ * slide menu
+ *
  * @author Gabriel Franzoni
  * @version 1.0
  * @since Nov 18, 2014
  */
 public class MyClassesFragment extends Fragment {
 
-	ArrayAdapter<String> mAdapter;
+//	ArrayAdapter<String> mAdapter;
 	ClassItemAdapter classItemAdapter;
-	ArrayList<ClassItem> classList = new ArrayList<ClassItem>();
+	ArrayList<ClassItem> classList;
 	ListView listMyClasses;
 	SQLiteDatabase db;
-	ArrayList<String> toAdd = new ArrayList<String>();
+//	ArrayList<String> toAdd = new ArrayList<String>();
 	View view;
 
 	@Override
 	public View onCreateView(final LayoutInflater inflater,
 			final ViewGroup container, final Bundle savedInstanceState) {
-		if (view == null) {
+		
+		classList = new ArrayList<ClassItem>();
+//		if (view == null) {
 			view = inflater.inflate(R.layout.fragment_my_classes, container,
 					false);
+
 			listMyClasses = (ListView) view.findViewById(R.id.lstMyClasses);
 			queryData();
 
@@ -53,16 +61,16 @@ public class MyClassesFragment extends Fragment {
 				listMyClasses.setAdapter(classItemAdapter);
 			}
 			listMyClasses.setOnItemClickListener(new ClassItemClickListener());
-		}
+
 		return view;
 	}
-
+/*
 	@Override
 	public void onSaveInstanceState(final Bundle outState) {
 		super.onSaveInstanceState(outState);
 
 	}
-
+*/
 	/**
 	 * ClassItemClickListener <Description>
 	 *

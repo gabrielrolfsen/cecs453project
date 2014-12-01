@@ -1,6 +1,9 @@
 
 package edu.csulb.android.smartbook.db;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -245,17 +248,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		// Course table, insert demo data
 		db.execSQL("INSERT INTO Course VALUES ('CECS 521','Database','SEM','Mon Wed','1-1:50 pm','ECS 308','Fall', '2014','E1111')");
 		db.execSQL("INSERT INTO Course VALUES ('CECS 200','Web Development','SEM','Mon Wed','4-4:50 pm','ECS 311','Fall', '2014','E1111')");
-		db.execSQL("INSERT INTO Course VALUES ('CESC 453','Mobile Development','SEM','Tue Thu','3-3:50pm','ECS 302','Fall', '2014','E2222')");
+		db.execSQL("INSERT INTO Course VALUES ('CECS 453','Mobile Development','SEM','Tue Thu','3-3:50pm','ECS 302','Fall', '2014','E2222')");
 		db.execSQL("INSERT INTO Course VALUES ('CECS 475','Graphics Programming','SEM','Tue Thu','1-1:50 pm','ECS 308','Fall', '2014',NULL)");
 
 		Log.d("Insert to StudentCourse", "Inserting...");
 		// Course table, insert demo data
 		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 521',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 200',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 453',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('1111','CECS 475',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CECS 521',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CECS 453',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('2222','CECS 475',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','CECS 521',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('3333','CECS 200',NULL)");
@@ -263,20 +266,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO StudentCourse VALUES ('4444','CECS 475',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CECS 521',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CECS 200',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('5555','CECS 453',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 521',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 200',NULL)");
-		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CESC 453',NULL)");
+		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 453',NULL)");
 		db.execSQL("INSERT INTO StudentCourse VALUES ('6666','CECS 475',NULL)");
 
 		Log.d("Insert to Attendance", "Inserting...");
 		// Attendance table, insert demo data
 		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 521','09/10/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 200','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('1111','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 453','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('1111','CECS 475','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('2222','CECS 521','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('2222','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('2222','CECS 453','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('2222','CECS 475','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('3333','CECS 521','09/10/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('3333','CECS 200','09/10/2014',NULL)");
@@ -284,10 +287,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Attendance VALUES ('4444','CECS 475','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('5555','CECS 521','09/10/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('5555','CECS 200','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('5555','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('5555','CECS 453','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 521','09/10/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 200','09/10/2014',NULL)");
-		db.execSQL("INSERT INTO Attendance VALUES ('6666','CESC 453','09/11/2014',NULL)");
+		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 453','09/11/2014',NULL)");
 		db.execSQL("INSERT INTO Attendance VALUES ('6666','CECS 475','09/11/2014',NULL)");
 
 		Log.d("Insert to Assignment", "Inserting...");
@@ -295,7 +298,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Assignment VALUES ('CECS 521','Assignment 1',NULL,NULL,NULL)");
 		db.execSQL("INSERT INTO Assignment VALUES ('CECS 521','Assignment 2',NULL,NULL,NULL)");
 		db.execSQL("INSERT INTO Assignment VALUES ('CECS 200','Assignment 1',NULL,NULL,NULL)");
-
+		db.execSQL("INSERT INTO Assignment VALUES ('CECS 453','Assignment 1','This is assignment 1','09/20/2014',NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('CECS 453','Assignment 2','This is assignment 2','10/20/2014',NULL)");
+		db.execSQL("INSERT INTO Assignment VALUES ('CECS 453','Assignment 3',NULL,NULL,NULL)");
+		
 		Log.d("Insert to StudentAssignment", "Inserting...");
 		// StudentAssignment table, insert demo data
 		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','CECS 521','Assignment 1',NULL,NULL)");
@@ -303,6 +309,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO StudentAssignment VALUES ('3333','CECS 521','Assignment 1',NULL,NULL)");
 		db.execSQL("INSERT INTO StudentAssignment VALUES ('4444','CECS 521','Assignment 1',NULL,NULL)");
 		db.execSQL("INSERT INTO StudentAssignment VALUES ('5555','CECS 521','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','CECS 453','Assignment 1','A',NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('2222','CECS 453','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('3333','CECS 453','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('4444','CECS 453','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('5555','CECS 453','Assignment 1',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','CECS 453','Assignment 2',NULL,NULL)");
+		db.execSQL("INSERT INTO StudentAssignment VALUES ('1111','CECS 453','Assignment 3',NULL,NULL)");
 
 		Log.d("Insert data", "Done");
 
@@ -340,8 +353,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		final SQLiteDatabase db = this.getReadableDatabase();
 
 		final String selectQuery = "SELECT  * FROM " + TABLE_ASSIGNMENT
-				+ " WHERE " + KEY_ASSIGNMENT_ID + " = " + assignmentID
-				+ " AND " + KEY_ASSIGNMENT_NAME + " = " + assignmentName;
+				+ " WHERE " + KEY_ASSIGNMENT_ID + " = " + "'" + assignmentID + "'"
+				+ " AND " + KEY_ASSIGNMENT_NAME + " = " + "'" + assignmentName + "'";
 
 		final Cursor c = db.rawQuery(selectQuery, null);
 
@@ -364,9 +377,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		final SQLiteDatabase db = this.getReadableDatabase();
 
 		final String selectQuery = "SELECT  * FROM " + TABLE_ATTENDANCE
-				+ " WHERE " + KEY_ATTENDANCE_IDSTUDENT + " = " + studentID
-				+ " AND " + KEY_ATTENDANCE_IDCOURSE + " = " + courseID
-				+ " AND " + KEY_ATTENDANCE_DATE + " = " + attedanceDate;
+				+ " WHERE " + KEY_ATTENDANCE_IDSTUDENT + " = " + "'" + studentID + "'" 
+				+ " AND " + KEY_ATTENDANCE_IDCOURSE + " = " + "'" + courseID + "'" 
+				+ " AND " + KEY_ATTENDANCE_DATE + " = " + "'" + attedanceDate + "'";
 
 		final Cursor c = db.rawQuery(selectQuery, null);
 
@@ -387,7 +400,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		final SQLiteDatabase db = this.getReadableDatabase();
 
 		final String selectQuery = "SELECT  * FROM " + TABLE_COURSE + " WHERE "
-				+ KEY_COURSE_ID + " = " + courseID;
+				+ KEY_COURSE_ID + " = " + "'" + courseID + "'";
 
 		final Cursor c = db.rawQuery(selectQuery, null);
 
@@ -413,7 +426,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		final SQLiteDatabase db = this.getReadableDatabase();
 
 		final String selectQuery = "SELECT  * FROM " + TABLE_INSTRUCTOR
-				+ " WHERE " + KEY_INSTRUCTOR_ID + " = " + instructorID;
+				+ " WHERE " + KEY_INSTRUCTOR_ID + " = " + "'" + instructorID + "'";
 
 		final Cursor c = db.rawQuery(selectQuery, null);
 
@@ -442,9 +455,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		final String selectQuery = "SELECT  * FROM " + TABLE_STUDENT_ASSIGNMENT
 				+ " WHERE " + KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " = "
-				+ studentID + " AND " + KEY_STUDENT_ASSIGNMENT_IDCOURSE + " = "
-				+ courseID + " AND " + KEY_STUDENT_ASSIGNMENT_NAME + " = "
-				+ saName;
+				+ "'" + studentID + "'" + " AND " + KEY_STUDENT_ASSIGNMENT_IDCOURSE + " = "
+				+ "'" + courseID + "'" + " AND " + KEY_STUDENT_ASSIGNMENT_NAME + " = "
+				+ "'" + saName;
 
 		final Cursor c = db.rawQuery(selectQuery, null);
 
@@ -470,8 +483,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		final SQLiteDatabase db = this.getReadableDatabase();
 
 		final String selectQuery = "SELECT  * FROM " + TABLE_STUDENT_COURSE
-				+ " WHERE " + KEY_STUDENT_COURSE_IDSTUDENT + " = " + studentID
-				+ " AND " + KEY_STUDENT_COURSE_IDCOURSE + " = " + courseID;
+				+ " WHERE " + KEY_STUDENT_COURSE_IDSTUDENT + " = " + "'" + studentID + "'"
+				+ " AND " + KEY_STUDENT_COURSE_IDCOURSE + " = " + "'" + courseID + "'";
 
 		final Cursor c = db.rawQuery(selectQuery, null);
 
@@ -518,6 +531,77 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		} else {
 			return null;
 		}
+	}
+	
+	// get all assignments based on studentID and courseID from StudentAssignment table
+	public List<StudentAssignment> getAssignmentsUseCourseIDAndStudentID( String studentID,  String courseID) {
+		List<StudentAssignment> sas = new ArrayList<StudentAssignment>();
+		final SQLiteDatabase db = this.getReadableDatabase();
+		final String selectQuery = "SELECT * FROM " + TABLE_STUDENT_ASSIGNMENT
+					+ " WHERE " + KEY_STUDENT_ASSIGNMENT_IDSTUDENT + " = " + "'" + studentID + "'"
+					+ " AND " + KEY_STUDENT_ASSIGNMENT_IDCOURSE + " = " + "'" + courseID + "'";
+		final Cursor c = db.rawQuery(selectQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				StudentAssignment sa = new StudentAssignment();
+				sa.setIdStudent(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDSTUDENT)));
+				sa.setIdCourse(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_IDCOURSE)));
+				sa.setaName(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_NAME)));
+				sa.setSaGrade(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_GRADE)));
+				sa.setSaInstructorComment(c.getString(c.getColumnIndex(KEY_STUDENT_ASSIGNMENT_COMMENT)));
+				
+				sas.add(sa);
+			} while (c.moveToNext());
+		}	
+		return sas;
+	}
+	
+	public List<Student> getStudentsInCourse(final String courseID) {
+		List<Student> students = new ArrayList<Student>();
+		final SQLiteDatabase db = this.getReadableDatabase();
+		final String selectQuery = "SELECT * FROM " + TABLE_STUDENT_COURSE
+					+ " NATURAL JOIN " + TABLE_STUDENT 
+					+ " WHERE " + KEY_STUDENT_COURSE_IDCOURSE + " = " + "'" + courseID + "'";
+		final Cursor c = db.rawQuery(selectQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				Student s = new Student();
+				s.setIdStudent(c.getString(c.getColumnIndex(KEY_STUDENT_ID)));
+//				s.setsPassword(c.getString(c.getColumnIndex(KEY_STUDENT_PASS)));
+				s.setsFirstName(c.getString(c.getColumnIndex(KEY_STUDENT_FNAME)));
+				s.setsLastName(c.getString(c.getColumnIndex(KEY_STUDENT_LNAME)));
+//				s.setsDateOfBirth(c.getString(c.getColumnIndex(KEY_STUDENT_BIRTH)));
+				s.setsEmail(c.getString(c.getColumnIndex(KEY_STUDENT_MAIL)));
+//				s.setsPhone(c.getString(c.getColumnIndex(KEY_STUDENT_PHONE)));
+				s.setsMajor(c.getString(c.getColumnIndex(KEY_STUDENT_MAJOR)));
+				
+				students.add(s);
+			} while (c.moveToNext());
+		}	
+		return students;
+	}
+	
+	public List<Attendance> getStudentAttendanceInCourse( String studentID,  String courseID) {
+		List<Attendance> attendances = new ArrayList<Attendance>();
+		final SQLiteDatabase db = this.getReadableDatabase();
+		final String selectQuery = "SELECT * FROM " + TABLE_ATTENDANCE
+				+ " WHERE " + KEY_STUDENT_ID + " = " + "'" + studentID + "'"
+				+ " AND " + KEY_COURSE_ID + " = " + "'" + courseID + "'";
+				
+		final Cursor c = db.rawQuery(selectQuery, null);
+		if (c.moveToFirst()) {
+			do {
+				Attendance a = new Attendance((c.getString(c
+						.getColumnIndex(KEY_ATTENDANCE_IDSTUDENT))), (c.getString(c
+						.getColumnIndex(KEY_ATTENDANCE_IDCOURSE))), (c.getString(c
+						.getColumnIndex(KEY_ATTENDANCE_DATE))), (c.getInt(c
+						.getColumnIndex(KEY_ATTENDANCE_PRESENT))));
+
+				Log.d("Attendance", a.getaDate());
+				attendances.add(a);
+			} while (c.moveToNext());
+		}	
+		return attendances;
 	}
 
 	@Override
