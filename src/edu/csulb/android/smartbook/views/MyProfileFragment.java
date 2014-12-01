@@ -3,9 +3,12 @@ package edu.csulb.android.smartbook.views;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import edu.csulb.android.smartbook.R;
@@ -25,6 +28,7 @@ public class MyProfileFragment extends Fragment {
 	TextView userID;
 	TextView userMajor;
 	ImageView userImg;
+	Button btnEditProfile;
 
 	public MyProfileFragment() {
 	}
@@ -38,7 +42,20 @@ public class MyProfileFragment extends Fragment {
 		userName = (TextView) view.findViewById(R.id.txtUserName);
 		userID = (TextView) view.findViewById(R.id.txtUserId);
 		userMajor = (TextView) view.findViewById(R.id.txtUserMajor);
+		btnEditProfile = (Button) view.findViewById(R.id.btnEditProfile);
 
+		btnEditProfile.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(final View v) {
+				final FragmentManager fragmentManager = getFragmentManager();
+				fragmentManager
+				.beginTransaction()
+						.replace(R.id.content_layout,
+						new EditMyProfileFragment())
+						.addToBackStack(null).commit();
+			}
+		});
 		getData();
 
 		return view;

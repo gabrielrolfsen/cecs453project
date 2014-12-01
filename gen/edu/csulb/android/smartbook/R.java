@@ -1111,7 +1111,7 @@ containing a value of this type.
         public static final int student_example=0x7f020065;
     }
     public static final class id {
-        public static final int DrawerItemLayout=0x7f09007a;
+        public static final int DrawerItemLayout=0x7f09007b;
         public static final int EditText02=0x7f09006c;
         public static final int RelativeLayout1=0x7f09004f;
         public static final int TextView02=0x7f09006b;
@@ -1123,17 +1123,18 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f090023;
         public static final int action_bar_title=0x7f090022;
         public static final int action_context_bar=0x7f09001d;
-        public static final int action_example=0x7f090082;
+        public static final int action_example=0x7f090083;
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f090081;
+        public static final int action_settings=0x7f090082;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
         public static final int btnAssignmentList=0x7f090063;
         public static final int btnAttendanceList=0x7f090065;
         public static final int btnConfirmEditProfile=0x7f09006d;
+        public static final int btnEditProfile=0x7f09007a;
         public static final int btnLogin=0x7f090041;
         public static final int btnStudentList=0x7f090064;
         public static final int checkBox1=0x7f090079;
@@ -1160,7 +1161,7 @@ containing a value of this type.
         public static final int ifRoom=0x7f090011;
         public static final int image=0x7f090027;
         public static final int imageView1=0x7f090043;
-        public static final int imgDrawerItem=0x7f09007e;
+        public static final int imgDrawerItem=0x7f09007f;
         public static final int imgLogo=0x7f090050;
         public static final int imgProfessor=0x7f09005d;
         public static final int imgUserProfile=0x7f090066;
@@ -1209,12 +1210,12 @@ containing a value of this type.
         public static final int txtAssignmentName=0x7f090054;
         public static final int txtAssignmentNameValue=0x7f090055;
         public static final int txtClassCode=0x7f09005a;
-        public static final int txtClassItemCode=0x7f09007c;
-        public static final int txtClassItemName=0x7f09007d;
-        public static final int txtClassItemNum=0x7f09007b;
+        public static final int txtClassItemCode=0x7f09007d;
+        public static final int txtClassItemName=0x7f09007e;
+        public static final int txtClassItemNum=0x7f09007c;
         public static final int txtClassName=0x7f09005b;
-        public static final int txtDrawerHeader=0x7f090080;
-        public static final int txtDrawerItem=0x7f09007f;
+        public static final int txtDrawerHeader=0x7f090081;
+        public static final int txtDrawerItem=0x7f090080;
         public static final int txtEditName=0x7f090068;
         public static final int txtEditPhoto=0x7f09006e;
         public static final int txtFragmentAssignCourseID=0x7f090052;

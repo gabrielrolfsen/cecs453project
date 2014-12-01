@@ -34,8 +34,8 @@
 
     <RelativeLayout
         android:id="@+id/relativeLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
         android:layout_below="@+id/txtClassName"
         android:layout_marginTop="21dp" >
 
@@ -50,23 +50,13 @@
             android:src="@drawable/prof_example" />
 
     <TextView
-        android:id="@+id/txtProfName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/txtProfContact"
-        android:layout_alignLeft="@+id/txtProfContact"
-        android:layout_alignTop="@+id/imgProfessor"
-        android:textColor="#000000"
-        android:text="@string/example_professor" />
-
-    <TextView
         android:id="@+id/txtProfContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtProfName"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/imgProfessor"
         android:layout_toRightOf="@+id/imgProfessor"
         android:textColor="#000000"
@@ -76,11 +66,24 @@
         android:id="@+id/txtProfDep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imgProfessor"
-        android:layout_alignStart="@+id/txtProfContact"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/imgProfessor"
+        android:layout_toRightOf="@+id/imgProfessor"
+        android:layout_below="@+id/txtProfContact"
+        android:text="@string/department_example"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/txtProfName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtProfContact"
-        android:textColor="#000000"
-        android:text="@string/department_example" />
+        android:layout_alignStart="@+id/txtProfContact"
+        android:layout_alignTop="@+id/imgProfessor"
+        android:text="@string/example_professor"
+        android:textColor="#000000" />
 
     </RelativeLayout>
 

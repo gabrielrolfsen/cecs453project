@@ -31,8 +31,7 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 	public static final int TYPE_ASSIGNMENT = 0;
 	public static final int TYPE_STUDENT = 1;
 	public static final int TYPE_ATTENDANCE = 2;
-	
-	
+
 	String mClassCode;
 	TextView className;
 	TextView classCode;
@@ -53,17 +52,16 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 	public ClassViewFragment(final String classCode) {
 		this.mClassCode = classCode;
 	}
-	
-	public ClassViewFragment()
-	{
-		
+
+	public ClassViewFragment() {
+
 	}
 
 	@Override
 	public View onCreateView(final LayoutInflater inflater,
 			final ViewGroup container, final Bundle savedInstanceState) {
 
-		View view = inflater.inflate(R.layout.fragment_class_view,
+		final View view = inflater.inflate(R.layout.fragment_class_view,
 				container, false);
 		className = (TextView) view.findViewById(R.id.txtClassName);
 		classCode = (TextView) view.findViewById(R.id.txtClassCode);
@@ -76,19 +74,12 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 
 		btnAllAssignments = (Button) view.findViewById(R.id.btnAssignmentList);
 		btnAllAssignments.setOnClickListener(this);
-		
+
 		btnStudent = (Button) view.findViewById(R.id.btnStudentList);
 		btnStudent.setOnClickListener(this);
-		
+
 		btnAttendance = (Button) view.findViewById(R.id.btnAttendanceList);
 		btnAttendance.setOnClickListener(this);
-		
-		if(!mClassCode.equals("CECS 453"))
-		{
-			profImg.setVisibility(View.GONE);
-		}
-		
-		
 		return view;
 	}
 
@@ -115,38 +106,43 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 
 	}
 
-	/** 
+	/**
 	 * @author: Hao Vo
 	 */
 	@Override
-	public void onClick(View v) {
+	public void onClick(final View v) {
 
-		AssignmentStudentAttendanceFragmentList frag = new AssignmentStudentAttendanceFragmentList();
-		Bundle args = new Bundle();
-		args.putString(DatabaseHandler.KEY_COURSE_ID, (String)classCode.getText());
-		args.putString(DatabaseHandler.KEY_COURSE_NAME, (String)className.getText());
+		final AssignmentStudentAttendanceFragmentList frag = new AssignmentStudentAttendanceFragmentList();
+		final Bundle args = new Bundle();
+		args.putString(DatabaseHandler.KEY_COURSE_ID,
+				(String) classCode.getText());
+		args.putString(DatabaseHandler.KEY_COURSE_NAME,
+				(String) className.getText());
 		switch (v.getId()) {
-			case R.id.btnAssignmentList:
-				args.putInt(LIST_TYPE, TYPE_ASSIGNMENT);
-				break;
-			case R.id.btnStudentList:
-				args.putInt(LIST_TYPE, TYPE_STUDENT);
-				break;
-			case R.id.btnAttendanceList:
-				args.putInt(LIST_TYPE, TYPE_ATTENDANCE);
-				break;
+		case R.id.btnAssignmentList:
+			args.putInt(LIST_TYPE, TYPE_ASSIGNMENT);
+			break;
+		case R.id.btnStudentList:
+			args.putInt(LIST_TYPE, TYPE_STUDENT);
+			break;
+		case R.id.btnAttendanceList:
+			args.putInt(LIST_TYPE, TYPE_ATTENDANCE);
+			break;
 		}
 		frag.setArguments(args);
-				
-		FragmentTransaction transaction = getFragmentManager().beginTransaction();
-		
-		// Replace whatever is in the fragment_container view with this fragment,
-		// and add the transaction to the back stack so the user can navigate back
+
+		final FragmentTransaction transaction = getFragmentManager()
+				.beginTransaction();
+
+		// Replace whatever is in the fragment_container view with this
+		// fragment,
+		// and add the transaction to the back stack so the user can navigate
+		// back
 		transaction.replace(R.id.content_layout, frag);
 		transaction.addToBackStack(null);
 
 		// Commit the transaction
-		transaction.commit();	
+		transaction.commit();
 	}
 
 }

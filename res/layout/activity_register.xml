@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
     tools:context="edu.csulb.android.smartbook.views.LoginActivity" >
 
     <Button
@@ -33,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:textColor="#000000"
             android:text="@string/full_name" />
 
         <EditText
@@ -51,6 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
+            android:textColor="#000000"
             android:text="@string/student_id" />
 
         <EditText
@@ -69,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
+            android:textColor="#000000"
             android:text="@string/password" />
 
         <EditText
@@ -88,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:ems="10"
+            android:textColor="#000000"
             android:text="@string/repeat_password" />
 
         <EditText
