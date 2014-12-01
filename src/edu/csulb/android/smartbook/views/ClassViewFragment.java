@@ -83,6 +83,11 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 		btnAttendance = (Button) view.findViewById(R.id.btnAttendanceList);
 		btnAttendance.setOnClickListener(this);
 		
+		if(!mClassCode.equals("CECS 453"))
+		{
+			profImg.setVisibility(View.GONE);
+		}
+		
 		
 		return view;
 	}

@@ -92,7 +92,7 @@ public class AssignmentStudentAttendanceFragmentList extends Fragment implements
 				getStudentList(courseID);
 				break;
 			case ClassViewFragment.TYPE_ATTENDANCE:
-				txtListTitle.setText(courseID + " - Attendace");
+				txtListTitle.setText(courseID + " - Attendance");
 				txtCourseName.setText(courseName);
 				getAttendanceList(studentID, courseID);
 				break;

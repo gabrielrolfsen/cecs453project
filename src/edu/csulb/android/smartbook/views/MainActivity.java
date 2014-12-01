@@ -1,9 +1,12 @@
 package edu.csulb.android.smartbook.views;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
@@ -34,6 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import edu.csulb.android.smartbook.R;
 import edu.csulb.android.smartbook.adapters.DrawerAdapter;
+import edu.csulb.android.smartbook.db.DatabaseHandler;
 import edu.csulb.android.smartbook.models.DrawerItem;
 
 /**
@@ -287,11 +291,14 @@ public class MainActivity extends FragmentActivity {
 					- languageCodeLength - 1, textEncoding);
 		}
 
+		@SuppressLint("SimpleDateFormat")
 		@Override
 		protected void onPostExecute(final String result) {
 			if (result != null) {
 				final TextView smartTag = (TextView) findViewById(R.id.txtTapSmartTag);
 				smartTag.setVisibility(View.GONE);
+				final DatabaseHandler dbHandler = DatabaseHandler
+						.getInstance(getApplicationContext());
 
 				// Create fragment and give it an argument specifying the class
 				// it should show
@@ -304,21 +311,27 @@ public class MainActivity extends FragmentActivity {
 						.replace(R.id.content_layout,
 						newFragment)
 						.addToBackStack(null).commit();
-
-				/*final FragmentTransaction transaction = getSupportFragmentManager()
-						.beginTransaction();
-
-				// Replace whatever is in the fragment_container view with this
-				// fragment,
-				// and add the transaction to the back stack so the user can
-				// navigate back
-				transaction.replace(R.id.fragment_container, newFragment);
-				transaction.addToBackStack(null);
-
-				// Commit the transaction
-				transaction.commit();*/
-				Toast.makeText(getApplicationContext(),
-						"Read content: " + result, Toast.LENGTH_SHORT).show();
+				
+				SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+				String currentDate = sdf.format(new Date());
+				
+				final SharedPreferences pref = getApplicationContext().getSharedPreferences(
+								LoginActivity.SESSION_PREF, 0);
+				String id = pref
+				.getString(LoginActivity.USER_ID, "");
+				
+				Log.d("Current Date: ", currentDate);
+				
+				if(dbHandler.addAttendance(id, result, currentDate, 2))
+				{
+					Toast.makeText(getApplicationContext(),
+						"You have checked in to class: " + result, Toast.LENGTH_SHORT).show();
+				}
+				else
+				{
+					Toast.makeText(getApplicationContext(),
+							"Could not check in to class: " + result, Toast.LENGTH_SHORT).show();
+				}
 			}
 		}
 	}

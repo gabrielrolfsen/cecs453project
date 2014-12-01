@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -579,6 +580,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			} while (c.moveToNext());
 		}	
 		return students;
+	}
+	
+	public boolean addAttendance(String id, String className, String date, int presence)
+	{
+		try
+		{
+			String query = "INSERT INTO Attendance VALUES ('" + id + "','" + 
+					className + "','" + 
+					date + "'," +
+					Integer.toString(presence) + ")";
+			Log.d("Query String: ", query);
+			final SQLiteDatabase db = this.getReadableDatabase();
+			db.execSQL(query);
+			return true;
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+			return false;
+		}
 	}
 	
 	public List<Attendance> getStudentAttendanceInCourse( String studentID,  String courseID) {
