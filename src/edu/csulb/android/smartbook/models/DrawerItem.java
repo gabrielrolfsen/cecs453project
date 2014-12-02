@@ -15,6 +15,7 @@ public class DrawerItem {
 	private int icon = 0;
 	private String title;
 	Fragment fragment;
+	private int type = 0;
 
 	/* Constructor for header icon = 0 */
 	/**
@@ -23,6 +24,7 @@ public class DrawerItem {
 	 */
 	public DrawerItem(final String headerTitle) {
 		this.title = headerTitle;
+		this.type = 0;
 	}
 
 	/**
@@ -38,11 +40,18 @@ public class DrawerItem {
 		this.icon = icon;
 		this.title = title;
 		this.fragment = fragment;
+		this.type = 1;
+	}
+
+	public DrawerItem(final int icon, final String title) {
+		this.icon = icon;
+		this.title = title;
+		this.type = 2;
 	}
 
 	/* Checks if the item is a header */
-	public boolean isHeader() {
-		return this.icon == 0 ? true : false;
+	public int getType() {
+		return this.type;
 	}
 
 	public void setIcon(final int icon) {

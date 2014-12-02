@@ -1098,17 +1098,18 @@ containing a value of this type.
         public static final int bk_0=0x7f020058;
         public static final int drawer_shadow=0x7f020059;
         public static final int ic_drawer=0x7f02005a;
-        public static final int ic_launcher=0x7f02005b;
-        public static final int ic_logo=0x7f02005c;
-        public static final int ic_my_classes=0x7f02005d;
-        public static final int ic_my_grades=0x7f02005e;
-        public static final int ic_paperstack=0x7f02005f;
-        public static final int ic_profile=0x7f020060;
-        public static final int paperstack=0x7f020061;
-        public static final int prof_example=0x7f020062;
-        public static final int shadow=0x7f020063;
-        public static final int shadowright=0x7f020064;
-        public static final int student_example=0x7f020065;
+        public static final int ic_gear_logout=0x7f02005b;
+        public static final int ic_launcher=0x7f02005c;
+        public static final int ic_logo=0x7f02005d;
+        public static final int ic_my_classes=0x7f02005e;
+        public static final int ic_my_grades=0x7f02005f;
+        public static final int ic_paperstack=0x7f020060;
+        public static final int ic_profile=0x7f020061;
+        public static final int paperstack=0x7f020062;
+        public static final int prof_example=0x7f020063;
+        public static final int shadow=0x7f020064;
+        public static final int shadowright=0x7f020065;
+        public static final int student_example=0x7f020066;
     }
     public static final class id {
         public static final int DrawerItemLayout=0x7f09007b;
@@ -1226,9 +1227,9 @@ containing a value of this type.
         public static final int txtName=0x7f09004b;
         public static final int txtPass=0x7f09003f;
         public static final int txtPassChk=0x7f09004d;
-        public static final int txtProfContact=0x7f09005f;
+        public static final int txtProfContact=0x7f09005e;
         public static final int txtProfDep=0x7f090060;
-        public static final int txtProfName=0x7f09005e;
+        public static final int txtProfName=0x7f09005f;
         public static final int txtRegister=0x7f090042;
         public static final int txtSectionHeder=0x7f090061;
         public static final int txtSectionInfo=0x7f090062;

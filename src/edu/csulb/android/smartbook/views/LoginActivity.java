@@ -28,8 +28,8 @@ import edu.csulb.android.smartbook.models.Student;
  */
 public class LoginActivity extends Activity {
 
-	protected static final String SESSION_PREF = "sesPref";
-	protected static final String SESSION_KEY = "SESSION_STATUS";
+	public static final String SESSION_PREF = "sesPref";
+	public static final String SESSION_KEY = "SESSION_STATUS";
 	protected static final String USER_ID = "USER_LOGIN";
 	protected static final String USER_FNAME = "USER_FNAME";
 	protected static final String USER_LNAME = "USER_LNAME";

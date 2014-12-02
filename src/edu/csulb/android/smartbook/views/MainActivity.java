@@ -122,6 +122,7 @@ public class MainActivity extends FragmentActivity {
 				"My Assignments", new MyClassesFragment()));
 		drawerItems.add(new DrawerItem(R.drawable.ic_my_grades, "My Grades",
 				new MyClassesFragment()));
+		drawerItems.add(new DrawerItem(R.drawable.ic_gear_logout, "Logout"));
 		mDrawerList.setAdapter(new DrawerAdapter(drawerItems));
 	}
 
@@ -171,7 +172,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private class DrawerItemClickListener implements
-			ListView.OnItemClickListener {
+	ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(
 				@SuppressWarnings("rawtypes") final AdapterView parent,
@@ -186,9 +187,9 @@ public class MainActivity extends FragmentActivity {
 		// Insert the fragment by replacing any existing fragment
 		final FragmentManager fragmentManager = getSupportFragmentManager();
 		fragmentManager
-		.beginTransaction()
-				.replace(R.id.content_layout,
-				drawerItems.get(position).getFragment())
+				.beginTransaction()
+		.replace(R.id.content_layout,
+						drawerItems.get(position).getFragment())
 				.addToBackStack(null).commit();
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
@@ -200,18 +201,18 @@ public class MainActivity extends FragmentActivity {
 		/* Creates a AlertDialog to ask the user if he wants to exit the app */
 		if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
 			new AlertDialog.Builder(this)
-					.setMessage("Are you sure you want to exit?")
-					.setNegativeButton("Cancel", null)
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								@Override
-								public void onClick(
-										final DialogInterface dialog,
-										final int which) {
-									finish();
-								}
+			.setMessage("Are you sure you want to exit?")
+			.setNegativeButton("Cancel", null)
+			.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(
+						final DialogInterface dialog,
+						final int which) {
+					finish();
+				}
 
-							}).show();
+			}).show();
 		} else {
 			getSupportFragmentManager().popBackStack();
 		}
@@ -308,8 +309,8 @@ public class MainActivity extends FragmentActivity {
 				final FragmentManager fragmentManager = getSupportFragmentManager();
 
 				fragmentManager.beginTransaction()
-						.replace(R.id.content_layout, newFragment)
-				.addToBackStack(null).commit();
+				.replace(R.id.content_layout, newFragment)
+						.addToBackStack(null).commit();
 
 				final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 				final String currentDate = sdf.format(new Date());
