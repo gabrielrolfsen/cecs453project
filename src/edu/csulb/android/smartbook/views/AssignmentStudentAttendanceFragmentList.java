@@ -29,7 +29,7 @@ import edu.csulb.android.smartbook.models.Student;
 import edu.csulb.android.smartbook.models.StudentAssignment;
 
 /**
- * ClassAllAssignmentsFragment <Description>
+ * AssignmentStudentAttendanceFragmentList <Description>
  *
  * @author Hao Vo
  * @version 1.0
