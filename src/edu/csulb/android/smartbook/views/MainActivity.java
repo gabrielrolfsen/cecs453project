@@ -9,12 +9,14 @@ import java.util.Date;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.PendingIntent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Typeface;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -32,6 +34,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import edu.csulb.android.smartbook.R;
@@ -53,7 +56,8 @@ public class MainActivity extends FragmentActivity {
 	private DrawerLayout mDrawerLayout;
 
 	private ListView mDrawerList;
-	ArrayList<DrawerItem> drawerItems = new ArrayList<DrawerItem>();
+	private RelativeLayout relativeLayoutDrawer;
+	private final ArrayList<DrawerItem> drawerItems = new ArrayList<DrawerItem>();
 
 	private NfcAdapter mNfcAdapter;
 
@@ -63,6 +67,7 @@ public class MainActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		relativeLayoutDrawer = (RelativeLayout) findViewById(R.id.lyt_left_drawer);
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
 		final TextView myTextView = (TextView) findViewById(R.id.txtTapSmartTag);
@@ -122,7 +127,61 @@ public class MainActivity extends FragmentActivity {
 				"My Assignments", new MyClassesFragment()));
 		drawerItems.add(new DrawerItem(R.drawable.ic_my_grades, "My Grades",
 				new MyClassesFragment()));
-		drawerItems.add(new DrawerItem(R.drawable.ic_gear_logout, "Logout"));
+		// drawerItems.add(new DrawerItem(R.drawable.ic_gear_logout, "Logout"));
+		final RelativeLayout logoutItem = (RelativeLayout) findViewById(R.id.lyt_logout);
+		logoutItem.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(final View v) {
+				final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+						MainActivity.this);
+
+				alertDialogBuilder.setTitle("Logout");
+
+				// set dialog message
+				alertDialogBuilder
+						.setMessage("Are you sure that you want to logout?")
+				.setCancelable(false)
+				.setPositiveButton("Yes",
+						new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(
+											final DialogInterface dialog,
+											final int id) {
+										final SharedPreferences pref = MainActivity.this
+												.getSharedPreferences(
+														LoginActivity.SESSION_PREF,
+														0);
+										final Editor prefEditor = pref.edit();
+										prefEditor.putBoolean(
+								LoginActivity.SESSION_KEY,
+								false);
+										prefEditor.commit();
+										// TODO: remove data from user
+										final Intent endSession = new Intent(
+												MainActivity.this,
+												LoginActivity.class);
+										endSession
+												.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+										((Activity) MainActivity.this).finish();
+										MainActivity.this
+												.startActivity(endSession);
+									}
+								})
+				.setNegativeButton("No",
+						new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(
+											final DialogInterface dialog,
+											final int id) {
+										dialog.cancel();
+									}
+								});
+
+				final AlertDialog alertDialog = alertDialogBuilder.create();
+				alertDialog.show();
+			}
+		});
 		mDrawerList.setAdapter(new DrawerAdapter(drawerItems));
 	}
 
@@ -172,28 +231,39 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private class DrawerItemClickListener implements
-	ListView.OnItemClickListener {
+			ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(
 				@SuppressWarnings("rawtypes") final AdapterView parent,
 				final View view, final int position, final long id) {
-			selectItem(position);
+			selectNavigationItem(position);
 		}
 	}
 
 	/** Swaps fragments in the main content view */
-	private void selectItem(final int position) {
-
+	private void selectNavigationItem(final int position) {
+		final String fragmentTag = "INNER_FRAG";
 		// Insert the fragment by replacing any existing fragment
 		final FragmentManager fragmentManager = getSupportFragmentManager();
+		final Fragment activeFragment = getFragmentManager().findFragmentByTag(
+				"INNER_FRAG");
+		if (activeFragment != null && activeFragment.isVisible()) {
+			fragmentManager
+			.beginTransaction()
+					.replace(R.id.content_layout,
+					drawerItems.get(position).getFragment(), "MAIN")
+					.commit();
+		}
 		fragmentManager
-				.beginTransaction()
-		.replace(R.id.content_layout,
-						drawerItems.get(position).getFragment())
+		.beginTransaction()
+				.replace(R.id.content_layout,
+				drawerItems.get(position).getFragment(), fragmentTag)
 				.addToBackStack(null).commit();
+
 		// Highlight the selected item, update the title, and close the drawer
 		mDrawerList.setItemChecked(position, true);
-		mDrawerLayout.closeDrawer(mDrawerList);
+		mDrawerLayout.closeDrawer(relativeLayoutDrawer);
+
 	}
 
 	@Override
@@ -201,18 +271,18 @@ public class MainActivity extends FragmentActivity {
 		/* Creates a AlertDialog to ask the user if he wants to exit the app */
 		if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
 			new AlertDialog.Builder(this)
-			.setMessage("Are you sure you want to exit?")
-			.setNegativeButton("Cancel", null)
-			.setPositiveButton("OK",
-					new DialogInterface.OnClickListener() {
-				@Override
-				public void onClick(
-						final DialogInterface dialog,
-						final int which) {
-					finish();
-				}
+					.setMessage("Are you sure you want to exit?")
+					.setNegativeButton("Cancel", null)
+					.setPositiveButton("OK",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(
+										final DialogInterface dialog,
+										final int which) {
+									finish();
+								}
 
-			}).show();
+							}).show();
 		} else {
 			getSupportFragmentManager().popBackStack();
 		}
@@ -309,8 +379,8 @@ public class MainActivity extends FragmentActivity {
 				final FragmentManager fragmentManager = getSupportFragmentManager();
 
 				fragmentManager.beginTransaction()
-				.replace(R.id.content_layout, newFragment)
-						.addToBackStack(null).commit();
+						.replace(R.id.content_layout, newFragment)
+				.addToBackStack(null).commit();
 
 				final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 				final String currentDate = sdf.format(new Date());

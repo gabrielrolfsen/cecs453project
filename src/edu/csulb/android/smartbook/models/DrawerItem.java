@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 /**
  * DrawerItem: Item that goes into the NavigationDrawer, the item can be a
- * header (unclickable) or an item that launches a Fragment.
+ * header (type: 0 - unclickable) or an item that launches a Fragment (type: 1).
  *
  * @author Gabriel Franzoni
  * @version 1.0
@@ -41,12 +41,6 @@ public class DrawerItem {
 		this.title = title;
 		this.fragment = fragment;
 		this.type = 1;
-	}
-
-	public DrawerItem(final int icon, final String title) {
-		this.icon = icon;
-		this.title = title;
-		this.type = 2;
 	}
 
 	/* Checks if the item is a header */

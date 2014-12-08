@@ -51,5 +51,6 @@
     <string name="email">E-mail</string>
     <string name="edit_photo">Edit Photo</string>
     <string name="fragment_course_title">CECS 453 - ListDescribe</string>
+    <string name="logout">Logout</string>
 
 </resources>
