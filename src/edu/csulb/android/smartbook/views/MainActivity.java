@@ -92,7 +92,7 @@ public class MainActivity extends FragmentActivity {
 
 		// Set the list's click listener
 		mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-/*
+
 		mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
 		if (mNfcAdapter == null) {
@@ -107,7 +107,7 @@ public class MainActivity extends FragmentActivity {
 					Toast.LENGTH_LONG).show();
 		}
 
-		handleNfcIntent(getIntent());*/
+		handleNfcIntent(getIntent());
 	}
 
 	private void createNavigationDrawer() {
@@ -188,12 +188,12 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-//		setupForegroundDispatch(this, mNfcAdapter);
+		setupForegroundDispatch(this, mNfcAdapter);
 	}
 
 	@Override
 	protected void onPause() {
-//		stopForegroundDispatch(this, mNfcAdapter);
+		stopForegroundDispatch(this, mNfcAdapter);
 		super.onPause();
 	}
 
