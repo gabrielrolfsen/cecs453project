@@ -65,9 +65,6 @@ public class AssignmentStudentAttendanceFragmentList extends Fragment implements
 		courseID = args.getString(DatabaseHandler.KEY_COURSE_ID);
 		courseName = args.getString(DatabaseHandler.KEY_COURSE_NAME);
 		lstType = args.getInt(ClassViewFragment.LIST_TYPE);
-		// Re-do it in XML
-		txtListTitle.setTextColor((Color.parseColor("#000000")));
-		txtCourseName.setTextColor((Color.parseColor("#000000")));
 
 		final SharedPreferences pref = getActivity().getApplicationContext()
 				.getSharedPreferences(LoginActivity.SESSION_PREF, 0);
@@ -156,7 +153,8 @@ public class AssignmentStudentAttendanceFragmentList extends Fragment implements
 				} else {
 					txt2.setText("Grade: " + listSA.get(position).getSaGrade());
 				}
-
+				txt1.setTextColor(Color.BLACK);
+				txt2.setTextColor(Color.BLACK);
 				return view;
 			}
 		};
@@ -184,6 +182,8 @@ public class AssignmentStudentAttendanceFragmentList extends Fragment implements
 				} else {
 					txt2.setText("Email: " + listS.get(position).getsEmail());
 				}
+				txt1.setTextColor(Color.BLACK);
+				txt2.setTextColor(Color.BLACK);
 
 				return view;
 			}
@@ -213,6 +213,8 @@ public class AssignmentStudentAttendanceFragmentList extends Fragment implements
 				} else if (listA.get(position).getaPresent() == 0) {
 					txt2.setText("Present: N/A");
 				}
+				txt1.setTextColor(Color.BLACK);
+				txt2.setTextColor(Color.BLACK);
 
 				return view;
 			}

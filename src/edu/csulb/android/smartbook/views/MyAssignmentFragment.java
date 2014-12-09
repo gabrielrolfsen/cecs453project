@@ -17,6 +17,7 @@ import edu.csulb.android.smartbook.models.Course;
 import edu.csulb.android.smartbook.models.StudentAssignment;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -86,6 +87,8 @@ public class MyAssignmentFragment extends Fragment implements OnItemClickListene
 					txt2.setText("Grade: " + lstStuAssignment.get(position).getSaGrade());
 				}
 
+				txt1.setTextColor(Color.BLACK);
+				txt2.setTextColor(Color.BLACK);
 				return view;
 			}
 		};
