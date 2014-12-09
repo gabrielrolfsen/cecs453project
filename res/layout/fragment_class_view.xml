@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtClassCode"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="@string/class_name_example"
@@ -37,13 +37,13 @@
         android:layout_width="fill_parent"
         android:layout_height="100dp"
         android:layout_below="@+id/txtClassName"
-        android:layout_marginTop="21dp" >
+        android:layout_marginTop="15dp" >
 
         <ImageView
             android:id="@+id/imgProfessor"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="0dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/image_descriptor_professor"
             android:cropToPadding="true"
@@ -53,31 +53,33 @@
         android:id="@+id/txtProfContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
         android:layout_below="@+id/txtProfName"
-        android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/imgProfessor"
         android:layout_toRightOf="@+id/imgProfessor"
-        android:textColor="#000000"
-        android:text="@string/prof_contact_example" />
+        android:text="@string/prof_contact_example"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtProfDep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/txtProfContact"
         android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/imgProfessor"
         android:layout_toRightOf="@+id/imgProfessor"
-        android:layout_below="@+id/txtProfContact"
         android:text="@string/department_example"
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtProfName"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtProfContact"
         android:layout_alignStart="@+id/txtProfContact"
@@ -87,49 +89,39 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/txtSectionHeder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/relativeLayout1"
-        android:layout_below="@+id/relativeLayout1"
-        android:layout_marginTop="45dp"
-        android:textColor="#000000"
-        android:text="@string/section_information_header" />
-
-    <TextView
-        android:id="@+id/txtSectionInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtSectionHeder"
-        android:layout_below="@+id/txtSectionHeder"
-        android:layout_marginTop="21dp"
-        android:textColor="#000000"
-        android:text="@string/section_info_example" />
-
-    <Button
-        android:id="@+id/btnAssignmentList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtSectionInfo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="Assignment List" />
-
-    <Button
-        android:id="@+id/btnStudentList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnAssignmentList"
-        android:layout_centerHorizontal="true"
-        android:text="Student List" />
-
     <Button
         android:id="@+id/btnAttendanceList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/btnStudentList"
-        android:layout_below="@+id/btnStudentList"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
         android:text="Attendance List" />
+
+    <Button
+        android:id="@+id/btnStudentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAttendanceList"
+        android:layout_alignLeft="@+id/btnAssignmentList"
+        android:text="Student List" />
+
+    <Button
+        android:id="@+id/btnAssignmentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnStudentList"
+        android:layout_alignLeft="@+id/relativeLayout1"
+        android:text="Assignment List" />
+
+    <TextView
+        android:id="@+id/txtSectionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnAssignmentList"
+        android:layout_alignLeft="@+id/txtClassName"
+        android:layout_marginBottom="51dp"
+        android:layout_marginLeft="71dp"
+        android:text="TextView" />
 
 </RelativeLayout>

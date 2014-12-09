@@ -140,43 +140,43 @@ public class MainActivity extends FragmentActivity {
 
 				// set dialog message
 				alertDialogBuilder
-						.setMessage("Are you sure that you want to logout?")
-				.setCancelable(false)
-				.setPositiveButton("Yes",
-						new DialogInterface.OnClickListener() {
-									@Override
-									public void onClick(
-											final DialogInterface dialog,
-											final int id) {
-										final SharedPreferences pref = MainActivity.this
-												.getSharedPreferences(
-														LoginActivity.SESSION_PREF,
-														0);
-										final Editor prefEditor = pref.edit();
-										prefEditor.putBoolean(
-								LoginActivity.SESSION_KEY,
-								false);
-										prefEditor.commit();
-										// TODO: remove data from user
-										final Intent endSession = new Intent(
-												MainActivity.this,
-												LoginActivity.class);
-										endSession
-												.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-										((Activity) MainActivity.this).finish();
-										MainActivity.this
-												.startActivity(endSession);
-									}
-								})
-				.setNegativeButton("No",
-						new DialogInterface.OnClickListener() {
-									@Override
-									public void onClick(
-											final DialogInterface dialog,
-											final int id) {
-										dialog.cancel();
-									}
-								});
+				.setMessage("Are you sure that you want to logout?")
+						.setCancelable(false)
+						.setPositiveButton("Yes",
+								new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(
+							final DialogInterface dialog,
+							final int id) {
+						final SharedPreferences pref = MainActivity.this
+								.getSharedPreferences(
+										LoginActivity.SESSION_PREF,
+										0);
+						final Editor prefEditor = pref.edit();
+						prefEditor.putBoolean(
+												LoginActivity.SESSION_KEY,
+												false);
+						prefEditor.commit();
+						// TODO: remove data from user
+						final Intent endSession = new Intent(
+								MainActivity.this,
+								LoginActivity.class);
+						endSession
+						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						((Activity) MainActivity.this).finish();
+						MainActivity.this
+						.startActivity(endSession);
+					}
+				})
+						.setNegativeButton("No",
+								new DialogInterface.OnClickListener() {
+					@Override
+					public void onClick(
+							final DialogInterface dialog,
+							final int id) {
+						dialog.cancel();
+					}
+				});
 
 				final AlertDialog alertDialog = alertDialogBuilder.create();
 				alertDialog.show();
@@ -231,7 +231,7 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	private class DrawerItemClickListener implements
-			ListView.OnItemClickListener {
+	ListView.OnItemClickListener {
 		@Override
 		public void onItemClick(
 				@SuppressWarnings("rawtypes") final AdapterView parent,
@@ -249,15 +249,15 @@ public class MainActivity extends FragmentActivity {
 				"INNER_FRAG");
 		if (activeFragment != null && activeFragment.isVisible()) {
 			fragmentManager
-			.beginTransaction()
-					.replace(R.id.content_layout,
-					drawerItems.get(position).getFragment(), "MAIN")
+					.beginTransaction()
+			.replace(R.id.content_layout,
+							drawerItems.get(position).getFragment(), "MAIN")
 					.commit();
 		}
 		fragmentManager
-		.beginTransaction()
-				.replace(R.id.content_layout,
-				drawerItems.get(position).getFragment(), fragmentTag)
+				.beginTransaction()
+		.replace(R.id.content_layout,
+						drawerItems.get(position).getFragment(), fragmentTag)
 				.addToBackStack(null).commit();
 
 		// Highlight the selected item, update the title, and close the drawer
@@ -271,18 +271,18 @@ public class MainActivity extends FragmentActivity {
 		/* Creates a AlertDialog to ask the user if he wants to exit the app */
 		if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
 			new AlertDialog.Builder(this)
-					.setMessage("Are you sure you want to exit?")
-					.setNegativeButton("Cancel", null)
-					.setPositiveButton("OK",
-							new DialogInterface.OnClickListener() {
-								@Override
-								public void onClick(
-										final DialogInterface dialog,
-										final int which) {
-									finish();
-								}
+			.setMessage("Are you sure you want to exit?")
+			.setNegativeButton("Cancel", null)
+			.setPositiveButton("OK",
+					new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(
+						final DialogInterface dialog,
+						final int which) {
+					finish();
+				}
 
-							}).show();
+			}).show();
 		} else {
 			getSupportFragmentManager().popBackStack();
 		}
@@ -379,8 +379,8 @@ public class MainActivity extends FragmentActivity {
 				final FragmentManager fragmentManager = getSupportFragmentManager();
 
 				fragmentManager.beginTransaction()
-						.replace(R.id.content_layout, newFragment)
-				.addToBackStack(null).commit();
+				.replace(R.id.content_layout, newFragment)
+						.addToBackStack(null).commit();
 
 				final SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 				final String currentDate = sdf.format(new Date());

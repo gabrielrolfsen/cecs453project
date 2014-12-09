@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +29,7 @@ import edu.csulb.android.smartbook.models.Student;
  */
 public class LoginActivity extends Activity {
 
+	private static final String REGISTER_WEBSITE = "http://www.csulb.edu";
 	public static final String SESSION_PREF = "sesPref";
 	public static final String SESSION_KEY = "SESSION_STATUS";
 	protected static final String USER_ID = "USER_LOGIN";
@@ -86,9 +88,10 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(final View v) {
 				txtRegister.setTextColor(Color.BLUE);
-				final Intent inRegister = new Intent(getBaseContext(),
-						RegisterActivity.class);
-				LoginActivity.this.startActivity(inRegister);
+				final Uri uriUrl = Uri.parse(REGISTER_WEBSITE);
+				final Intent launchBrowser = new Intent(Intent.ACTION_VIEW,
+						uriUrl);
+				LoginActivity.this.startActivity(launchBrowser);
 			}
 		});
 	}

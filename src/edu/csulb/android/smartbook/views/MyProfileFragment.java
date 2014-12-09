@@ -49,10 +49,9 @@ public class MyProfileFragment extends Fragment {
 			@Override
 			public void onClick(final View v) {
 				final FragmentManager fragmentManager = getFragmentManager();
-				fragmentManager
-				.beginTransaction()
-						.replace(R.id.content_layout,
-						new EditMyProfileFragment())
+				final Fragment frag = new EditMyProfileFragment();
+				fragmentManager.beginTransaction()
+				.replace(R.id.content_layout, frag)
 						.addToBackStack(null).commit();
 			}
 		});
@@ -72,7 +71,7 @@ public class MyProfileFragment extends Fragment {
 		userID.setText("#"
 				+ pref.getString(LoginActivity.USER_ID, "#000000000"));
 		userMajor
-				.setText(pref.getString(LoginActivity.USER_MAJOR, "Undefined"));
+		.setText(pref.getString(LoginActivity.USER_MAJOR, "Undefined"));
 
 	}
 

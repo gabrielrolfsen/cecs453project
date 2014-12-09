@@ -10,53 +10,53 @@
     tools:context="edu.csulb.android.smartbook.views.ClassViewFragment" >
 
     <ImageView
-        android:id="@+id/imgUserProfile"
+        android:id="@+id/imgEdtUserProfile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:src="@drawable/student_example" />
 
     <TextView
-        android:id="@+id/txtStudent"
+        android:id="@+id/txtEdtStudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtEditName"
         android:layout_below="@+id/txtEditName"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="5dp"
-        android:textColor="#000000"
-        android:text="@string/name_example" />
+        android:text="@string/name_example"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtViewStudentID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtEditName"
-        android:layout_below="@+id/txtStudent"
+        android:layout_below="@+id/txtEdtStudentName"
         android:layout_marginTop="10dp"
         android:textColor="#000000"
         android:text="@string/student_id" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/txtEdtStudentID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/txtStudent"
+        android:layout_alignLeft="@+id/txtEdtStudentName"
         android:layout_below="@+id/txtViewStudentID"
         android:layout_marginTop="5dp"
-        android:textColor="#000000"
-        android:text="@string/student_id_example" />
+        android:text="@string/student_id_example"
+        android:textColor="#000000" />
 
     <TextView
         android:id="@+id/txtEditName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgUserProfile"
+        android:layout_below="@+id/imgEdtUserProfile"
         android:layout_marginTop="17dp"
-        android:layout_toLeftOf="@+id/imgUserProfile"
+        android:layout_toLeftOf="@+id/imgEdtUserProfile"
         android:textColor="#000000"
         android:text="@string/name" />
 
@@ -64,14 +64,14 @@
         android:id="@+id/TextView02"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/txtEdtStudentID"
         android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@+id/imgUserProfile"
+        android:layout_toLeftOf="@+id/imgEdtUserProfile"
         android:textColor="#000000"
         android:text="@string/email" />
 
     <EditText
-        android:id="@+id/EditText02"
+        android:id="@+id/edtTxtEdtMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/TextView02"
@@ -92,10 +92,28 @@
         android:id="@+id/txtEditPhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgUserProfile"
+        android:layout_below="@+id/imgEdtUserProfile"
         android:layout_centerHorizontal="true"
-        android:textSize="12sp"
+        android:text="@string/edit_photo"
         android:textColor="#000000"
-        android:text="@string/edit_photo" />
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/txtEdtUserPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtViewStudentID"
+        android:layout_below="@+id/edtTxtEdtMail"
+        android:layout_marginTop="9dp"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/edtEdtUserPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtTxtEdtMail"
+        android:layout_below="@+id/txtEdtUserPass"
+        android:ems="10"
+        android:inputType="textPassword" />
 
 </RelativeLayout>

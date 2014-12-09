@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="vertical"
+    android:background="@drawable/selector"
      >
 
     <ImageView
@@ -29,6 +30,7 @@
         android:layout_marginStart="15dp"
         android:layout_toEndOf="@+id/imgDrawerItem"
         android:layout_toRightOf="@+id/imgDrawerItem"
+        android:textColor="#FFFFFF"
         android:text="@string/menu_item" />
 
 </RelativeLayout>

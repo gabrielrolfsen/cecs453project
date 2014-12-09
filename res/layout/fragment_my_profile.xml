@@ -13,7 +13,7 @@
         android:id="@+id/txtUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgUserProfile"
+        android:layout_below="@+id/imgEdtUserProfile"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:textSize="20sp"
@@ -39,47 +39,18 @@
         android:layout_marginTop="5dp"
         android:textColor="#000000"
         android:text="@string/student_id_example" />
-
-    <SeekBar
-        android:id="@+id/skbVolumeNotifications"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/swtNotifications"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
-
-    <TextView
-        android:id="@+id/txtVolumeNotifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/skbVolumeNotifications"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/swtNotifications"
-        android:textColor="#000000"
-        android:text="@string/volume" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/skbVolumeNotifications"
-        android:layout_alignRight="@+id/skbVolumeNotifications"
-        android:layout_below="@+id/skbVolumeNotifications"
-        android:textColor="#000000"
-        android:text="@string/vibration" />
-
-    <Switch
-        android:id="@+id/swtNotifications"
+    
+  <TextView
+        android:id="@+id/txtUserMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtUserMajor"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textColor="#000000"
-        android:text="@string/enable_notifications" />
+        android:layout_marginTop="5dp"
+        android:text="stundent.mail@gmail.com" />
 
     <ImageView
-        android:id="@+id/imgUserProfile"
+        android:id="@+id/imgEdtUserProfile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
@@ -92,8 +63,48 @@
         android:id="@+id/btnEditProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/checkBox1"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
         android:text="Edit My Profile" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnEditProfile"
+        android:layout_alignLeft="@+id/skbVolumeNotifications"
+        android:layout_marginBottom="13dp"
+        android:text="@string/vibration"
+        android:textColor="#000000" />
+
+    <SeekBar
+        android:id="@+id/skbVolumeNotifications"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/checkBox1"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/txtVolumeNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/skbVolumeNotifications"
+        android:layout_alignLeft="@+id/skbVolumeNotifications"
+        android:layout_marginBottom="9dp"
+        android:text="@string/volume"
+        android:textColor="#000000" />
+
+    <Switch
+        android:id="@+id/swtNotifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtVolumeNotifications"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="9dp"
+        android:text="@string/enable_notifications"
+        android:textColor="#000000" />
+
+
 
 </RelativeLayout>
