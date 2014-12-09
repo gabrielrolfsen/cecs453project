@@ -18,7 +18,7 @@ import edu.csulb.android.smartbook.db.DatabaseHandler;
  * ClassViewFragment: Shows the info about determined class, info is gathered in
  * the database by giving the class ID.
  * 
- * Hao Vo - implement buttons functions, fix layout xml,
+ * Hao Vo - implement buttons functions, fix layout xml
  *
  * @author Gabriel Franzoni
  * @author Hao Vo
@@ -100,7 +100,9 @@ public class ClassViewFragment extends Fragment implements OnClickListener {
 						.getColumnIndex(DatabaseHandler.KEY_INSTRUCTOR_EMAIL)));
 				profDep.setText(c.getString(c
 						.getColumnIndex(DatabaseHandler.KEY_INSTRUCTOR_OFFICE_BUILDING)));
-
+				classInfo.setText("Class Time: " + c.getString(c.getColumnIndex(DatabaseHandler.KEY_COURSE_DAYS))
+						+ " " + c.getString(c.getColumnIndex(DatabaseHandler.KEY_COURSE_TIME))
+						+ " - Room: " + c.getString(c.getColumnIndex(DatabaseHandler.KEY_COURSE_LOCATION)));
 			}
 		}
 
